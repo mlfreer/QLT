@@ -105,7 +105,7 @@ class Questions(Page):
         self.player.ShareCloths = values["ShareCloths"]
 
         if values["ShareCloths"]+values["ShareMovies"]+values["ShareBooks"]+values["ShareFood"] > 100:
-            return 'You are spendings are larger than your income...'
+            return 'Your spendings are larger than your income...'
 
 
     def is_displayed(self):

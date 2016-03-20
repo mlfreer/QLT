@@ -22,7 +22,7 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'qlt'
     players_per_group = None
-    num_rounds = 1
+    num_rounds = 2
     endowment = c(100)
 
 
@@ -55,11 +55,11 @@ class Player(BasePlayer):
 	GapPrice = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
 
 #defining spending vars
-	CashSpending = models.DecimalField(..., max_digits=5, decimal_places=1)
-	MasonMoneySpending = models.DecimalField(..., max_digits=5, decimal_places=1)
-	BarnesNobleSpending = models.DecimalField(..., max_digits=5, decimal_places=1)
-	FandangoSpending = models.DecimalField(..., max_digits=5, decimal_places=1)
-	GapSpending = models.DecimalField(..., max_digits=5, decimal_places=1)
+	CashSpending = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
+	MasonMoneySpending = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
+	BarnesNobleSpending = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
+	FandangoSpending = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
+	GapSpending = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
 
 	Expenditure = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
 
