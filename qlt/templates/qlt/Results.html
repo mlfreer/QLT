@@ -1,0 +1,35 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Your Final Earnings
+{% endblock %}
+
+{% block content %}
+The Implemented Period is {{paying_round}}
+<table class="table">
+	<tr>
+		<td> </td>
+		<td> Cash </td>
+		<td> Mason Money </td>
+		<td> Barnes and Noble gift card </td>
+		<td> Fandango gift card </td>
+		<td> Gap gift card </td>
+	</tr>
+	{% for p in player_in_all_rounds %}
+	<tr>
+		
+		<td> You have chosen (in $) </td>
+		<td> {{p.CashQuantity}} </td>
+		<td> {{p.MasonMoneyQuantity}} </td>
+		<td> {{p.BarnesNobleQuantity}} </td>
+		<td> {{p.FandangoQuantity}} </td>
+		<td> {{p.GapQuantity}} </td>
+
+	<tr>
+	{% endfor %}
+</table>
+
+{% endblock %}
+
+

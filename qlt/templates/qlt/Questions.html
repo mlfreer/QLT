@@ -1,0 +1,39 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Please Answer the Following Questions
+{% endblock %}
+
+{% block content %}
+
+	<table class="table">
+		<tr>
+			<td> What is your gender? </td>
+			<td> {% formfield player.Gender with label="" %} </td>
+		</tr>
+		<tr>
+			<td> What is your age </td>
+			<td> {% formfield player.Age with label="" %} </td>
+		</tr>
+		<tr>
+			<td> What share of your income do you usually spend on food (in %)? </td>
+			<td> {% formfield player.ShareFood with label="" %} </td>
+		</tr>
+		<tr>
+			<td> What share of your income do you usually spend on entertainment (in %)? </td>
+			<td> {% formfield player.ShareMovies with label="" %} </td>
+		</tr>
+		<tr>
+			<td> What share of your income do you usually spend on clothes (in %)? </td>
+			<td> {% formfield player.ShareCloths with label="" %} </td>
+		</tr>
+		<tr>
+			<td> What share of your income do you usually spend on schooling supplies (in %)? </td>
+			<td> {% formfield player.ShareBooks with label="" %} </td>
+		</tr>
+	</table>
+
+    {% next_button %}
+{% endblock %}
+

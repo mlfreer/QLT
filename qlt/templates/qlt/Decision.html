@@ -1,0 +1,66 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Decision
+{% endblock %}
+
+{% block content %}
+
+<!--
+Documentation on how to write a django template here:
+https://docs.djangoproject.com/en/dev/topics/templates/
+
+Bootstrap comes pre-loaded, so you can use any Bootstrap elements:
+http://getbootstrap.com/components/
+
+-->
+
+
+	<table class="table">
+		<tr>
+			<td> </td>
+			<td>Quantities ($ Money)</td>
+			<td>Tokens </td>
+		</tr>
+		<tr>
+			<td> Cash (Price {{player.CashPrice}} tokens per dollar) </td>
+			<td> {% formfield player.CashQuantity with label="" %} </td>
+			<td> {{player.CashSpending}}  Tokens {{form.CashQuantity.value}} </td>
+		</tr>
+		<tr>
+			<td> Mason Money (Price {{player.MasonMoneyPrice}} tokens per dollar) </td>
+			<td> {% formfield player.MasonMoneyQuantity with label="" %} </td>
+			<td> {{player.MasonMoneySpending}} Tokens</td>
+		</tr>
+		<tr>
+			<td> Barnes and Noble gift card (Price {{player.BarnesNoblePrice}} tokens per dollar)</td>
+			<td> {% formfield player.BarnesNobleQuantity with label="" %} </td>
+			<td> {{player.BarnesNobleSpending}} Tokens</td>
+		</tr>
+		<tr>
+			<td> Fandango gift card (Price {{player.FandangoPrice}} tokens per dollar)</td>
+			<td> {% formfield player.FandangoQuantity with label="" %} </td>
+			<td> {{player.FandangoSpending}} Tokens</td>
+		</tr>
+		<tr>
+			<td> Gap gift card (Price {{player.GapPrice}} tokens per dollar)</td>
+			<td> {% formfield player.GapQuantity with label="" %} </td>
+			<td> {{player.GapSpending}} Tokens</td>
+		</tr>
+		<tr>
+			<td> </td>
+			<td> Your total Expenditre is </td>
+			<td> {{Expenditure}}
+		</tr>
+		<tr>
+			<td> </td>
+			<td> </td>
+			<td> {% next_button %} </td>
+		</tr>
+	</table>
+
+
+    
+
+{% endblock %}
