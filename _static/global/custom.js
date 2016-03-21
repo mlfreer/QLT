@@ -15,3 +15,5 @@ $(".form-control").change(function(){
 	total_expenditure=cashexp+masonexp+barnesexp+fandangoexp+gapexp;
 	$("#totalexp").html(total_expenditure);
 })
+
+$(".input-group-addon").html("%")

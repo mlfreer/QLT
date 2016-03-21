@@ -17,7 +17,7 @@ The Implemented Period is {{paying_round}}
 		<td> Gap gift card </td>
 	</tr>
 	{% for p in player_in_all_rounds %}
-	<tr>
+	<tr {% if p.subsession.round_number == paying_round %} class="highlighted_row" {% endif %}>
 		
 		<td> You have chosen (in $) </td>
 		<td> {{p.CashQuantity}} </td>
