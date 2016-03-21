@@ -56,8 +56,8 @@ input {
 }
 tr.highlighted_row
 {
-    background-color: #449999;
-    color:white;
+    background-color: #98FB98;
+    color:black;
 }
 table.quizfonts > tbody > tr > td:first-child /*Первая колока таблички с классом quizfonts*/
 {
