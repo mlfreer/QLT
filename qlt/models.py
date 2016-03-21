@@ -84,10 +84,10 @@ class Player(BasePlayer):
 
 	Gender = models.CharField(choices=[('M','Male'), ('F','Female')],default='M')
 	Age = models.IntegerField(min=18, max=99)
-	ShareFood = models.IntegerField(min=0, max=100)
-	ShareBooks = models.IntegerField(min=0, max=100)
-	ShareCloths = models.IntegerField(min=0, max=100)
-	ShareMovies = models.IntegerField(min=0, max=100)
+	ShareFood = models.CurrencyField(min=0, max=100)
+	ShareBooks = models.CurrencyField(min=0, max=100)
+	ShareCloths = models.CurrencyField(min=0, max=100)
+	ShareMovies = models.CurrencyField(min=0, max=100)
 
 
 
