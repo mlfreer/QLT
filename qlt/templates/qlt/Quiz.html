@@ -1,0 +1,37 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Quiz: Please answer the following questions.
+{% endblock %}
+
+{% block content %}
+
+<table class="table">
+	<tr>
+		<td> Is allocation ... feasible </td>
+		<td> {% formfield player.Q1 with label=""%} </td>
+	</tr>
+	<tr>
+		<td> Is allocation ... feasible </td>
+		<td> {% formfield player.Q2 with label=""%} </td>
+	</tr>
+	<tr>
+		<td> Is allocation ... feasible </td>
+		<td> {% formfield player.Q3 with label=""%} </td>
+	</tr>
+	<tr>
+		<td> Is allocation ... feasible </td>
+		<td> {% formfield player.Q4 with label=""%} </td>
+	</tr>
+	<tr>
+		<td> Is allocation ... feasible </td>
+		<td> {% formfield player.Q5 with label=""%} </td>
+	</tr>
+	<tr></tr>
+	<tr>
+		<td>  </td>
+		<td> {% next_button %} </td>
+	</tr>
+</table>
+{%endblock%}

@@ -8,9 +8,34 @@ from . import models
 from ._builtin import Page, WaitPage
 from .models import Constants
 
+class Welcome(Page):
+    def is_displayed(self):
+        return self.player.subsession.round_number == 1
+
+    template_name='qlt/Welcome.html'
+
+class Quiz(Page):
+#quiz is shown only before period 1
+    def is_displayed(self):
+        return self.player.subsession.round_number == 1
+
+    template_name='qlt/Quiz.html'
+    form_model = models.Player
+    form_fields = ['Q1','Q2','Q3','Q4','Q5']
+
+    def error_message(self,values):
+        self.player.Q1 = values["Q1"]
+        self.player.Q2 = values["Q2"]
+        self.player.Q3 = values["Q3"]
+        self.player.Q4 = values["Q4"]
+        self.player.Q5 = values["Q5"]
+        if (values["Q1"] == 'No') | (values["Q2"] == 'Yes') | (values["Q3"] == 'Yes') | (values["Q4"] == 'No') | (values["Q5"] == 'Yes') :
+            return 'Some answers are wrong'
+
+
 
 class Decision(Page):
-    #CashQuantity = forms.DecimalField(initial=0)
+#shown through the entire experiment
     def is_displayed(self):
     	return self.player.subsession.round_number <= Constants.num_rounds
 
@@ -84,15 +109,6 @@ class Decision(Page):
         if (100-self.player.Expenditure >= min_incr):
             return 'You can buy more goods at given prices'
 
-class ResultsWaitPage(WaitPage):
-	def is_displayed(self):
-		return self.player.subsession.round_number == Constants.num_rounds
-
-	def after_all_players_arrive(self):
-		pass
-
-	template_name = 'qlt/ResultsWaitingPage.html'
-
 
 class Questions(Page):
     form_model = models.Player
@@ -107,15 +123,34 @@ class Questions(Page):
         if values["ShareCloths"]+values["ShareMovies"]+values["ShareBooks"]+values["ShareFood"] > 100:
             return 'Your spendings are larger than your income...'
 
-
+#post experiment quesionnaire shown before the final profit screen in the last period
     def is_displayed(self):
         return self.player.subsession.round_number == Constants.num_rounds
 
     template_name = 'qlt/Questions.html'
+    form_model = models.Player
+
+    def after_all_players_arrive(self):
+        self.player.all_arrive()
+
+    def vars_for_template(self):
+        return{
+        'all_arrive': self.player.AllArrived, }
 
 
+class ResultsWaitPage(WaitPage):
+#waiting for other participants before the end of the game
+    def is_displayed(self):
+        return self.player.subsession.round_number == Constants.num_rounds
+
+    form_model = models.Player
+    wait_for_all_groups = True
+
+
+    template_name = 'qlt/ResultsWaitingPage.html'
 
 class Results(Page):
+#final payment screen
 	def is_displayed(self):
 		return self.player.subsession.round_number == Constants.num_rounds
 
@@ -130,6 +165,8 @@ class Results(Page):
 
 
 page_sequence = [
+    Welcome,
+    Quiz,
     Decision,
     Questions,
     ResultsWaitPage,

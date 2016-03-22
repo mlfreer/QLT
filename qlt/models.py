@@ -4,8 +4,10 @@ from __future__ import division
 
 import random
 import decimal
+
 import otree.models
 from otree.db import models
+
 from otree import widgets
 from otree.common import Currency as c, currency_range, safe_json
 from otree.constants import BaseConstants
@@ -69,7 +71,7 @@ class Player(BasePlayer):
 		self.BarnesNobleSpending = self.BarnesNoblePrice*decimal.Decimal(self.BarnesNobleQuantity)
 		self.FandangoSpending = self.FandangoPrice*decimal.Decimal(self.FandangoQuantity)
 		self.GapSpending = self.GapPrice*decimal.Decimal(self.GapQuantity)
-		
+
 		self.Expenditure = self.CashSpending+self.MasonMoneySpending+self.BarnesNobleSpending+self.FandangoSpending+self.GapSpending
 
 
@@ -82,6 +84,33 @@ class Player(BasePlayer):
 		self.BarnesNoblePrice = random.randrange(5,20)/2
 		self.GapPrice = 12.5 - self.BarnesNoblePrice
 
+#questionnaires
+
+	Q1 = models.CharField(
+    	choices=['Yes', 'No'],
+    	widget=widgets.RadioSelect()
+    )
+
+	Q2 = models.CharField(
+    	choices=['Yes', 'No'],
+    	widget=widgets.RadioSelect()
+    )
+
+	Q3 = models.CharField(
+    	choices=['Yes', 'No'],
+    	widget=widgets.RadioSelect()
+    )
+
+	Q4 = models.CharField(
+    	choices=['Yes', 'No'],
+    	widget=widgets.RadioSelect()
+    )
+
+	Q5 = models.CharField(
+    	choices=['Yes', 'No'],
+    	widget=widgets.RadioSelect()
+    )
+
 	Gender = models.CharField(choices=[('M','Male'), ('F','Female')],default='M')
 	Age = models.IntegerField(min=18, max=99)
 	ShareFood = models.CurrencyField(min=0, max=100)
@@ -89,15 +118,8 @@ class Player(BasePlayer):
 	ShareCloths = models.CurrencyField(min=0, max=100)
 	ShareMovies = models.CurrencyField(min=0, max=100)
 
+	AllArrived = models.IntegerField(initial=0)
 
-
-#	def set_payoffs(self):
-#		random_players = random.sample(self.in_all_rounds(), 1)
-#
-#		self.FinalCashQuantity = sum([p.CashQuantity for p in random_players])
-#		self.FinalMasonMoneyQuantity = sum([p.MasonMoneyQuantity for p in random_players])
-#		self.FinalCashQuantity = sum([p.CashQuantity for p in random_players])
-#		self.FinalFandangoQuantity = sum([p.FandangoQuantity for p in random_players])
-#		self.FinalGapQuantity = sum([p.GapQuantity for p in random_players])
-
+	def all_arrive(self):
+		AllArrived=1
 
