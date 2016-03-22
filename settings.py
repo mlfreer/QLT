@@ -14,7 +14,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
     DEBUG = False
 else:
-    DEBUG = False
+    DEBUG = True
 
 ADMIN_USERNAME = 'admin'
 ADMIN_PASSWORD = 'otree'
