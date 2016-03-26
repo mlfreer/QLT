@@ -49,7 +49,7 @@ class Decision(Page):
     	return [i for j in (range(0,1,1), range(5,int(100/self.player.MasonMoneyPrice)+1,1)) for i in j]
 
     def FandangoQuantity_choices(self):
-    	return [0, 15, 25, 35]
+    	return [i for j in (range(0,1,1), range(15,(int(100/self.player.FandangoPrice)+1),10)) for i in j] #[0, 15, 25, 35]
 
     def BarnesNobleQuantity_choices(self):
     	
@@ -68,7 +68,8 @@ class Decision(Page):
     	'FandangoSpending': decimal.Decimal(self.player.FandangoQuantity)*self.player.FandangoPrice,
     	'GapSpending': decimal.Decimal(self.player.GapQuantity)*self.player.GapPrice,
     	'Expenditure': self.player.Expenditure,
-
+        'Period': self.player.subsession.round_number,
+        'NumOfRound': Constants.num_rounds,
     	}
 
     def before_next_page(self):

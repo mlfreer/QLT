@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Decision
+    Decision ({{Period}} out of {{NumOfRound}})
 {% endblock %}
 
 {% block content %}
@@ -20,38 +20,38 @@ http://getbootstrap.com/components/
 	<table class="table">
 		<tr>
 			<td> </td>
-			<td>Quantities ($ Money)</td>
-			<td>Tokens </td>
+			<td><font size="3"> Quantities ($ Money) </font> </td>
+			<td> <font size="3"> Tokens </font> </td>
 		</tr>
 		<tr>
-			<td> Cash (Price {{player.CashPrice}} tokens per dollar) </td>
+			<td> <font size="3"> Cash (Price <b> {{player.CashPrice}} </b> tokens per dollar) </font> </td>
 			<td> {% formfield player.CashQuantity with label="" %} </td>
-			<td> <span id="cashexp">{{player.CashSpending}}</span>  Tokens </td>
+			<td> <font size="3"> <span id="cashexp">{{player.CashSpending}}</span>  Tokens </font> </td>
 		</tr>
 		<tr>
-			<td> Mason Money (Price {{player.MasonMoneyPrice}} tokens per dollar) </td>
+			<td> <font size="3"> Mason Money (Price <b> {{player.MasonMoneyPrice}} </b> tokens per dollar </font>) </td>
 			<td> {% formfield player.MasonMoneyQuantity with label="" %} </td>
-			<td> <span id="masonexp">{{player.MasonMoneySpending}}</span> Tokens</td>
+			<td> <font size="3"> <span id="masonexp">{{player.MasonMoneySpending}}</span> Tokens </font> </td>
 		</tr>
 		<tr>
-			<td> Barnes and Noble gift card (Price {{player.BarnesNoblePrice}} tokens per dollar)</td>
+			<td> <font size="3"> Barnes and Noble gift card (Price <b> {{player.BarnesNoblePrice}} </b> tokens per dollar) </font> </td>
 			<td> {% formfield player.BarnesNobleQuantity with label="" %} </td>
-			<td> <span id="barnesexp">{{player.BarnesNobleSpending}}</span> Tokens</td>
+			<td> <font size="3"> <span id="barnesexp">{{player.BarnesNobleSpending}}</span> </font> Tokens</td>
 		</tr>
 		<tr>
-			<td> Fandango gift card (Price {{player.FandangoPrice}} tokens per dollar)</td>
+			<td> <font size="3"> Fandango gift card (Price <b> {{player.FandangoPrice}} </b> tokens per dollar) </font> </td>
 			<td> {% formfield player.FandangoQuantity with label="" %} </td>
-			<td> <span id="fandangoexp">{{player.FandangoSpending}}</span> Tokens</td>
+			<td> <font size="3"> <span id="fandangoexp">{{player.FandangoSpending}}</span> Tokens </font> </td>
 		</tr>
 		<tr>
-			<td> Gap gift card (Price {{player.GapPrice}} tokens per dollar)</td>
+			<td> <font size="3"> Gap gift card (Price <b> {{player.GapPrice}} </b> tokens per dollar) </font> </td>
 			<td> {% formfield player.GapQuantity with label="" %} </td>
-			<td> <span id="gapexp">{{player.GapSpending}}</span> Tokens</td>
+			<td> <font size="3"> <span id="gapexp">{{player.GapSpending}}</span> Tokens </font> </td>
 		</tr>
 		<tr>
 			<td> </td>
-			<td> Your total Expenditre is </td>
-			<td> <span id="totalexp">{{Expenditure}}</span>
+			<td> <font size="3"> Your total Expenditre is </font> </td>
+			<td> <font size="3"> <span id="totalexp">{{Expenditure}}</span> </font> </td>
 		</tr>
 		<tr>
 			<td> </td>

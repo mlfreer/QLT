@@ -18,7 +18,7 @@
 	</tr>
 	{% for p in player_in_all_rounds %}
 	<tr {% if p.subsession.round_number == paying_round %} class="highlighted_row" {% endif %}>
-		<td> You have chosen (in period {{p.subsession.round_number}}) </td>
+		<td>  You have chosen (in period <b> {{p.subsession.round_number}}</b>) </td>
 		<td> ${{p.CashQuantity}} </td>
 		<td> ${{p.MasonMoneyQuantity}} </td>
 		<td> ${{p.BarnesNobleQuantity}} </td>
