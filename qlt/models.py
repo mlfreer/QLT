@@ -24,17 +24,20 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'qlt'
     players_per_group = None
-    num_rounds = 30
+    num_rounds = 2
     endowment = c(100)
 
 
 class Subsession(BaseSubsession):
-    def before_session_starts(self):
-    	for p in self.get_players():
-    		p.set_prices()
-    	if self.round_number == Constants.num_rounds:
-    		paying_round = random.randint(1, Constants.num_rounds)
-    		self.session.vars['paying_round'] = paying_round
+
+	paying_round = models.IntegerField()
+
+	def before_session_starts(self):
+		for p in self.get_players():
+			p.set_prices()
+			if self.round_number == Constants.num_rounds:
+				self.paying_round = random.randint(1, Constants.num_rounds)
+				self.session.vars['paying_round'] = self.paying_round
     #pass
 
 class Group(BaseGroup):

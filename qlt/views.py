@@ -58,7 +58,7 @@ class Decision(Page):
     def GapQuantity_choices(self):
     	return [i for j in (range(0,1,1), range(10,int(100/self.player.GapPrice)+1,1)) for i in j]
 
-    template_name = 'qlt/Decision.html'
+    template_name = 'qlt/Decision2.html'
 
     def vars_for_template(self):
     	return{

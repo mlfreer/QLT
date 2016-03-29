@@ -1,0 +1,78 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Decision ({{Period}} out of {{NumOfRound}})
+{% endblock %}
+
+{% block content %}
+
+<!--
+Documentation on how to write a django template here:
+https://docs.djangoproject.com/en/dev/topics/templates/
+
+Bootstrap comes pre-loaded, so you can use any Bootstrap elements:
+http://getbootstrap.com/components/
+
+-->
+
+
+	<table class="table">
+		<tr>
+			<td> </td> 
+			<td> <font size="3"> Prices (tokens per $) </font>  </td>
+			<td><font size="3"> Quantities ($ Money) </font> </td>
+			<td> <font size="3"> Tokens </font> </td>
+		</tr>
+		<tr>
+			<td> <font size="3"> Cash  </td> 
+			<td> <font size="3"><b> {{player.CashPrice}} </b> tokens per dollar </font> </td>
+			<td> {% formfield player.CashQuantity with label="" %} </td>
+			<td> <font size="3"> <span id="cashexp">{{player.CashSpending}}</span>  Tokens </font> </td>
+		</tr>
+		<tr>
+			<td> <font size="3"> Mason Money </td> 
+			<td><font size="3"> <b> {{player.MasonMoneyPrice}} </b> tokens per dollar </font></td>
+			<td> {% formfield player.MasonMoneyQuantity with label="" %} </td>
+			<td> <font size="3"> <span id="masonexp">{{player.MasonMoneySpending}}</span> Tokens </font> </td>
+		</tr>
+		<tr>
+			<td> <font size="3"> Barnes and Noble gift card  </font></td> 
+			<td><font size="3"><b> {{player.BarnesNoblePrice}} </b> tokens per dollar </font> </td>
+			<td> {% formfield player.BarnesNobleQuantity with label="" %} </td>
+			<td> <font size="3"> <span id="barnesexp">{{player.BarnesNobleSpending}}</span> </font> Tokens</td>
+		</tr>
+		<tr>
+			<td> <font size="3"> Fandango gift card </td> 
+			<td> <font size="3"> <b> {{player.FandangoPrice}} </b> tokens per dollar </font> </td>
+			<td> {% formfield player.FandangoQuantity with label="" %} </td>
+			<td> <font size="3"> <span id="fandangoexp">{{player.FandangoSpending}}</span> Tokens </font> </td>
+		</tr>
+		<tr>
+			<td> <font size="3"> Gap gift card </td> 
+			<td> <font size="3"> <b> {{player.GapPrice}} </b> tokens per dollar </font> </td>
+			<td> {% formfield player.GapQuantity with label="" %} </td>
+			<td> <font size="3"> <span id="gapexp">{{player.GapSpending}}</span> Tokens </font> </td>
+		</tr>
+		<tr>
+			<td> </td> <td> </td>
+			<td> <font size="3"> Your total Expenditure is </font> </td>
+			<td> <font size="3"> <span id="totalexp">{{Expenditure}}</span> </font> </td>
+		</tr>
+		<tr>
+			<td> </td> <td> </td>
+			<td> </td>
+			<td> {% next_button %} </td>
+		</tr>
+	</table>
+
+<script>
+CashPrice={{player.CashPrice}};
+MasonMoneyPrice={{player.MasonMoneyPrice}};
+BarnesNoblePrice={{player.BarnesNoblePrice}};
+FandangoPrice={{player.FandangoPrice}};
+GapPrice={{player.GapPrice}};
+</script>
+    
+
+{% endblock %}
