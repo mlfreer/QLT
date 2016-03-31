@@ -24,7 +24,7 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'qlt'
     players_per_group = None
-    num_rounds = 2
+    num_rounds = 30
     endowment = c(100)
 
 
@@ -45,7 +45,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-#defining quatity vars
+#defining quantity vars
 	CashQuantity = models.IntegerField(initial=0)
 	MasonMoneyQuantity = models.IntegerField(initial=0)
 	BarnesNobleQuantity = models.IntegerField(initial=0)
