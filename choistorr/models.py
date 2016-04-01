@@ -15,7 +15,8 @@ from otree.models import BaseSubsession, BaseGroup, BasePlayer
 author = 'Your name here'
 
 doc = """
-Your app description
+Infinitely repeating PGG, with prediction stage. Default setting = Treatment 1 (homogenuous values).
+Changing upper_bar and lower_bar will make the setting into heterogeneous endowments
 """
 
 
@@ -23,9 +24,9 @@ class Constants(BaseConstants):
     name_in_url = 'choistorr'
     players_per_group = 5
     num_rounds = 1
-# defining bars for the distribution of the endowment
-	upper_bar = 500
-	lower_bar = 500
+
+    upper_bar = 500
+    lower_bar = 500
 
 
 class Subsession(BaseSubsession):

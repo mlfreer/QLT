@@ -124,10 +124,10 @@ SESSION_CONFIGS = [
          'display_name': 'Quasilinear Experiment',
          'num_demo_participants': 1,
          'app_sequence': ['qlt'],
-     }
+     },
      {
      'name': 'choistorr',
-     'display_name': 'PGG T1',
+     'display_name': 'Ginnys T1',
      'num_demo_participants': 5,
      'app_sequence': ['choistorr']
      }
