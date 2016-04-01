@@ -125,6 +125,12 @@ SESSION_CONFIGS = [
          'num_demo_participants': 1,
          'app_sequence': ['qlt'],
      }
+     {
+     'name': 'choistorr',
+     'display_name': 'PGG T1',
+     'num_demo_participants': 5,
+     'app_sequence': ['choistorr']
+     }
 ]
 
 # don't put anything after this line.

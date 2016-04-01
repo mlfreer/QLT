@@ -43,7 +43,7 @@ class Player(BasePlayer):
 #taking action in every stage
 
 	action = models.CharField(
-		choices=[('X'), ('X')],
+		choices=[('X'), ('Y')],
 		widget=widgets.RadioSelect()
 		)
 #the forecast var for the forecast stage	
