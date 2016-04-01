@@ -8,20 +8,29 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class MyPage(Page):
-    pass
+class Prediction(Page):
+	form_model = models.Player
+	form_fields = ['forecast']
+
+	template_name = 'choistorr/Prediction.html'
+
+class Decision(Page):
+	form_model = models.Player
+	form_fields = ['action']
+
+	template_name = 'choistorr/Decision.html'  
 
 class ResultsWaitPage(WaitPage):
-
-    def after_all_players_arrive(self):
-        pass
+	def after_all_players_arrive(self):
+		pass
 
 class Results(Page):
     pass
 
 
 page_sequence = [
-    MyPage,
+    Prediction,
+    Decision,
     ResultsWaitPage,
     Results
 ]
