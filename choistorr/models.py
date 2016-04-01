@@ -34,11 +34,13 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    pass
+	num_of_xchoosers = models.IntegerField(min=0,max=Constants.players_per_group)
+
 
 
 class Player(BasePlayer):
 #endowment of player
+
 	endowment = models.IntegerField(min=0) #randint(Constants.lower_bar,Constants.upper_bar)
 
 #taking action in every stage
