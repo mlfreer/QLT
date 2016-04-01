@@ -21,8 +21,11 @@ Your app description
 
 class Constants(BaseConstants):
     name_in_url = 'choistorr'
-    players_per_group = None
+    players_per_group = 5
     num_rounds = 1
+# defining bars for the distribution of the endowment
+	upper_bar = 500
+	lower_bar = 500
 
 
 class Subsession(BaseSubsession):
@@ -34,4 +37,14 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+#endowment of player
+	endowment = models.IntegerField(min=0) #randint(Constants.lower_bar,Constants.upper_bar)
+
+#taking action in every stage
+
+	action = models.CharField(
+		choices=[('X'), ('X')],
+		widget=widgets.RadioSelect()
+		)
+#the forecast var for the forecast stage	
+	forecast = models.IntegerField(min=0,max=Constants.players_per_group)
