@@ -2,20 +2,24 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Page title
+    Prediction Stage
 {% endblock %}
 
 {% block content %}
 
-<!--
-Documentation on how to write a django template here:
-https://docs.djangoproject.com/en/dev/topics/templates/
+<table class="table">
+	<tr>
+		<td> <font size="5"> How many people will choose X? </td>
+		<td> <font size="4">{% formfield player.forecast with label="" %} </td>
+	</tr> 
+	<tr>
+		<td>
+		</td>
+		<td>
+			 {% next_button %}
+		</td>
+	</tr>
 
-Bootstrap comes pre-loaded, so you can use any Bootstrap elements:
-http://getbootstrap.com/components/
 
--->
-
-    {% next_button %}
 
 {% endblock %}

@@ -22,15 +22,20 @@ Changing upper_bar and lower_bar will make the setting into heterogeneous endowm
 
 class Constants(BaseConstants):
     name_in_url = 'choistorr'
-    players_per_group = 5
-    num_rounds = 1
+    players_per_group = 2
+    num_rounds = 1000
 
     upper_bar = 500
     lower_bar = 500
 
+    
+
 
 class Subsession(BaseSubsession):
-    pass
+    random_number=models.IntegerField(initial=7)
+
+    def determine_round_end(self):
+        self.random_number = random.randint(1,6)
 
 
 class Group(BaseGroup):

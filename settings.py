@@ -15,7 +15,7 @@ if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
     DEBUG = False
 else:
     DEBUG = True
-DEBUG=False
+#DEBUG=False
 
 ADMIN_USERNAME = 'admin'
 ADMIN_PASSWORD = 'otree'
@@ -110,8 +110,8 @@ mturk_hit_settings = {
 # e.g. self.session.config['participation_fee']
 
 SESSION_CONFIG_DEFAULTS = {
-    'real_world_currency_per_point': 0.01,
-    'participation_fee': 10.00,
+    'real_world_currency_per_point': 1,
+    'participation_fee': 5.00,
     'num_bots': 12,
     'doc': "",
     'mturk_hit_settings': mturk_hit_settings,
@@ -127,8 +127,8 @@ SESSION_CONFIGS = [
      },
      {
      'name': 'choistorr',
-     'display_name': 'Ginnys T1',
-     'num_demo_participants': 5,
+     'display_name': 'Ginnys T1 baseline',
+     'num_demo_participants': 2,
      'app_sequence': ['choistorr']
      }
 ]

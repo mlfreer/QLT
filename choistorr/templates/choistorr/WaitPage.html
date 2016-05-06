@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Decision Stage
+    Please Wait for Other Participants.
 {% endblock %}
 
 {% block content %}
@@ -15,18 +15,5 @@ Bootstrap comes pre-loaded, so you can use any Bootstrap elements:
 http://getbootstrap.com/components/
 
 -->
-<table class="table">
-	<tr>
-		<td> <font size="5"> What is your action? </td> 
-		<td> <font size="4"> {% formfield player.action with label="" %} </td>
-	</tr>
-	<tr>
-		<td>
-		</td>
-		<td>
-    	{% next_button %}
-    	</td>
-    </tr>
-
 
 {% endblock %}

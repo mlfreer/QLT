@@ -2,21 +2,16 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Page title
+    Results
 {% endblock %}
 
 {% block content %}
+{{player.subsession.random_number}}
 
-<!--
-Documentation on how to write a django template here:
-https://docs.djangoproject.com/en/dev/topics/templates/
 
-Bootstrap comes pre-loaded, so you can use any Bootstrap elements:
-http://getbootstrap.com/components/
 
--->
+{% if player.subsession.random_number <= 1 %}
+{% next_button %}
+{% endif %}
 
-    {% next_button %}
 {% endblock %}
-
-
