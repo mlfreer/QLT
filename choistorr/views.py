@@ -33,6 +33,7 @@ class Decision(Page):
 
 	def before_next_page(self):
 		self.player.subsession.determine_round_end() 
+		self.player.subsession.compute_next_round() 
 
 class ResultsWaitPage(WaitPage):
 	template_name = 'choistorr/WaitPage.html' 

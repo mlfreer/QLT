@@ -14,14 +14,14 @@
 
 <p>
 	{% if player.subsession.round_number >= 1%}
-	<b> The computer randomly selected number {{player.subsession.random_number}} in this round </b> 
+	<b> The computer randomly selected number {{player.subsession.random_number}} in this Round </b> 
 	{% endif%}
 
 </p>
 
 <p>
 	{% if player.subsession.random_number >= 2%}
-	The experiment will proceed to the next round
+	The experiment will proceed round {{player.subsession.next_round}}
 	{% else %}
 	<font color="#ff0000"> The experiment will end with this round </font>
 

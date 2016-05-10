@@ -40,6 +40,11 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
     random_number=models.IntegerField(initial=7)
 
+    next_round = models.IntegerField(min=1,max=Constants.num_rounds)
+
+    def compute_next_round(self):
+    	self.next_round = self.round_number+1
+
     def determine_round_end(self):
         self.random_number = random.randint(1,6)
 
@@ -62,6 +67,7 @@ class Player(BasePlayer):
 #endowment of player
 
 	endowment = models.IntegerField(min=0,initial=500) #randint(Constants.lower_bar,Constants.upper_bar)
+	previous_endowment = models.IntegerField(min=0)
 	earning = models.IntegerField(min=0,initial=0)
 #taking action in every stage
 
@@ -90,4 +96,5 @@ class Player(BasePlayer):
 			if p.action =='Y':
 				self.earning= - Constants.costs_of_switch
 
+		self.previous_endowment=self.endowment
 		self.endowment=self.endowment+self.earning
