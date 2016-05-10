@@ -23,12 +23,18 @@ Changing upper_bar and lower_bar will make the setting into heterogeneous endowm
 class Constants(BaseConstants):
     name_in_url = 'choistorr'
     players_per_group = 2
-    num_rounds = 1000
+    num_rounds = 100
 
     upper_bar = 500
     lower_bar = 500
 
-    
+    costs_of_y = 30
+    costs_of_switch = 20
+
+    low_profit_y = 10
+    high_profit_y = 15
+
+
 
 
 class Subsession(BaseSubsession):
@@ -39,20 +45,49 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-	num_of_xchoosers = models.IntegerField(min=0,max=Constants.players_per_group)
+    num_of_x_choosers = models.IntegerField(min=0,max=Constants.players_per_group,initial=0)
+    num_of_y_choosers = models.IntegerField(min=0,max=Constants.players_per_group,initial=0)
 
+    def set_payoffs(self):
+    	for p in self.get_players():
+    		p.set_payoffs()
+
+    def find_y_choosers(self):
+    	for p in self.get_players():
+    		if p.action == 'Y':
+    			self.num_of_y_choosers=self.num_of_y_choosers+1
 
 
 class Player(BasePlayer):
 #endowment of player
 
-	endowment = models.IntegerField(min=0) #randint(Constants.lower_bar,Constants.upper_bar)
-
+	endowment = models.IntegerField(min=0,initial=500) #randint(Constants.lower_bar,Constants.upper_bar)
+	earning = models.IntegerField(min=0,initial=0)
 #taking action in every stage
 
 	action = models.CharField(
 		choices=[('X'), ('Y')],
 		widget=widgets.RadioSelect()
 		)
-#the forecast var for the forecast stage	
+#the forecast var for the forecast stage
 	forecast = models.IntegerField(min=0,max=Constants.players_per_group)
+#start methods definitions:
+
+	def set_payoffs(self):
+		
+		if self.subsession.round_number>1:
+			p = self.in_round(self.subsession.round_number-1)
+			self.endowment=p.endowment
+			
+		if self.action=='Y':
+			if self.group.num_of_y_choosers<=Constants.players_per_group/2:
+				self.earning=(self.group.num_of_y_choosers-1)*Constants.low_profit_y - Constants.costs_of_y
+
+			if self.group.num_of_y_choosers>Constants.players_per_group/2:
+				self.earning=(self.group.num_of_y_choosers-1)*Constants.high_profit_y - Constants.costs_of_y
+
+		if self.action=='X' and self.subsession.round_number>1:
+			if p.action =='Y':
+				self.earning= - Constants.costs_of_switch
+
+		self.endowment=self.endowment+self.earning
