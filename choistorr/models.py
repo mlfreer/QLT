@@ -69,6 +69,7 @@ class Player(BasePlayer):
 	endowment = models.IntegerField(min=0,initial=500) #randint(Constants.lower_bar,Constants.upper_bar)
 	previous_endowment = models.IntegerField(min=0)
 	earning = models.IntegerField(min=0,initial=0)
+	profit_y = models.IntegerField(min=0,initial=0)
 #taking action in every stage
 
 	action = models.CharField(
@@ -87,10 +88,12 @@ class Player(BasePlayer):
 			
 		if self.action=='Y':
 			if self.group.num_of_y_choosers<=Constants.players_per_group/2:
-				self.earning=(self.group.num_of_y_choosers-1)*Constants.low_profit_y - Constants.costs_of_y
+				self.profit_y=Constants.low_profit_y
 
 			if self.group.num_of_y_choosers>Constants.players_per_group/2:
-				self.earning=(self.group.num_of_y_choosers-1)*Constants.high_profit_y - Constants.costs_of_y
+				self.profit_y=Constants.high_profit_y
+			
+			self.earning=(self.group.num_of_y_choosers-1)*self.profit_y - Constants.costs_of_y
 
 		if self.action=='X' and self.subsession.round_number>1:
 			if p.action =='Y':
