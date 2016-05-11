@@ -64,3 +64,45 @@ table.quizfonts > tbody > tr > td:first-child /*Первая колока таб
     font-size : 120%;
     font-weight: bold;
 }
+
+/*==================================================
+ * Рамочки
+ * ===============================================*/
+
+.blue_div {
+    font-size : 1.05em;
+    border-width:3px;
+    border-style:solid;
+    border-color:#0000bb;
+    margin:20px auto;
+    padding: 5px 5px 5px 5px;
+    
+}
+.olive_div {
+    font-size : 1.05em;
+    border-width:3px;
+    border-style:solid;
+    border-color:#808000;
+    margin:20px auto;
+    padding: 15px 5px 5px 15px;
+    height: 100px;
+    text-align: center;
+}
+.brown_div {
+    font-size : 1.05em;
+    border-width:3px;
+    border-style:solid;
+    border-color:#A52A2A;
+    margin:20px auto;
+    padding: 15px 5px 5px 15px;
+    height: 100px;
+    text-align: center;
+}
+
+/*==================================================
+ * Шрифты
+ * ===============================================*/
+
+div {
+    font-size: 1.05em;
+}
