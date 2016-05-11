@@ -67,9 +67,11 @@ class Player(BasePlayer):
 #endowment of player
 
 	endowment = models.IntegerField(min=0,initial=500) #randint(Constants.lower_bar,Constants.upper_bar)
-	previous_endowment = models.IntegerField(min=0)
+	previous_endowment = models.IntegerField(min=0,initial=500)
 	earning = models.IntegerField(min=0,initial=0)
 	profit_y = models.IntegerField(min=0,initial=0)
+	
+	is_switch = models.IntegerField(min=0,initial=0)
 #taking action in every stage
 
 	action = models.CharField(
@@ -97,7 +99,11 @@ class Player(BasePlayer):
 
 		if self.action=='X' and self.subsession.round_number>1:
 			if p.action =='Y':
+				self.is_switch=1
 				self.earning= - Constants.costs_of_switch
 
 		self.previous_endowment=self.endowment
 		self.endowment=self.endowment+self.earning
+
+		p = self.in_round(self.subsession.round_number+1)
+		p.previous_endowment=self.endowment

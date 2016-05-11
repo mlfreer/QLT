@@ -52,6 +52,13 @@ class Results(Page):
 	
 
 	template_name = 'choistorr/Results.html'
+
+	def vars_for_template(self):
+		return{
+		'next_round': self.player.subsession.round_number+1,
+		'y_chosen': self.player.group.num_of_y_choosers-1,
+		}
+
     
 
 
