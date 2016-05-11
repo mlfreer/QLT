@@ -73,7 +73,7 @@ table.quizfonts > tbody > tr > td:first-child /*Первая колока таб
     border-width:3px;
     border-style:solid;
     border-color:#0000bb;
-    margin:20px auto;
+    
     padding: 5px 5px 5px 5px;
     
 }
@@ -82,7 +82,7 @@ table.quizfonts > tbody > tr > td:first-child /*Первая колока таб
     border-width:3px;
     border-style:solid;
     border-color:#808000;
-    margin:20px auto;
+    
     padding: 15px 5px 5px 15px;
     height: 100px;
     text-align: center;
@@ -104,4 +104,41 @@ table.quizfonts > tbody > tr > td:first-child /*Первая колока таб
 
 div {
     font-size: 1.05em;
+}
+
+
+/*==================================================
+ * Footer
+ * ===============================================*/
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 142px; 
+}
+.site-footer {
+  
+}
+
+.footer_table td{
+    color: #666666;
+}
+
+.footer_title {
+    color: #666666;
+    font-style: italic;
+    padding: 0px 0px 10px 0px;
+}
+
+
+.footer_table tr:last-child td {
+    border-top: 2px solid #cdd0d4;
+    font-weight: bold;
 }

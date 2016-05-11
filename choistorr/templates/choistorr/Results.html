@@ -72,6 +72,17 @@
 		{% endif %}
 		</div>
 
+		 <footer class="site-footer">
+			<div class="footer_title">For your information, this is how your points were calculated:</div>
+
+			<table class="footer_table" style='width: 100%'>
+			<tr><td>Total points at the beginning of this round</td><td><span class="latex">{{ player.previous_endowment }}</span></td></tr>
+			<tr><td>You chose Action {{player.action}}</td><td><span class="latex">-\ {{Constants.costs_of_y}}</span></td></tr>
+			<tr><td>{{player.profit_y}} points per group member who chose Action {{player.action}}</td><td> <span class="latex" id="td_3">+\ \({{player.group.num_of_y_choosers|add:"-1"}} \times {{player.profit_y}}\)</span> </td></tr>
+			<tr><td>Total Points Now </td><td>{{player.endowment}} points</td></tr>
+			</table>
+        </footer>
+
 	</div>
   
 </div>
