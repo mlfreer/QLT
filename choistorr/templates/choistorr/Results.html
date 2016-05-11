@@ -5,6 +5,29 @@
     Round {{player.subsession.round_number}} - Your Round Results
 {% endblock %}
 
+{% block content_at_top_of_body %}
+      <style>
+      html,
+      body {
+        height: 100%;
+      }
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -240px;
+      }
+      #push,
+      #footer {
+        height: 200px;
+        margin:20px auto;
+    	padding: 10px 10px 10px 10px;
+    	max-width:970px;
+      }
+      </style>
+<div id="wrap">
+{% endblock %}
+
 {% block content %}
 
 <div class="row">
@@ -72,7 +95,25 @@
 		{% endif %}
 		</div>
 
-		 <footer class="site-footer">
+	</div>
+  
+</div>
+
+
+  
+{% endblock %}
+
+{% block content_at_bottom_of_body %}
+
+ <div id="push"></div>
+    </div>
+<div class="container">
+<div class="row">
+	<div class="col-sm-3">
+		</div>
+
+	<div class="col-sm-9">
+		 <div id="footer">
 			<div class="footer_title">For your information, this is how your points were calculated:</div>
 
 			<table class="footer_table" style='width: 100%'>
@@ -97,11 +138,7 @@
 
 			<tr><td>Total Points Now </td><td>{{player.endowment}} points</td></tr>
 			</table>
-        </footer>
-
-	</div>
-  
+        </div>
+    </div>
 </div>
-
-  
 {% endblock %}
