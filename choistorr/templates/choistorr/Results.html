@@ -6,57 +6,74 @@
 {% endblock %}
 
 {% block content %}
-<div align="center">
-<font size='4'>
-<p>
-	<b> You chose action {{player.action}} in this round </b> 
-</p>
 
-<p>
-	{% if player.subsession.round_number >= 1%}
-	<b> The computer randomly selected number {{player.subsession.random_number}} in this Round </b> 
-	{% endif%}
+<div class="row">
+	<div class="col-sm-3">
+		<!--Боковая панель-->
+		<div class="olive_div">Olive div</div>
+		<div class="brown_div">Brown div</div>
 
-</p>
+	</div>
 
-<p>
-	{% if player.subsession.random_number >= 2%}
-	The experiment will proceed round {{player.subsession.next_round}}
-	{% else %}
-	<font color="#ff0000"> The experiment will end with this round </font>
+	<div class="col-sm-9">
+		<!--Основная панель-->
+		<div align="center">
+			<p>
+				<b> You chose action {{player.action}} in this round </b> 
+			</p>
 
-	{% endif %}
+			<p>
+				{% if player.subsession.round_number >= 1%}
+				<b> The computer randomly selected number {{player.subsession.random_number}} in this Round </b> 
+				{% endif%}
 
-</p>
+			</p>
 
-<p>
+			<p>
+				{% if player.subsession.random_number >= 2%}
+				The experiment will proceed round {{player.subsession.next_round}}
+				{% else %}
+				<font color="#ff0000"> The experiment will end with this round </font>
 
-</p>
+				{% endif %}
+
+			</p>
+
+			<p>
+
+			</p>
 
 
-	<font size='4'>
-<p>
-	A total of <b><font color="#ff0000"> {{player.group.num_of_y_choosers}} group members </font> </b> chose Action Y in this round 
-</p>
+			<div class="blue_div">
+				<p>
+					A total of <b><font color="#ff0000"> {{player.group.num_of_y_choosers}} group members </font> </b> chose Action Y in this round 
+				</p>
 
-	
-<p>
-		You have <b><font color="#0000ff">earned {{player.earning}}</font> </b> points in this round
-</p>
+					
+				<p>
+						You have <b><font color="#0000ff">earned {{player.earning}}</font> </b> points in this round
+				</p>
 
-<p>
-	You now have <b><font color="#0000ff">{{player.endowment}} points</font> </b>
+				<p>
+					You now have <b><font color="#0000ff">{{player.endowment}} points</font> </b>
 
-</p>
+				</p>
 
-	</font>
+			</div>
+		</div>
+
+
+		<div align="right">
+		{% if player.subsession.random_number >= 2%}
+		{% next_button %}
+		{% endif %}
+		</div>
+
+	</div>
+  
 </div>
 
-
-<div align="right">
-{% if player.subsession.random_number >= 2%}
-{% next_button %}
-{% endif %}
-</div>
-
+  
 {% endblock %}
+
+  
