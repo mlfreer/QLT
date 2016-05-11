@@ -15,20 +15,12 @@
 
 	</div>
 
-<<<<<<< HEAD
-<p>
-	{% if player.subsession.random_number >= 2%}
-	The experiment will proceed Round {{player.subsession.next_round}}
-	{% else %}
-	<font color="#ff0000"> The experiment will end with this Round </font>
-=======
 	<div class="col-sm-9">
 		<!--Основная панель-->
 		<div align="center">
 			<p>
 				<b> You chose action {{player.action}} in this round </b> 
 			</p>
->>>>>>> origin/ginnys_pgg
 
 			<p>
 				{% if player.subsession.round_number >= 1%}
@@ -83,5 +75,3 @@
 
   
 {% endblock %}
-
-  
