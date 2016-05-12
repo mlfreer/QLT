@@ -1,0 +1,19 @@
+{% extends "global/Base.html" %}
+{% load i18n %}
+{% load staticfiles floppyforms otree_tags %}
+
+{% block title %}
+    Questionnaire
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        <em>Note: As this is a sample game, only one question is displayed.</em>
+    </p>
+
+    {% formrow form.q_gender %}
+
+    {% next_button %}
+
+{% endblock %}

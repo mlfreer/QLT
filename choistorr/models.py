@@ -21,46 +21,59 @@ Changing upper_bar and lower_bar will make the setting into heterogeneous endowm
 
 
 class Constants(BaseConstants):
-    name_in_url = 'choistorr'
-    players_per_group = 2
-    num_rounds = 100
-
-    upper_bar = 500
-    lower_bar = 500
-
-    costs_of_y = 30
-    costs_of_switch = 20
-
-    low_profit_y = 10
-    high_profit_y = 15
+	name_in_url = 'choistorr'
+	players_per_group = 2 
 
 
+#initializing number of periods through random draws
+	treshold = 1
+
+	def set_rounds(treshold):
+		temp = 15
+		while random.randint(1,6)>treshold: 
+			temp = temp+1
+		return temp
+
+	num_rounds = set_rounds(treshold)
+	
+
+	upper_bar = 500
+	lower_bar = 500
+
+	costs_of_y = 30
+	costs_of_switch = 20
+
+	low_profit_y = 10
+	high_profit_y = 15
 
 
 class Subsession(BaseSubsession):
-    random_number=models.IntegerField(initial=7)
+	random_number=models.IntegerField(initial=7)
 
-    next_round = models.IntegerField(min=1,max=Constants.num_rounds)
+	next_round = models.IntegerField(min=1,max=Constants.num_rounds)
 
-    def compute_next_round(self):
-    	self.next_round = self.round_number+1
+	def compute_next_round(self):
+		self.next_round = self.round_number+1
 
-    def determine_round_end(self):
-        self.random_number = random.randint(1,6)
+	def determine_round_end(self):
+		if self.round_number+1 <= Constants.num_rounds:
+			self.random_number = random.randint(Constants.treshold,6)		
+		else:
+			self.random_number = random.randint(1,Constants.treshold)
 
 
 class Group(BaseGroup):
-    num_of_x_choosers = models.IntegerField(min=0,max=Constants.players_per_group,initial=0)
-    num_of_y_choosers = models.IntegerField(min=0,max=Constants.players_per_group,initial=0)
+	num_of_x_choosers = models.IntegerField(min=0,max=Constants.players_per_group,initial=0)
+	num_of_y_choosers = models.IntegerField(min=0,max=Constants.players_per_group,initial=0)
 
-    def set_payoffs(self):
-    	for p in self.get_players():
-    		p.set_payoffs()
+	def set_payoffs(self):
+		for p in self.get_players():
+			p.set_payoffs()
 
-    def find_y_choosers(self):
-    	for p in self.get_players():
-    		if p.action == 'Y':
-    			self.num_of_y_choosers=self.num_of_y_choosers+1
+	def find_y_choosers(self):
+		for p in self.get_players():
+			if p.action == 'Y':
+				self.num_of_y_choosers=self.num_of_y_choosers+1
 
 
 class Player(BasePlayer):
@@ -80,8 +93,8 @@ class Player(BasePlayer):
 		)
 #the forecast var for the forecast stage
 	forecast = models.IntegerField(min=0,max=Constants.players_per_group)
-#start methods definitions:
 
+#start methods definitions:
 	def set_payoffs(self):
 		
 		if self.subsession.round_number>1:
@@ -105,5 +118,6 @@ class Player(BasePlayer):
 		self.previous_endowment=self.endowment
 		self.endowment=self.endowment+self.earning
 
-		p = self.in_round(self.subsession.round_number+1)
-		p.previous_endowment=self.endowment
+		if self.subsession.round_number<Constants.num_rounds:
+			p = self.in_round(self.subsession.round_number+1)
+			p.previous_endowment=self.endowment
