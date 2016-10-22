@@ -48,16 +48,72 @@ class Group(BaseGroup):
     Votes2Continue = IntegerField(initial = 0) #the amount of people voted to continue experimenting (Stage 2)
     Votes2Implement = IntegerField(initial = 0) #the amount of people voted to implement RA (Stage 3)
 
+    def count_votes2start(self):
+    	for p in self.get_players():
+    		p.get_vote_stage1()
+    		self.Votes2Start = self.Votes2start + p.VoteStage1
+
+    def count_votes2continue(self):
+    	for p in self.get_players():
+    		p.get_vote_stage2()
+    		self.Votes2Continue = self.Votes2Continue + p.VoteStage2
+
+    def count_votes2implement(self):
+    	for p in self.get_players():
+    		p.get_vote_stage3()
+    		self.Votes2Implement = self.Votes2Implement + p.VoteStage3
+
+    #determining the group decisions at every stage
+    Start = IntegerField(initial=0) #whether group wants to start
+    Continue = IntegerField(initial=0) #whether group wants to contiue
+    Implement = IntegerField(initial=0) #whether group wants to implement
+
+    def get_start(self):
+    	self.count_votes2start()
+    	if self.Votes2Start>=2:
+    		self.Start = 1
+
+    def get_continue(self):
+    	self.count_votes2continue()
+    	if self.Votes2Continue>=2:
+    		self.Continue = 1
+
+    def get_implement(self):
+    	self.count_votes2implement()
+    	if self.Votes2Implement>=2:
+    		self.Implement = 1
+
+
 
 
 class Player(BasePlayer):
-    Type = IntegerField() #=type of player: 1 = High, 0 = Low
+    Type = IntegerField(initial=0) #=type of player: 1 = High, 0 = Low
+    def set_type(self):
+    	r = random.randrange(0,1,.01)
+    	if r>constants.p:
+    		self.Type=1
+
     Signal1 = IntegerField(initial=0) #= signal at the stage 1: 1=High, 0=Uncertain
     Signal2 = IntegerField(initial=0) #= signal at the stage 2: 1=High, 0=Uncertain
-
     #next comes the verbalized versions of signals, for the views
     VerbalSignal1 = CharField(choices = ['Uncertain', 'High'])
     VerbalSignal2 = CharField(choices=['Uncertain','High'])
+    def get_signal1(self):
+    	r = random.randrange(0,1,.01)
+    	if (r>=constants.q) and (self.Type==1):
+    		self.Signal1=1;
+    		self.VerbalSignal1='High'
+    	else:
+    		self.VerbalSignal1='Uncertain'
+
+    def get_signal2(self):
+    	r = random.randrange(0,1,.01)
+    	if (r>=constants.q) and (self.Type==1):
+    		self.Signal2=1;
+    		self.VerbalSignal2='High'
+    	else:
+    		self.VerbalSignal2='Uncertain'
+
 
     #decision variables: 3 stages of voting
     VoteStage1 = IntegerField(initial=0)
@@ -81,6 +137,20 @@ class Player(BasePlayer):
     def get_vote_stage1(slef):
     	if self.VerbalVoteStage1 == 'Yes':
     		self.VoteStage1=1
-    		
 
+    def get_vote_stage2(slef):
+    	if self.VerbalVoteStage2 == 'Yes':
+    		self.VoteStage2=1
 
+    def get_vote_stage3(slef):
+    	if self.VerbalVoteStage3 == 'Yes':
+    		self.VoteStage1=3
+
+   	#determining the payoff of player
+   	payoff = IntegerField(initial=constants.Safe)
+    def get_payoff(self):
+    	if self.group.Implement==1:
+    		if self.Type == 1:
+    			self.payoff = constants.High
+    		else:
+    			self.payoff = constants.Low
