@@ -10,40 +10,67 @@ from .models import Constants
 #first decision stage
 class Decision2Start(Page):
 	form_model = models.Player
-	form_field = ['MyNumber',]
+	form_fields = ['VerbalVoteStage1']
+
+	template_name = 'CollectiveExperimentation/Decision2Start.html'
 
 class Signals1WaitPage(WaitPage):
 	def after_all_players_arrive(self):
-		self.player.group.count_votes2start()
+		self.player.group.get_start()
+		for p in self.player.group.get_players():
+			p.get_signal1()
+
 		
 	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
 
 #getting the first set of public signals
 class Signals1(Page):
-	pass
+	template_name = 'CollectiveExperimentation/Signals1.html'
+
 
 class Decision2Continue(Page):
-	pass
+
+	def is_displayed(self):
+		return self.player.group.Start
+
+	form_model = models.Player
+	form_fields = ['VerbalVoteStage2']
+
+	template_name = 'CollectiveExperimentation/Decision2Continue.html'
 
 class Signals2WaitPage(WaitPage):
+	def is_displayed(self):
+		return self.player.group.Start
+
 	def after_all_players_arrive(self):
-		self.player.group.count_votes2continue()
+		self.player.group.get_continue()
+		for p in self.player.group.get_players():
+			p.get_signal2()
+
 
 	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
 
 #getting the second set of public signals
 class Signals2(Page):
-	pass
+	def is_displayed(self):
+		return self.player.group.Start
+
 
 #deciding whether to implement
 class Decision2Implement(Page):
-	pass
+	def is_displayed(self):
+		return self.player.group.Continue
 
+	form_model = models.Player
+	form_fields = ['VerbalVoteStage3']
+
+	template_name = 'CollectiveExperimentation/Decision2Implement.html'
 
 class ResultsWaitPage(WaitPage):
 
 	def after_all_players_arrive(self):
-		self.player.group.count_votes2implement()
+		self.player.group.get_implement()
+		self.player.get_payoff()
 
 	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
 
@@ -56,10 +83,8 @@ class Results(Page):
 page_sequence = [
 	Decision2Start,
 	Signals1WaitPage,
-	Signals1,
 	Decision2Continue,
 	Signals2WaitPage,
-	Signals2,
 	Decision2Implement,
 	ResultsWaitPage,
 	Results

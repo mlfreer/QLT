@@ -55,7 +55,7 @@ class Group(BaseGroup):
 	def count_votes2start(self):
 		for p in self.get_players():
 			p.get_vote_stage1()
-			self.Votes2Start = self.Votes2start + p.VoteStage1
+			self.Votes2Start = self.Votes2Start + p.VoteStage1
 
 	def count_votes2continue(self):
 		for p in self.get_players():
@@ -94,12 +94,12 @@ class Player(BasePlayer):
 	Type = models.IntegerField(initial=0) #=type of player: 1 = High, 0 = Low
 	def set_type(self):
 		r = random.uniform(0,1)
-		if r>Constants.p:
+		if r>=Constants.p:
 			self.Type=1
 
 	MyNumber = models.IntegerField() #my number in group
 	def get_mynumber(self):
-		self.MyNumber=self.id_in_group()
+		self.MyNumber=self.id_in_group
 
 	Signal1 = models.IntegerField(initial=0) #= signal at the stage 1: 1=High, 0=Uncertain
 	Signal2 = models.IntegerField(initial=0) #= signal at the stage 2: 1=High, 0=Uncertain
@@ -142,15 +142,15 @@ class Player(BasePlayer):
 		)
 
 	#functions for the player
-	def get_vote_stage1(slef):
+	def get_vote_stage1(self):
 		if self.VerbalVoteStage1 == 'Yes':
 			self.VoteStage1=1
 
-	def get_vote_stage2(slef):
+	def get_vote_stage2(self):
 		if self.VerbalVoteStage2 == 'Yes':
 			self.VoteStage2=1
 
-	def get_vote_stage3(slef):
+	def get_vote_stage3(self):
 		if self.VerbalVoteStage3 == 'Yes':
 			self.VoteStage1=3
 

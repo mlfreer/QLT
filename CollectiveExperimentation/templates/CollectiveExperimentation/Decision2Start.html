@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Page title
+    Stage 1: Make a Decision
 {% endblock %}
 
 {% block content %}
@@ -15,6 +15,9 @@ Bootstrap comes pre-loaded, so you can use any Bootstrap elements:
 http://getbootstrap.com/components/
 
 -->
+You are player {{player.MyNumber}}.
+<br>
+Do you want to start experimenting? {% formfield player.VerbalVoteStage1 with label=""%}
 
     {% next_button %}
 {% endblock %}
