@@ -7,21 +7,59 @@ from . import models
 from ._builtin import Page, WaitPage
 from .models import Constants
 
-
-class MyPage(Page):
+#first decision stage
+class Decision2Start(Page):
     pass
+
+class Signals1WaitPage(WaitPage):
+	def after_all_players_arrive(self):
+        self.player.group.count_votes2start()
+        
+	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
+
+#getting the first set of public signals
+class Signals1(Page):
+	pass
+
+class Decision2Continue(Page):
+	pass
+
+class Signals2WaitPage(WaitPage):
+	def after_all_players_arrive(self):
+        self.player.group.count_votes2continue()
+
+	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
+
+#getting the second set of public signals
+class Signals2(Page):
+	pass
+
+#deciding whether to implement
+class Decision2Implement(Page):
+	pass
+
 
 class ResultsWaitPage(WaitPage):
 
     def after_all_players_arrive(self):
-        pass
+        self.player.group.count_votes2implement()
+
+    template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
+
+
 
 class Results(Page):
     pass
 
 
 page_sequence = [
-    MyPage,
+    Decision2Start,
+    Signals1WaitPage,
+    Signals1,
+    Decision2Continue,
+    Signals2WaitPage,
+    Signals2,
+    Decision2Implement,
     ResultsWaitPage,
     Results
 ]
