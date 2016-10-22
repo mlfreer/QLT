@@ -15,7 +15,7 @@ if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
     DEBUG = False
 else:
     DEBUG = True
-DEBUG=False
+DEBUG=True
 
 ADMIN_USERNAME = 'admin'
 ADMIN_PASSWORD = 'otree'
@@ -119,11 +119,12 @@ SESSION_CONFIG_DEFAULTS = {
 
 
 SESSION_CONFIGS = [
+
      {
-         'name': 'qlt',
-         'display_name': 'Quasilinear Experiment',
-         'num_demo_participants': 1,
-         'app_sequence': ['qlt'],
+         'name': 'CollectiveExperimentation',
+         'display_name': 'Collective Experimentation: Majority Treatment',
+         'num_demo_participants': 3,
+         'app_sequence': ['CollectiveExperimentation'],
      }
 ]
 

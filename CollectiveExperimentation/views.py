@@ -9,12 +9,13 @@ from .models import Constants
 
 #first decision stage
 class Decision2Start(Page):
-    pass
+	form_model = models.Player
+	form_field = ['MyNumber',]
 
 class Signals1WaitPage(WaitPage):
 	def after_all_players_arrive(self):
-        self.player.group.count_votes2start()
-        
+		self.player.group.count_votes2start()
+		
 	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
 
 #getting the first set of public signals
@@ -26,7 +27,7 @@ class Decision2Continue(Page):
 
 class Signals2WaitPage(WaitPage):
 	def after_all_players_arrive(self):
-        self.player.group.count_votes2continue()
+		self.player.group.count_votes2continue()
 
 	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
 
@@ -41,25 +42,25 @@ class Decision2Implement(Page):
 
 class ResultsWaitPage(WaitPage):
 
-    def after_all_players_arrive(self):
-        self.player.group.count_votes2implement()
+	def after_all_players_arrive(self):
+		self.player.group.count_votes2implement()
 
-    template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
+	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
 
 
 
 class Results(Page):
-    pass
+	pass
 
 
 page_sequence = [
-    Decision2Start,
-    Signals1WaitPage,
-    Signals1,
-    Decision2Continue,
-    Signals2WaitPage,
-    Signals2,
-    Decision2Implement,
-    ResultsWaitPage,
-    Results
+	Decision2Start,
+	Signals1WaitPage,
+	Signals1,
+	Decision2Continue,
+	Signals2WaitPage,
+	Signals2,
+	Decision2Implement,
+	ResultsWaitPage,
+	Results
 ]
