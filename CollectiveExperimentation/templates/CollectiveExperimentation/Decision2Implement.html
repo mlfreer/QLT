@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Stage 1: Make a Decision
+    Stage 2: Do you want to Implement the Reform?
 {% endblock %}
 
 {% block content %}
@@ -15,10 +15,33 @@ Bootstrap comes pre-loaded, so you can use any Bootstrap elements:
 http://getbootstrap.com/components/
 
 -->
-You are player {{player.MyNumber}}.
 <br>
+<table class="table">
+	<tr>
+		<td>
+		</td>
+		<td>
+			<font size="4"> Your are player {{player.MyNumber}}
+			<br>
+			{% for p in player.group.get_players %}
+			Player {{p.MyNumber}} got signal {{p.VerbalSignal2}}
+			<br>
+			{% endfor %}
+			</font>
+		</td>
+	</tr>
 
-Do you want to implement the reform? {% formfield player.VerbalVoteStage3 with label=""%}
+	<tr>
+	<td>
+	</td>
+	<td>
+		<font size="4">Do you want to continue experimenting? {% formfield player.VerbalVoteStage3 with label=""%}</font>
+
+	</td>
+	</tr>
+</table>
+
+
 
     {% next_button %}
 {% endblock %}

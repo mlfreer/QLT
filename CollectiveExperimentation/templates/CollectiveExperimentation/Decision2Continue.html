@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Stage 1: Make a Decision
+    Stage 2: Do you want to Continue Experimenting?
 {% endblock %}
 
 {% block content %}
@@ -21,7 +21,7 @@ http://getbootstrap.com/components/
 		<td>
 		</td>
 		<td>
-			<font size="3"> Your are player {{player.MyNumber}}
+			<font size="4"> Your are player {{player.MyNumber}}
 			<br>
 			{% for p in player.group.get_players %}
 			Player {{p.MyNumber}} got signal {{p.VerbalSignal1}}
@@ -35,7 +35,7 @@ http://getbootstrap.com/components/
 	<td>
 	</td>
 	<td>
-		Do you want to continue experimenting? {% formfield player.VerbalVoteStage2 with label=""%}
+		<font size="4">Do you want to continue experimenting? {% formfield player.VerbalVoteStage2 with label=""%}</font>
 
 	</td>
 	</tr>
