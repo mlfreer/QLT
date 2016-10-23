@@ -125,6 +125,12 @@ SESSION_CONFIGS = [
          'display_name': 'Collective Experimentation: Majority Treatment',
          'num_demo_participants': 3,
          'app_sequence': ['CollectiveExperimentation'],
+     },
+     {
+         'name': 'CollectiveExperimentationT2',
+         'display_name': 'Collective Experimentation: Optimal Mechanism Treatment',
+         'num_demo_participants': 3,
+         'app_sequence': ['CollectiveExperimentationT2'],
      }
 ]
 

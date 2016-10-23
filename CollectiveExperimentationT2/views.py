@@ -12,7 +12,7 @@ class Decision2Start(Page):
 	form_model = models.Player
 	form_fields = ['VerbalVoteStage1']
 
-	template_name = 'CollectiveExperimentation/Decision2Start.html'
+	template_name = 'CollectiveExperimentationT2/Decision2Start.html'
 
 class Signals1WaitPage(WaitPage):
 	def after_all_players_arrive(self):
@@ -21,7 +21,7 @@ class Signals1WaitPage(WaitPage):
 			p.get_signal1()
 
 		
-	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
+	template_name = 'CollectiveExperimentationT2/Signals1WaitPage.html'
 
 class Decision2Continue(Page):
 
@@ -29,9 +29,8 @@ class Decision2Continue(Page):
 		return self.player.group.Start
 
 	form_model = models.Player
-	form_fields = ['VerbalVoteStage2']
 
-	template_name = 'CollectiveExperimentation/Decision2Continue.html'
+	template_name = 'CollectiveExperimentationT2/Decision2Continue.html'
 
 class Signals2WaitPage(WaitPage):
 	def is_displayed(self):
@@ -43,7 +42,7 @@ class Signals2WaitPage(WaitPage):
 			p.get_signal2()
 
 
-	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
+	template_name = 'CollectiveExperimentationT2/Signals1WaitPage.html'
 
 
 #deciding whether to implement
@@ -54,7 +53,7 @@ class Decision2Implement(Page):
 	form_model = models.Player
 	form_fields = ['VerbalVoteStage3']
 
-	template_name = 'CollectiveExperimentation/Decision2Implement.html'
+	template_name = 'CollectiveExperimentationT2/Decision2Implement.html'
 
 class ResultsWaitPage(WaitPage):
 
@@ -63,7 +62,7 @@ class ResultsWaitPage(WaitPage):
 		for p in self.player.group.get_players():
 			p.get_payoff()
 
-	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
+	template_name = 'CollectiveExperimentationT2/Signals1WaitPage.html'
 
 
 

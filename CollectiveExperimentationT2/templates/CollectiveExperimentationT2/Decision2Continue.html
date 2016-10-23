@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Stage 2: Do you want to Continue Experimenting?
+    Stage 2
 {% endblock %}
 
 {% block content %}
@@ -19,7 +19,7 @@ http://getbootstrap.com/components/
 <table class="table">
 	<tr>
 		<td width="55%">
-				<font size="4">You can choose to <b>CONTINUE</b> the project or <b>STOP</b>. If the majority of you choose to <b>STOP</b>, the project is NOT implemented and the round ends. If majority of you choose to <b>CONTINUE</b> the project, each of you will get another signal about whether you are a high payoff player. The signal works exactly the same way as we explained above.  </font>
+				<font size="4">The experimenting continues. Each of you will get another signal about whether you are a high payoff player. The signal works exactly the same way as Stage 1. </font>
 		</td>
 		<td>
 			<center><font size="4"> Your are player {{player.MyNumber}}
@@ -38,11 +38,10 @@ http://getbootstrap.com/components/
 
 	<tr>
 	<td>
-		<img src="http://mason.gmu.edu/~mfreer/game_tree.png" style="width:100%;height:100%;">
+		<img src="http://mason.gmu.edu/~mfreer/game_tree_T2.png" style="width:100%;height:100%;">
 
 	</td>
 	<td>
-		<center><font size="4">Do you want to continue experimenting? {% formfield player.VerbalVoteStage2 with label=""%}</font></center>
 
 	</td>
 	</tr>

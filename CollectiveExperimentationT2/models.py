@@ -19,11 +19,12 @@ author = 'Mikhail Freer'
 
 doc = """
 Project for Collective Experimentation: An Experiment paper with Cesar Martinelli and Siyu Wang.
+Treatment 2: Optimal Voting Mechanism (skipping voting at Stage 2)
 """
 
 
 class Constants(BaseConstants):
-	name_in_url = 'collective_experimentation_t1'
+	name_in_url = 'collective_experimentation_t2'
 	players_per_group = 3
 	num_rounds = 1
 	High = 500 #payoff for High Type| Risky Alternative is Chosen
@@ -58,9 +59,9 @@ class Group(BaseGroup):
 			self.Votes2Start = self.Votes2Start + p.VoteStage1
 
 	def count_votes2continue(self):
-		for p in self.get_players():
-			p.get_vote_stage2()
-			self.Votes2Continue = self.Votes2Continue + p.VoteStage2
+		#for p in self.get_players():
+			#p.get_vote_stage2()
+		self.Votes2Continue = 2
 
 	def count_votes2implement(self):
 		for p in self.get_players():

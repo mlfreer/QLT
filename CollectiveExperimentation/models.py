@@ -19,6 +19,7 @@ author = 'Mikhail Freer'
 
 doc = """
 Project for Collective Experimentation: An Experiment paper with Cesar Martinelli and Siyu Wang.
+Treatment 1: Majority voting at all stages.
 """
 
 
