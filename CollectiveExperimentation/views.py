@@ -23,11 +23,6 @@ class Signals1WaitPage(WaitPage):
 		
 	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
 
-#getting the first set of public signals
-class Signals1(Page):
-	template_name = 'CollectiveExperimentation/Signals1.html'
-
-
 class Decision2Continue(Page):
 
 	def is_displayed(self):
@@ -50,11 +45,6 @@ class Signals2WaitPage(WaitPage):
 
 	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
 
-#getting the second set of public signals
-class Signals2(Page):
-	def is_displayed(self):
-		return self.player.group.Start
-
 
 #deciding whether to implement
 class Decision2Implement(Page):
@@ -70,7 +60,8 @@ class ResultsWaitPage(WaitPage):
 
 	def after_all_players_arrive(self):
 		self.player.group.get_implement()
-		self.player.get_payoff()
+		for p in self.player.group.get_players():
+			p.get_payoff()
 
 	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
 

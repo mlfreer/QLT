@@ -116,7 +116,7 @@ class Player(BasePlayer):
 
 	def get_signal2(self):
 		r = random.uniform(0,1)
-		if (r>=Constants.q) and (self.Type==1):
+		if ((r>=Constants.q) and (self.Type==1)) or (self.Signal1==1):
 			self.Signal2=1;
 			self.VerbalSignal2='High'
 		else:
@@ -152,14 +152,11 @@ class Player(BasePlayer):
 
 	def get_vote_stage3(self):
 		if self.VerbalVoteStage3 == 'Yes':
-			self.VoteStage1=3
+			self.VoteStage3=1
 
 	#determining the payoff of player
 	Payment = models.IntegerField(initial=Constants.Safe)
 	
 	def get_payoff(self):
 		if self.group.Implement==1:
-			if self.Type == 1:
-				self.Payment = Constants.High
-			else:
-				self.Payment = Constants.Low
+			self.Payment = self.Type*Constants.High + (1-self.Type)*Constants.Low

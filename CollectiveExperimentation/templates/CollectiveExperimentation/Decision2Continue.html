@@ -18,26 +18,40 @@ http://getbootstrap.com/components/
 <br>
 <table class="table">
 	<tr>
-		<td>
+		<td width="55%">
+				<font size="4">You can choose to <b>CONTINUE</b> the project or <b>STOP</b>. If the majority of you choose to <b>STOP</b>, the project is NOT implemented and the round ends. If majority of you choose to <b>CONTINUE</b> the project, each of you will get another signal about whether you are a high payoff player. The signal works exactly the same way as we explained above.  </font>
 		</td>
 		<td>
-			<font size="4"> Your are player {{player.MyNumber}}
-			<br>
+			<center><font size="4"> Your are player {{player.MyNumber}}
+			<br><br>
 			{% for p in player.group.get_players %}
+			{%if p.MyNumber == player.MyNumber %} 
+			<font color="red"> <b> Player {{p.MyNumber}} got signal {{p.VerbalSignal1}}</b> </font>
+			{%else%}
 			Player {{p.MyNumber}} got signal {{p.VerbalSignal1}}
+			{%endif%}
 			<br>
 			{% endfor %}
-			</font>
+			</font></center>
 		</td>
 	</tr>
 
 	<tr>
 	<td>
-	</td>
-	<td>
-		<font size="4">Do you want to continue experimenting? {% formfield player.VerbalVoteStage2 with label=""%}</font>
+		<img src="http://mason.gmu.edu/~mfreer/game_tree.png" style="width:100%;height:100%;">
 
 	</td>
+	<td>
+		<center><font size="4">Do you want to continue experimenting? {% formfield player.VerbalVoteStage2 with label=""%}</font></center>
+
+	</td>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td align="right">
+			  <right>{% next_button %}</right>
+		</td>
 	</tr>
 </table>
 

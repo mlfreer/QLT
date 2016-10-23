@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Stage 2: Do you want to Implement the Reform?
+    Stage 3: Do you want to Implement the Reform?
 {% endblock %}
 
 {% block content %}
@@ -18,26 +18,41 @@ http://getbootstrap.com/components/
 <br>
 <table class="table">
 	<tr>
-		<td>
+		<td width="55%">
+			<font size="4">You can choose to <b>IMPLEMENT</b> the project or <b>STOP</b>. If majority of you choose to <b>STOP</b>, the project is <b>NOT</b> implemented and this round ends. Otherwise, the project will be implemented. Each group member’s payoff will be revealed at the end of the round. </font>
 		</td>
-		<td>
-			<font size="4"> Your are player {{player.MyNumber}}
-			<br>
+		<td >
+					<center><font size="4"> Your are player {{player.MyNumber}}
+			<br><br>
 			{% for p in player.group.get_players %}
+			{%if p.MyNumber == player.MyNumber %} 
+			<font color="red"> <b> Player {{p.MyNumber}} got signal {{p.VerbalSignal2}}</b> </font>
+			{%else%}
 			Player {{p.MyNumber}} got signal {{p.VerbalSignal2}}
+			{%endif%}
 			<br>
 			{% endfor %}
-			</font>
+			</font></center>
+
 		</td>
 	</tr>
 
 	<tr>
 	<td>
-	</td>
-	<td>
-		<font size="4">Do you want to continue experimenting? {% formfield player.VerbalVoteStage3 with label=""%}</font>
+		<img src="http://mason.gmu.edu/~mfreer/game_tree.png" style="width:100%;height:100%;">
 
 	</td>
+	<td>
+		<center><font size="4">Do you want to continue experimenting? {% formfield player.VerbalVoteStage3 with label=""%}</font></center>
+
+	</td>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td align="right">
+			  <right>{% next_button %}</right>
+		</td>
 	</tr>
 </table>
 

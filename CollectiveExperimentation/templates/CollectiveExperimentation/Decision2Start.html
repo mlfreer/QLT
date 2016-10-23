@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Stage 1: Make a Decision
+    Stage 1: Do you want to start experimenting
 {% endblock %}
 
 {% block content %}
@@ -15,9 +15,39 @@ Bootstrap comes pre-loaded, so you can use any Bootstrap elements:
 http://getbootstrap.com/components/
 
 -->
-You are player {{player.MyNumber}}.
 <br>
-Do you want to start experimenting? {% formfield player.VerbalVoteStage1 with label=""%}
+<table class="table">
+	<tr>
+		<td width="55%" >
+			<font size="4">Each of you can choose <b>INITIATE</b> or <b>STOP</b> the project right away. 
+			If the majority of you choose to <b>STOP</b>, the project is NOT implemented and this round ends. If the majority of you choose to <b>INITIATE</b> the project, each of you will get a signal regarding whether you can receive high payoff if the project is implemented. </font>
+		</td>
+		<td >
+			<center><font size="4"> Your are player {{player.MyNumber}}</center>
+			<br>
+			</font>
+		</td>
+	</tr>
 
-    {% next_button %}
+	<tr>
+	<td>
+		<img src="http://mason.gmu.edu/~mfreer/game_tree.png" style="width:100%;height:100%;">
+	</td>
+	<td>
+		<center><font size="4">Do you want to start experimenting? {% formfield player.VerbalVoteStage1 with label=""%}</font></center>
+
+	</td>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td align="right">
+			  <right>{% next_button %}</right>
+		</td>
+	</tr>
+</table>
+
 {% endblock %}
+  
+
+			
