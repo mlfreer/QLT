@@ -8,6 +8,9 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 #first decision stage
+class WelcomePage(Page):
+	template_name ='CollectiveExperimentation/Welcome'
+
 class Decision2Start(Page):
 	form_model = models.Player
 	form_fields = ['VerbalVoteStage1']
@@ -72,6 +75,7 @@ class Results(Page):
 
 
 page_sequence = [
+	Welcome,
 	Decision2Start,
 	Signals1WaitPage,
 	Decision2Continue,
