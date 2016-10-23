@@ -86,8 +86,8 @@ raven==5.25.0
 redis==2.10.5
 requests==2.11.1
 schema==0.6.2
-scikit-learn==0.17
 scipy==0.16.1
+scikit-learn==0.17
 selenium==2.48.0
 simplegeneric==0.8.1
 six==1.10.0
