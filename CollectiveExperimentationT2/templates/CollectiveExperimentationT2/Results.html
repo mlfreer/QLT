@@ -1,0 +1,47 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+<font size="4">
+<table class="table">
+	<tr>
+		<td> You decided to implement </td>
+		<td> <b>{% if player.group.Implement == 1%}
+ Risky
+{% else %}
+Safe
+{% endif %}</b>
+alternative
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Your payoff is
+		</td>
+		<td>
+			<b>{{player.Payment}}</b>
+		</td>
+	</tr>
+</table>
+
+
+<br>
+ 
+</font>
+<!--
+Documentation on how to write a django template here:
+https://docs.djangoproject.com/en/dev/topics/templates/
+
+Bootstrap comes pre-loaded, so you can use any Bootstrap elements:
+http://getbootstrap.com/components/
+
+-->
+
+  <a align="right">  {% next_button %} </a>
+{% endblock %}
+
+
