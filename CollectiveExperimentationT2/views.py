@@ -74,7 +74,7 @@ class Results(Page):
 
 
 page_sequence = [
-	Welcome,
+	WelcomePage,
 	Decision2Start,
 	Signals1WaitPage,
 	Decision2Continue,
