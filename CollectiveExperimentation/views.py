@@ -9,7 +9,7 @@ from .models import Constants
 
 #first decision stage
 class WelcomePage(Page):
-	template_name ='CollectiveExperimentation/Welcome'
+	template_name ='CollectiveExperimentation/Welcome.html'
 
 class Decision2Start(Page):
 	form_model = models.Player
