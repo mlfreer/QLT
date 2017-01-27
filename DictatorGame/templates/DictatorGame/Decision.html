@@ -1,0 +1,22 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+<font size="4">
+<table class="table">
+	<tr>
+		<td> How much of money out of E$40 would you like to transfer to your counterpart? </td>
+		<td> {% formfield player.Pass with label=""%} </td>
+	</tr>
+	<tr>
+		<td> </td>
+		<td>{% next_button %} </td>
+	</tr>
+</table>
+</font>
+
+{% endblock %}

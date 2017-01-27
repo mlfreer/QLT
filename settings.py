@@ -131,7 +131,33 @@ SESSION_CONFIGS = [
          'display_name': 'Collective Experimentation: Optimal Mechanism Treatment',
          'num_demo_participants': 3,
          'app_sequence': ['CollectiveExperimentationT2'],
-     }
+     },
+     {
+         'name': 'HoltLaury',
+         'display_name': 'Holt Laury Risk Elicitation',
+         'num_demo_participants': 1,
+         'app_sequence': ['HoltLaury'],
+     },
+     {
+         'name': 'DG',
+         'display_name': 'Dictator Game',
+         'num_demo_participants': 2,
+         'app_sequence': ['DictatorGame'],
+     },
+
+     {
+         'name': 'T1',
+         'display_name': 'Majority Voting',
+         'num_demo_participants': 6,
+         'app_sequence': ['CollectiveExperimentation','HoltLaury','DictatorGame'],
+     },
+
+     {
+         'name': 'T2',
+         'display_name': 'Optimal Voting',
+         'num_demo_participants': 6,
+         'app_sequence': ['CollectiveExperimentationT2','HoltLaury','DictatorGame'],
+     },
 ]
 
 # don't put anything after this line.

@@ -19,8 +19,8 @@ class Decision2Start(Page):
 
 class Signals1WaitPage(WaitPage):
 	def after_all_players_arrive(self):
-		self.player.group.get_start()
-		for p in self.player.group.get_players():
+		self.group.get_start()
+		for p in self.group.get_players():
 			p.get_signal1()
 
 		
@@ -41,8 +41,8 @@ class Signals2WaitPage(WaitPage):
 		return self.player.group.Start
 
 	def after_all_players_arrive(self):
-		self.player.group.get_continue()
-		for p in self.player.group.get_players():
+		self.group.get_continue()
+		for p in self.group.get_players():
 			p.get_signal2()
 
 
@@ -62,8 +62,8 @@ class Decision2Implement(Page):
 class ResultsWaitPage(WaitPage):
 
 	def after_all_players_arrive(self):
-		self.player.group.get_implement()
-		for p in self.player.group.get_players():
+		self.group.get_implement()
+		for p in self.group.get_players():
 			p.get_payoff()
 
 	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'

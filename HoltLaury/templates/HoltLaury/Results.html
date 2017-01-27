@@ -1,0 +1,34 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	Results 
+{% endblock %}
+
+{% block content %}
+<font size="4">
+<table class="table">
+	<tr>
+		<td> The lottery chosen </td>
+		<td> {{player.number_of_lottery}} </td>
+	</tr>
+
+	<tr>
+		<td> You have chosen </td>
+		<td> Option {% if player.optionA == 1 %} A {% else %} B {% endif %}
+	</tr>
+	<tr>
+		<td> Your Payoff is </td>
+		<td> {{player.Payment}}</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td> {% next_button %} </td>
+	</tr>
+</table>
+</font>
+
+    
+{% endblock %}
+
+

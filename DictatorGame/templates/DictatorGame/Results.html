@@ -1,0 +1,23 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+Results
+{% endblock %}
+
+{% block content %}
+<font size="4">
+<table class="table">
+	<tr>
+		<td> Your Payoff is </td>
+		<td> {{player.Payment}}
+	</tr>
+	<tr>
+		<td> </td>
+		<td>
+    {% next_button %}
+		</td>
+	</tr>
+{% endblock %}
+
+
