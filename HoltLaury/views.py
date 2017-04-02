@@ -5,9 +5,9 @@ from .models import Constants
 
 
 class Decision(Page):
-    template_name = 'HoltLaury/Decision.html'
-    form_model = models.Player
-    form_fields = ['L1','L2','L3','L4','L5','L6','L7','L8','L9','L10']
+	template_name = 'HoltLaury/Decision.html'
+	form_model = models.Player
+	form_fields = ['L1','L2','L3','L4','L5','L6','L7','L8','L9','L10']
 
 
 class ResultsWaitPage(WaitPage):
@@ -18,12 +18,12 @@ class ResultsWaitPage(WaitPage):
 
 
 class Results(Page):
-    template_name = 'HoltLaury/Results.html'
-    form_model = models.Player
+	template_name = 'HoltLaury/Results.html'
+	form_model = models.Player
 
 
 page_sequence = [
-    Decision,
-    ResultsWaitPage,
-    Results
+	Decision,
+	ResultsWaitPage,
+	Results
 ]

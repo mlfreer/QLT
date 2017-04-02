@@ -1,0 +1,53 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	Survey
+{% endblock %}
+
+{% block content %}
+<font size="4">
+<table class="table">
+	<tr>
+		<td> What is your age? </td>
+		<td> {% formfield player.Age with label=""%} </td>
+	</tr>
+	<tr>
+		<td> What is your gender? </td>
+		<td> {% formfield player.Gender with label=""%} </td>
+	</tr>
+	<tr>
+		<td> How many siblings do you have? </td>
+		<td> {% formfield player.NumOfSiblings with label=""%} </td>
+	</tr>
+	<tr>
+		<td> What is your major at George Mason University? </td>
+		<td> {% formfield player.Major with label=""%} </td>
+	</tr>
+	<tr>
+		<td> Which year are you in your program? </td>
+		<td> {% formfield player.YearInCollege with label=""%} </td>
+	</tr>
+	<tr>
+		<td> What is your GPA </td>
+		<td> {% formfield player.GPA with label=""%} </td>
+	</tr>
+	<tr>
+		<td> What do you consider your racial or ethnic background to be? </td>
+		<td> {% formfield player.Ethnicity with label=""%} </td>
+	</tr>
+	<tr>
+		<td> Have you ever participated in any economics or psychology experimental studies before? </td>
+		<td> {% formfield player.Experienced with label=""%} </td>
+	</tr>	
+
+
+
+	<tr>
+		<td></td>
+		<td>     {% next_button %} </td>
+	</tr>
+</table>
+</font>
+
+{% endblock %}

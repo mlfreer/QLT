@@ -144,6 +144,12 @@ SESSION_CONFIGS = [
          'num_demo_participants': 2,
          'app_sequence': ['DictatorGame'],
      },
+     {
+         'name': 'QCE',
+         'display_name': 'Questionnaire for Collective Experimentation',
+         'num_demo_participants': 1,
+         'app_sequence': ['CEquestionaire'],
+     },
 
      {
          'name': 'T1',

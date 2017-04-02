@@ -4,22 +4,17 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class MyPage(Page):
-    pass
+class Questionnaire(Page):
+	template_name = 'CEquestionaire/Q.html'
+	form_model = models.Player
+	form_fields = ['Gender','Age','NumOfSiblings','Ethnicity','Experienced','YearInCollege','GPA','Major']
 
 
-class ResultsWaitPage(WaitPage):
 
-    def after_all_players_arrive(self):
-        pass
-
-
-class Results(Page):
-    pass
-
+class FinalPage(Page):
+	template_name = 'CEquestionaire/Final.html'
 
 page_sequence = [
-    MyPage,
-    ResultsWaitPage,
-    Results
+	Questionnaire,
+	FinalPage
 ]
