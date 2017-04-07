@@ -3,6 +3,8 @@ from . import models
 from ._builtin import Page, WaitPage
 from .models import Constants
 
+class Welcome(Page):
+	template_name = 'DictatorGame/Welcome.html'
 
 class Decision(Page):
 	template_name = 'DictatorGame/Decision.html'
@@ -22,7 +24,7 @@ class Results(Page):
 
 
 page_sequence = [
+	Welcome,
 	Decision,
-	ResultsWaitPage,
-	Results
+	ResultsWaitPage
 ]

@@ -29,7 +29,7 @@ Treatment 1: Majority voting at all stages.
 class Constants(BaseConstants):
 	name_in_url = 'collective_experimentation_t1'
 	players_per_group = 3
-	num_rounds = 1
+	num_rounds = 5
 	High = 500 #payoff for High Type| Risky Alternative is Chosen
 	Low = 50 # payoff for Low Type|Risky Alternative is Chosen
 	Safe = 350 #payoff from the Safe Alernative

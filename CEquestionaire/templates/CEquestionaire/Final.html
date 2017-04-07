@@ -2,8 +2,17 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-Experiment is Finished! <br> Please remain sitted, you will be called for payments. <br> Thanks a lot!
-{% endblock %}
-
 {% block content %}
+
+Experiment is Finished! 
+{% endblock %}
+<h3>
+Your participat code is <i><font color="blue"> {{player.participant.code}} </font></i>
+</h3>
+
+<h3>
+	 Please remain sitted, you will be called for payments. <br>
+	<br> Thanks a lot!
+</h3>
+
 {% endblock %}

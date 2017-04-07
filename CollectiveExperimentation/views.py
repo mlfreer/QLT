@@ -10,6 +10,8 @@ from .models import Constants
 #first decision stage
 class WelcomePage(Page):
 	template_name ='CollectiveExperimentation/Welcome.html'
+	def is_displayed(self):
+		return self.player.subsession.round_number == 1
 
 class Decision2Start(Page):
 	form_model = models.Player

@@ -12,10 +12,10 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
 # DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
 if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
-    DEBUG = False
-else:
     DEBUG = True
-DEBUG=True
+else:
+    DEBUG = False
+DEBUG = True
 
 ADMIN_USERNAME = 'admin'
 ADMIN_PASSWORD = 'otree'
@@ -155,14 +155,14 @@ SESSION_CONFIGS = [
          'name': 'T1',
          'display_name': 'Majority Voting',
          'num_demo_participants': 6,
-         'app_sequence': ['CollectiveExperimentation','HoltLaury','DictatorGame'],
+         'app_sequence': ['CollectiveExperimentation','HoltLaury','DictatorGame','CEquestionaire'],
      },
 
      {
          'name': 'T2',
          'display_name': 'Optimal Voting',
          'num_demo_participants': 6,
-         'app_sequence': ['CollectiveExperimentationT2','HoltLaury','DictatorGame'],
+         'app_sequence': ['CollectiveExperimentationT2','HoltLaury','DictatorGame','CEquestionaire'],
      },
 ]
 
