@@ -40,7 +40,7 @@ class Decision(Page):
     	return self.player.subsession.round_number <= Constants.num_rounds
 
     form_model = models.Player
-    form_fields = ['CashQuantity','MasonMoneyQuantity','BarnesNobleQuantity','FandangoQuantity','GapQuantity']
+    form_fields = ['CashQuantity','MasonMoneyQuantity','BarnesNobleQuantity']#,'FandangoQuantity','GapQuantity']
     
     def CashQuantity_choices(self):
     	return range(0,int(100/self.player.CashPrice)+1,1)
@@ -58,15 +58,16 @@ class Decision(Page):
     def GapQuantity_choices(self):
     	return [i for j in (range(0,1,1), range(10,int(100/self.player.GapPrice)+1,1)) for i in j]
 
-    template_name = 'qlt/Decision2.html'
+    #template_name = 'qlt/Decision2.html'
+    template_name = 'qlt/Decision3.html'
 
     def vars_for_template(self):
     	return{
     	'CashSpending': decimal.Decimal(self.player.CashQuantity)*self.player.CashPrice,
     	'MasonMoneySpending': decimal.Decimal(self.player.MasonMoneyQuantity)*self.player.MasonMoneyPrice,
     	'BarnesNobleSpending': decimal.Decimal(self.player.BarnesNobleQuantity)*self.player.BarnesNoblePrice,
-    	'FandangoSpending': decimal.Decimal(self.player.FandangoQuantity)*self.player.FandangoPrice,
-    	'GapSpending': decimal.Decimal(self.player.GapQuantity)*self.player.GapPrice,
+    	#'FandangoSpending': decimal.Decimal(self.player.FandangoQuantity)*self.player.FandangoPrice,
+    	#'GapSpending': decimal.Decimal(self.player.GapQuantity)*self.player.GapPrice,
     	'Expenditure': self.player.Expenditure,
         'Period': self.player.subsession.round_number,
         'NumOfRound': Constants.num_rounds,
@@ -77,11 +78,11 @@ class Decision(Page):
 
     def error_message(self,values):
         self.player.BarnesNobleQuantity=values["BarnesNobleQuantity"]
-        self.player.FandangoQuantity=values["FandangoQuantity"]
-        self.player.GapQuantity=values["GapQuantity"]
+        #self.player.FandangoQuantity=values["FandangoQuantity"]
+        #self.player.GapQuantity=values["GapQuantity"]
         self.player.CashQuantity=values["CashQuantity"]
         self.player.MasonMoneyQuantity=values["MasonMoneyQuantity"]
-        self.player.Expenditure=values["CashQuantity"]*self.player.CashPrice+values["MasonMoneyQuantity"]*self.player.MasonMoneyPrice+values["BarnesNobleQuantity"]*self.player.BarnesNoblePrice+values["FandangoQuantity"]*self.player.FandangoPrice+values["GapQuantity"]*self.player.GapPrice
+        self.player.Expenditure=values["CashQuantity"]*self.player.CashPrice+values["MasonMoneyQuantity"]*self.player.MasonMoneyPrice+values["BarnesNobleQuantity"]*self.player.BarnesNoblePrice#+values["FandangoQuantity"]*self.player.FandangoPrice+values["GapQuantity"]*self.player.GapPrice
         self.player.compute_spendings()
         self.player.compute_spendings()
         if (self.player.Expenditure > 100):
@@ -104,7 +105,9 @@ class Decision(Page):
         else:
             cbn = 10*self.player.BarnesNoblePrice
 
-        min_incr = min(cg,cmm,cq,cbn)
+        min_incr = min(cmm,cq,cbn)
+
+        #min_incr = min(cg,cmm,cq,cbn)
 
 
         if (100-self.player.Expenditure >= min_incr):

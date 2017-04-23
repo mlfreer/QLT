@@ -53,20 +53,20 @@ class Player(BasePlayer):
 	GapQuantity = models.IntegerField(initial=0)
 
 #defining price vars
-	CashPrice = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
-	MasonMoneyPrice = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
-	BarnesNoblePrice = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
-	FandangoPrice = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
-	GapPrice = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
+	CashPrice = models.DecimalField(max_digits=5, decimal_places=1, default=0)
+	MasonMoneyPrice = models.DecimalField(max_digits=5, decimal_places=1, default=0)
+	BarnesNoblePrice = models.DecimalField(max_digits=5, decimal_places=1, default=0)
+	FandangoPrice = models.DecimalField(max_digits=5, decimal_places=1, default=0)
+	GapPrice = models.DecimalField(max_digits=5, decimal_places=1, default=0)
 
 #defining spending vars
-	CashSpending = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
-	MasonMoneySpending = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
-	BarnesNobleSpending = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
-	FandangoSpending = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
-	GapSpending = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
+	CashSpending = models.DecimalField(max_digits=5, decimal_places=1, default=0)
+	MasonMoneySpending = models.DecimalField(max_digits=5, decimal_places=1, default=0)
+	BarnesNobleSpending = models.DecimalField(max_digits=5, decimal_places=1, default=0)
+	FandangoSpending = models.DecimalField(max_digits=5, decimal_places=1, default=0)
+	GapSpending = models.DecimalField(max_digits=5, decimal_places=1, default=0)
 
-	Expenditure = models.DecimalField(..., max_digits=5, decimal_places=1, default=0)
+	Expenditure = models.DecimalField(max_digits=5, decimal_places=1, default=0)
 
 	def compute_spendings(self):
 		self.CashSpending = self.CashPrice*decimal.Decimal(self.CashQuantity)
