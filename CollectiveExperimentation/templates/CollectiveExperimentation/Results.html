@@ -2,20 +2,20 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Results
+   Round {{player.round_number}}. Results
 {% endblock %}
 
 {% block content %}
 <font size="4">
 <table class="table">
 	<tr>
-		<td> You decided to implement </td>
+		<td> Majority of the group decided to  </td>
 		<td> <b>{% if player.group.Implement == 1%}
- Risky
+ implement 
 {% else %}
-Safe
+not to implement 
 {% endif %}</b>
-alternative
+the project
 		</td>
 	</tr>
 	<tr>

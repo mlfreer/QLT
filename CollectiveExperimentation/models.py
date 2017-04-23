@@ -29,7 +29,7 @@ Treatment 1: Majority voting at all stages.
 class Constants(BaseConstants):
 	name_in_url = 'collective_experimentation_t1'
 	players_per_group = 3
-	num_rounds = 5
+	num_rounds = 15
 	High = 500 #payoff for High Type| Risky Alternative is Chosen
 	Low = 50 # payoff for Low Type|Risky Alternative is Chosen
 	Safe = 350 #payoff from the Safe Alernative
@@ -43,6 +43,7 @@ class Subsession(BaseSubsession):
 	#functions at the subsession level
 	def before_session_starts(self):
 		self.group_randomly()
+		
 		for p in self.get_players():
 			p.set_type()
 			p.get_mynumber()
@@ -91,6 +92,10 @@ class Group(BaseGroup):
 		if self.Votes2Implement>=2:
 			self.Implement = 1
 
+	def set_payment_round(self):
+		for p in self.get_players():
+			if p.round_number == Constants.num_rounds:
+				self.subsession.paying_round=random.randint(1,Constants.num_rounds)
 
 
 
@@ -160,7 +165,7 @@ class Player(BasePlayer):
 
 	#determining the payoff of player
 	Payment = models.IntegerField(initial=Constants.Safe)
-	
+	FinalPayment = models.IntegerField(initial=Constants.Safe)
 	def get_payoff(self):
 		if self.group.Implement==1:
 			self.Payment = self.Type*Constants.High + (1-self.Type)*Constants.Low

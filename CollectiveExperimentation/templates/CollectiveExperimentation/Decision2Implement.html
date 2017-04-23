@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Stage 3
+    Round {{player.round_number}}. Stage 3
 {% endblock %}
 
 {% block content %}
@@ -39,11 +39,11 @@ http://getbootstrap.com/components/
 
 	<tr>
 	<td>
-		<img src="http://mason.gmu.edu/~mfreer/game_tree.png" style="width:100%;height:100%;">
+		<img src="http://mason.gmu.edu/~mfreer/game_tree.png" style="width:100%;height:80%;">
 
 	</td>
 	<td>
-		<center><font size="4">Do you want to continue experimenting? {% formfield player.VerbalVoteStage3 with label=""%}</font></center>
+		<center><font size="4">Do you want to implement the project? {% formfield player.VerbalVoteStage3 with label=""%}</font></center>
 
 	</td>
 	</tr>

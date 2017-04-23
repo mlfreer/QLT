@@ -24,6 +24,8 @@ class Signals1WaitPage(WaitPage):
 		self.group.get_start()
 		for p in self.group.get_players():
 			p.get_signal1()
+			if p.round_number==Constants.num_rounds:
+				p.group.set_payment_round()
 
 		
 	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
