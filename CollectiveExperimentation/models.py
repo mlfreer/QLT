@@ -165,7 +165,6 @@ class Player(BasePlayer):
 
 	#determining the payoff of player
 	Payment = models.IntegerField(initial=Constants.Safe)
-	FinalPayment = models.IntegerField(initial=Constants.Safe)
 	def get_payoff(self):
 		if self.group.Implement==1:
 			self.Payment = self.Type*Constants.High + (1-self.Type)*Constants.Low

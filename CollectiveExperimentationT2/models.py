@@ -26,7 +26,7 @@ Treatment 2: Optimal Voting Mechanism (skipping voting at Stage 2)
 class Constants(BaseConstants):
 	name_in_url = 'collective_experimentation_t2'
 	players_per_group = 3
-	num_rounds = 5
+	num_rounds = 15
 	High = 500 #payoff for High Type| Risky Alternative is Chosen
 	Low = 50 # payoff for Low Type|Risky Alternative is Chosen
 	Safe = 350 #payoff from the Safe Alernative
@@ -87,6 +87,10 @@ class Group(BaseGroup):
 		self.count_votes2implement()
 		if self.Votes2Implement>=2:
 			self.Implement = 1
+	def set_payment_round(self):
+		for p in self.get_players():
+			if p.round_number == Constants.num_rounds:
+				self.subsession.paying_round=random.randint(1,Constants.num_rounds)
 
 
 

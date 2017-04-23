@@ -13,7 +13,7 @@ class Decision(Page):
 
 
 class ResultsWaitPage(WaitPage):
-
+	template_name = 'HoltLaury/Wait.html'
 	def after_all_players_arrive(self):
 		for p in self.group.get_players():
 			p.get_payoff()
@@ -27,5 +27,5 @@ class Results(Page):
 page_sequence = [
 	Welcome,
 	Decision,
-	ResultsWaitPage
+	ResultsWaitPage,
 ]

@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Stage 3
+    Round {{player.round_number}}. Stage 3
 {% endblock %}
 
 {% block content %}
@@ -43,7 +43,7 @@ http://getbootstrap.com/components/
 
 	</td>
 	<td>
-		<center><font size="4">Do you want to continue experimenting? {% formfield player.VerbalVoteStage3 with label=""%}</font></center>
+		<center><font size="4">Do you want to implement the project? {% formfield player.VerbalVoteStage3 with label=""%}</font></center>
 
 	</td>
 	</tr>
