@@ -10,6 +10,10 @@ class Decision(Page):
 	template_name = 'DictatorGame/Decision.html'
 	form_model = models.Player
 	form_fields = ['Pass']
+	def Pass_max(self):
+		return 40
+	def Pass_min(self):
+		return 0
 
 
 

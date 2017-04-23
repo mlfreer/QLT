@@ -3,8 +3,10 @@ from otree.api import (
 	Currency as c, currency_range
 )
 
+import otree.models
 from otree.db import models
 from django.db import models
+from otree import widgets
 
 import random
 import decimal
@@ -38,8 +40,8 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-	Pass = models.IntegerField(default =0)
-	Hold = models.IntegerField(default = 40)
+	Pass = models.IntegerField(default=0)
+	Hold = models.IntegerField(default=40)
 
 	Payment = models.IntegerField(default = 40)
 
