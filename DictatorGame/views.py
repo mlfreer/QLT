@@ -14,7 +14,7 @@ class Decision(Page):
 
 
 class ResultsWaitPage(WaitPage):
-
+	template_name = 'DictatorGame/Welcome.html'
 	def after_all_players_arrive(self):
 		self.group.compute_payments()
 
