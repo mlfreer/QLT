@@ -43,8 +43,6 @@ class Decision2Continue(Page):
 
 class Signals2WaitPage(WaitPage):
 	wait_for_all_groups = True
-	def is_displayed(self):
-		return self.player.group.Start
 
 	def after_all_players_arrive(self):
 		self.group.get_continue()
