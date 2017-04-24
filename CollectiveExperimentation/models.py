@@ -48,7 +48,9 @@ class Subsession(BaseSubsession):
 			p.set_type()
 			p.get_mynumber()
 
-
+	def get_start(self):
+		for g in self.get_groups():
+			g.get_start()
 
 
 class Group(BaseGroup):
@@ -58,16 +60,19 @@ class Group(BaseGroup):
 	Votes2Implement = models.IntegerField(initial = 0) #the amount of people voted to implement RA (Stage 3)
 
 	def count_votes2start(self):
+		self.Votes2Start =0;
 		for p in self.get_players():
 			p.get_vote_stage1()
 			self.Votes2Start = self.Votes2Start + p.VoteStage1
 
 	def count_votes2continue(self):
+		self.Votes2Continue=0;
 		for p in self.get_players():
 			p.get_vote_stage2()
 			self.Votes2Continue = self.Votes2Continue + p.VoteStage2
 
 	def count_votes2implement(self):
+		self.Votes2Implement=0;
 		for p in self.get_players():
 			p.get_vote_stage3()
 			self.Votes2Implement = self.Votes2Implement + p.VoteStage3
