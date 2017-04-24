@@ -13,6 +13,7 @@ class Decision(Page):
 
 
 class ResultsWaitPage(WaitPage):
+	wait_for_all_groups=True
 	#template_name = 'HoltLaury/Wait.html'
 	def after_all_players_arrive(self):
 		for p in self.group.get_players():
@@ -27,5 +28,5 @@ class Results(Page):
 page_sequence = [
 	Welcome,
 	Decision,
-	ResultsWaitPage,
+	ResultsWaitPage
 ]

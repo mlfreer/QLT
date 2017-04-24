@@ -19,6 +19,7 @@ class Decision(Page):
 
 class ResultsWaitPage(WaitPage):
 	#template_name = 'DictatorGame/Welcome.html'
+	wait_for_all_groups=True
 	def after_all_players_arrive(self):
 		self.subsession.compute_payments()
 
