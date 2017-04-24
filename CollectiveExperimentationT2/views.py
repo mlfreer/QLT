@@ -21,14 +21,10 @@ class Decision2Start(Page):
 
 class Signals1WaitPage(WaitPage):
 	def after_all_players_arrive(self):
-		self.group.get_start()
-		for p in self.group.get_players():
-			p.get_signal1()
-			if p.round_number==Constants.num_rounds:
-				p.group.set_payment_round()
+		self.subsession.get_start()
 
 		
-	template_name = 'CollectiveExperimentationT2/Signals1WaitPage.html'
+	#template_name = 'CollectiveExperimentationT2/Signals1WaitPage.html'
 
 class Decision2Continue(Page):
 
@@ -45,12 +41,9 @@ class Signals2WaitPage(WaitPage):
 		return self.player.group.Start
 
 	def after_all_players_arrive(self):
-		self.group.get_continue()
-		for p in self.group.get_players():
-			p.get_signal2()
+		self.subsession.get_continue()
 
-
-	template_name = 'CollectiveExperimentationT2/Signals1WaitPage.html'
+	#template_name = 'CollectiveExperimentationT2/Signals1WaitPage.html'
 
 
 #deciding whether to implement
@@ -66,12 +59,11 @@ class Decision2Implement(Page):
 class ResultsWaitPage(WaitPage):
 
 	def after_all_players_arrive(self):
-		self.group.get_implement()
-		for p in self.group.get_players():
-			p.get_payoff()
+		self.subsession.get_implement()
 
-	template_name = 'CollectiveExperimentationT2/Signals1WaitPage.html'
-
+	#template_name = 'CollectiveExperimentationT2/Signals1WaitPage.html'
+class BetweenRounds(WaitPage):
+	wait_for_all_groups=True
 
 
 class Results(Page):
@@ -86,5 +78,6 @@ page_sequence = [
 	Signals2WaitPage,
 	Decision2Implement,
 	ResultsWaitPage,
-	Results
+	Results,
+	BetweenRounds
 ]

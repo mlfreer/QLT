@@ -27,7 +27,9 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-	pass
+	def compute_payments(self):
+		for g in self.get_groups():
+			g.compute_payments()
 
 
 class Group(BaseGroup):
