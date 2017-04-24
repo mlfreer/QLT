@@ -49,7 +49,7 @@ class Signals2WaitPage(WaitPage):
 			p.get_signal2()
 
 
-	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
+	#template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
 
 
 #deciding whether to implement
@@ -69,7 +69,7 @@ class ResultsWaitPage(WaitPage):
 		for p in self.group.get_players():
 			p.get_payoff()
 
-	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
+	#template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
 
 
 
@@ -78,7 +78,7 @@ class Results(Page):
 
 class BetweenRounds(WaitPage):
 	wait_for_all_groups=True
-	template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
+	#template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
 
 page_sequence = [
 	WelcomePage,
@@ -88,5 +88,6 @@ page_sequence = [
 	Signals2WaitPage,
 	Decision2Implement,
 	ResultsWaitPage,
-	Results
+	Results,
+	BetweenRounds
 ]
