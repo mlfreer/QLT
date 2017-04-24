@@ -20,6 +20,7 @@ class Decision2Start(Page):
 	template_name = 'CollectiveExperimentation/Decision2Start.html'
 
 class Signals1WaitPage(WaitPage):
+	wait_for_all_groups = True
 	def after_all_players_arrive(self):
 		self.group.get_start()
 		for p in self.group.get_players():
@@ -41,6 +42,7 @@ class Decision2Continue(Page):
 	template_name = 'CollectiveExperimentation/Decision2Continue.html'
 
 class Signals2WaitPage(WaitPage):
+	wait_for_all_groups = True
 	def is_displayed(self):
 		return self.player.group.Start
 
@@ -64,6 +66,7 @@ class Decision2Implement(Page):
 	template_name = 'CollectiveExperimentation/Decision2Implement.html'
 
 class ResultsWaitPage(WaitPage):
+	wait_for_all_groups = True
 
 	def after_all_players_arrive(self):
 		self.group.get_implement()
