@@ -23,11 +23,7 @@ class Signals1WaitPage(WaitPage):
 	wait_for_all_groups = True
 	def after_all_players_arrive(self):
 		self.subsession.get_start()
-		for p in self.group.get_players():
-			p.get_signal1()
-			print('*******p.signal1 is', p.Signal1)
-			if p.round_number==Constants.num_rounds:
-				p.group.set_payment_round()
+		
 	
 	#template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
 
@@ -44,9 +40,7 @@ class Decision2Continue(Page):
 class Signals2WaitPage(WaitPage):
 
 	def after_all_players_arrive(self):
-		self.group.get_continue()
-		for p in self.group.get_players():
-			p.get_signal2()
+		self.subsession.get_continue()
 
 
 	#template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
@@ -65,9 +59,7 @@ class Decision2Implement(Page):
 class ResultsWaitPage(WaitPage):
 
 	def after_all_players_arrive(self):
-		self.group.get_implement()
-		for p in self.group.get_players():
-			p.get_payoff()
+		self.subsession.get_implement()
 
 	#template_name = 'CollectiveExperimentation/Signals1WaitPage.html'
 

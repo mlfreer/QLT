@@ -51,6 +51,23 @@ class Subsession(BaseSubsession):
 	def get_start(self):
 		for g in self.get_groups():
 			g.get_start()
+			for p in g.get_players():
+				p.get_signal1()
+				if p.round_number==Constants.num_rounds:
+					p.group.set_payment_round()
+
+	def get_continue(self):
+		for g in self.get_groups():
+			g.get_continue()
+			for p in g.get_players():
+				p.get_signal2()
+
+	def get_implement(self):
+		for g in self.get_groups():
+			g.get_implement()
+			for p in g.get_players():
+				p.get_payoff()
+
 
 
 class Group(BaseGroup):
