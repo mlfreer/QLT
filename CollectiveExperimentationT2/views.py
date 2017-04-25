@@ -25,6 +25,7 @@ class Signals1WaitPage(WaitPage):
 		self.subsession.get_start()
 		for p in self.group.get_players():
 				p.get_signal1()
+				p.get_signal2()
 
 		
 	#template_name = 'CollectiveExperimentationT2/Signals1WaitPage.html'
@@ -55,7 +56,7 @@ class Signals2WaitPage(WaitPage):
 #deciding whether to implement
 class Decision2Implement(Page):
 	def is_displayed(self):
-		return self.player.group.Continue
+		return self.player.group.Start
 
 	form_model = models.Player
 	form_fields = ['VerbalVoteStage3']
