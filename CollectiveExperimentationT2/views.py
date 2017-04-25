@@ -47,8 +47,6 @@ class Signals2WaitPage(WaitPage):
 
 	def after_all_players_arrive(self):
 		self.subsession.get_continue()
-		for p in self.group.get_players():
-				p.get_signal2()
 
 	#template_name = 'CollectiveExperimentationT2/Signals1WaitPage.html'
 
