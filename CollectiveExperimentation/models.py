@@ -29,7 +29,7 @@ Treatment 1: Majority voting at all stages.
 class Constants(BaseConstants):
 	name_in_url = 'collective_experimentation_t1'
 	players_per_group = 3
-	num_rounds = 5
+	num_rounds = 15
 	High = 500 #payoff for High Type| Risky Alternative is Chosen
 	Low = 50 # payoff for Low Type|Risky Alternative is Chosen
 	Safe = 350 #payoff from the Safe Alernative
@@ -53,7 +53,7 @@ class Subsession(BaseSubsession):
 			g.get_start()
 			for p in g.get_players():
 				p.get_signal1()
-				if p.round_number==Constants.num_rounds:
+				if self.round_number==Constants.num_rounds:
 					p.group.set_payment_round()
 
 	def get_continue(self):
