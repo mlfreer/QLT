@@ -78,7 +78,7 @@ class Player(BasePlayer):
 		if self.number_of_lottery == 9: 
 			self.Payment = self.L9*(40*self.optionA+32*(1-self.optionA))+(1-self.L9)*(77*self.optionA+2*(1-self.optionA))
 		if self.number_of_lottery == 10: 
-			self.Payment = aself.L10*(40*self.optionA+32*(1-self.optionA))+(1-self.L10)*(77*self.optionA+2*(1-self.optionA))
+			self.Payment = self.L10*(40*self.optionA+32*(1-self.optionA))+(1-self.L10)*(77*self.optionA+2*(1-self.optionA))
 		
 
 
