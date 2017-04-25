@@ -26,7 +26,7 @@ Treatment 2: Optimal Voting Mechanism (skipping voting at Stage 2)
 class Constants(BaseConstants):
 	name_in_url = 'collective_experimentation_t2'
 	players_per_group = 3
-	num_rounds = 15
+	num_rounds = 5
 	High = 500 #payoff for High Type| Risky Alternative is Chosen
 	Low = 50 # payoff for Low Type|Risky Alternative is Chosen
 	Safe = 350 #payoff from the Safe Alernative
