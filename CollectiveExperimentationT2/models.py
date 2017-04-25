@@ -70,7 +70,7 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
 	RiskyChosen = models.IntegerField(initial = 0) #is risky alternative chosen
 	Votes2Start = models.IntegerField(initial = 0) #the amount of people voted to start (Stage 1)
-	Votes2Continue = models.IntegerField(initial = 1) #the amount of people voted to continue experimenting (Stage 2)
+	Votes2Continue = models.IntegerField(initial = 3) #the amount of people voted to continue experimenting (Stage 2)
 	Votes2Implement = models.IntegerField(initial = 0) #the amount of people voted to implement RA (Stage 3)
 
 	def count_votes2start(self):
@@ -157,7 +157,7 @@ class Player(BasePlayer):
 
 	#decision variables: 3 stages of voting
 	VoteStage1 = models.IntegerField(initial=0)
-	VoteStage2 = models.IntegerField(initial=0)
+	VoteStage2 = models.IntegerField(initial=1)
 	VoteStage3 = models.IntegerField(initial=0)
 	#verbalized decisions:
 	VerbalVoteStage1 = models.CharField(
