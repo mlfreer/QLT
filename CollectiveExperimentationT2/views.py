@@ -51,7 +51,7 @@ class Signals2WaitPage(WaitPage):
 #deciding whether to implement
 class Decision2Implement(Page):
 	def is_displayed(self):
-		return (self.player.group.Continue)&&(self.player.group.Start)
+		return (self.player.group.Continue) and (self.player.group.Start)
 
 	form_model = models.Player
 	form_fields = ['VerbalVoteStage3']
