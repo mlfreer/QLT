@@ -70,7 +70,7 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
 	RiskyChosen = models.IntegerField(initial = 0) #is risky alternative chosen
 	Votes2Start = models.IntegerField(initial = 0) #the amount of people voted to start (Stage 1)
-	Votes2Continue = models.IntegerField(initial = 0) #the amount of people voted to continue experimenting (Stage 2)
+	Votes2Continue = models.IntegerField(initial = 1) #the amount of people voted to continue experimenting (Stage 2)
 	Votes2Implement = models.IntegerField(initial = 0) #the amount of people voted to implement RA (Stage 3)
 
 	def count_votes2start(self):
@@ -90,23 +90,30 @@ class Group(BaseGroup):
 
 	#determining the group decisions at every stage
 	Start = models.IntegerField(initial=0) #whether group wants to start
-	Continue = models.IntegerField(initial=0) #whether group wants to contiue
+	Continue = models.IntegerField(initial=1) #whether group wants to contiue
 	Implement = models.IntegerField(initial=0) #whether group wants to implement
 
 	def get_start(self):
 		self.count_votes2start()
 		if self.Votes2Start>=2:
 			self.Start = 1
+		for p in self.get_players():
+				p.get_signal1()
+				if self.round_number==Constants.num_rounds:
+					p.group.set_payment_round()
 
 	def get_continue(self):
-		self.count_votes2continue()
-		if self.Votes2Continue>=2:
-			self.Continue = 1
+		self.Continue=1
+		for p in self.get_players():
+				p.get_signal2()
+
 
 	def get_implement(self):
 		self.count_votes2implement()
 		if self.Votes2Implement>=2:
 			self.Implement = 1
+
+
 	def set_payment_round(self):
 		for p in self.get_players():
 			if p.round_number == Constants.num_rounds:
