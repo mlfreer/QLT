@@ -150,6 +150,12 @@ SESSION_CONFIGS = [
          'app_sequence': ['DictatorGame'],
      },
      {
+         'name': 'PostExperimental',
+         'display_name': 'Risk and Social Preferences',
+         'num_demo_participants': 2,
+         'app_sequence': ['HoltLaury','DictatorGame'],
+     },
+     {
          'name': 'QCE',
          'display_name': 'Questionnaire for Collective Experimentation',
          'num_demo_participants': 1,
