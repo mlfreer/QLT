@@ -74,6 +74,7 @@ class Group(BaseGroup):
 	Votes2Implement = models.IntegerField(initial = 0) #the amount of people voted to implement RA (Stage 3)
 
 	def count_votes2start(self):
+		self.Votes2Start=0;
 		for p in self.get_players():
 			p.get_vote_stage1()
 			self.Votes2Start = self.Votes2Start + p.VoteStage1
@@ -81,9 +82,10 @@ class Group(BaseGroup):
 	def count_votes2continue(self):
 		#for p in self.get_players():
 			#p.get_vote_stage2()
-		self.Votes2Continue = 2
+		self.Votes2Continue = 3
 
 	def count_votes2implement(self):
+		self.Votes2Implement=0;
 		for p in self.get_players():
 			p.get_vote_stage3()
 			self.Votes2Implement = self.Votes2Implement + p.VoteStage3
