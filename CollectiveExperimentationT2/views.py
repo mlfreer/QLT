@@ -23,9 +23,8 @@ class Signals1WaitPage(WaitPage):
 	#wait_for_all_groups = True
 	def after_all_players_arrive(self):
 		self.player.group.get_start()
-		for p in self.group.get_players():
-				p.get_signal1()
-				p.get_signal2()
+		self.player.get_signal1()
+		self.player.get_signal2()
 
 		
 	#template_name = 'CollectiveExperimentationT2/Signals1WaitPage.html'
