@@ -100,14 +100,11 @@ class Group(BaseGroup):
 		if self.Votes2Start>=2:
 			self.Start = 1
 		for p in self.get_players():
-				p.get_signal1()
-				if self.round_number==Constants.num_rounds:
-					p.group.set_payment_round()
+			if self.round_number==Constants.num_rounds:
+				p.group.set_payment_round()
 
 	def get_continue(self):
 		self.Continue=1
-		for p in self.get_players():
-				p.get_signal2()
 
 
 	def get_implement(self):

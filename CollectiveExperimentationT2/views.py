@@ -22,7 +22,7 @@ class Decision2Start(Page):
 class Signals1WaitPage(WaitPage):
 	#wait_for_all_groups = True
 	def after_all_players_arrive(self):
-		self.subsession.get_start()
+		self.player.group.get_start()
 		for p in self.group.get_players():
 				p.get_signal1()
 				p.get_signal2()
@@ -46,7 +46,7 @@ class Signals2WaitPage(WaitPage):
 		return self.player.group.Start
 
 	def after_all_players_arrive(self):
-		self.subsession.get_continue()
+		self.player.group.get_continue()
 
 	#template_name = 'CollectiveExperimentationT2/Signals1WaitPage.html'
 
