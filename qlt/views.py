@@ -19,7 +19,7 @@ class Quiz(Page):
     def is_displayed(self):
         return self.player.subsession.round_number == 1
 
-    template_name='qlt/Quiz.html'
+    template_name='qlt/Quiz3goods.html'
     form_model = models.Player
     form_fields = ['Q1','Q2','Q3','Q4','Q5']
 
@@ -150,8 +150,8 @@ class ResultsWaitPage(WaitPage):
     form_model = models.Player
     wait_for_all_groups = True
 
-
-    template_name = 'qlt/ResultsWaitingPage.html'
+    #getting rid off slow wait page -- to speed up the experiment.
+    #template_name = 'qlt/ResultsWaitingPage.html'
 
 class Results(Page):
 #final payment screen
@@ -165,7 +165,7 @@ class Results(Page):
 		'player_in_all_rounds': self.player.in_all_rounds(),
 		}
 
-	template_name = 'qlt/Results.html'
+	template_name = 'qlt/Results3goods.html'
 
 
 page_sequence = [

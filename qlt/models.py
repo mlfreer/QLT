@@ -24,7 +24,7 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'qlt'
     players_per_group = None
-    num_rounds = 30
+    num_rounds = 2
     endowment = c(100)
 
 

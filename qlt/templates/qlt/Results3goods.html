@@ -1,0 +1,30 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Your Final Earnings
+{% endblock %}
+
+{% block content %}
+<h4> The Randomly Selected Decision Problem is <b><i><font color="blue">{{paying_round}}</i></font> </b> (highlighted) </h4>
+
+<h4> Participant code: <b><i> <font color="blue">{{player.participant.code}} </font></i></b> </h4>
+<table class="table">
+	<tr>
+    <td> </td>
+		<td> Cash </td>
+		<td> Mason Money </td>
+		<td> Barnes and Noble gift card </td>
+	</tr>
+	{% for p in player_in_all_rounds %}
+	<tr {% if p.subsession.round_number == paying_round %} class="highlighted_row" {% endif %}>
+		<td> You have chosen (in Decision Problem <b> {{p.subsession.round_number}}</b>) </td>
+		<td> ${{p.CashQuantity}} </td>
+		<td> ${{p.MasonMoneyQuantity}} </td>
+		<td> ${{p.BarnesNobleQuantity}} </td>
+
+	<tr>
+	{% endfor %}
+</table>
+
+{% endblock %}
