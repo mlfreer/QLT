@@ -15,7 +15,7 @@ if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
     DEBUG = True
 else:
     DEBUG = False
-DEBUG = False
+DEBUG = True
 
 ADMIN_USERNAME = 'admin'
 ADMIN_PASSWORD = 'otree'
@@ -174,6 +174,12 @@ SESSION_CONFIGS = [
          'display_name': 'Optimal Voting',
          'num_demo_participants': 6,
          'app_sequence': ['CollectiveExperimentationT2','HoltLaury','DictatorGame','CEquestionaire'],
+     },
+     {
+         'name': 'UGGARP',
+         'display_name': 'Ultimatum Game with Point Beliefs',
+         'num_demo_participants': 2,
+         'app_sequence': ['UGGARP'],
      },
 ]
 
