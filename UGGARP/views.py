@@ -10,6 +10,9 @@ class Welcome(Page):
 	template_name = 'UGGARP/Welcome.html'
 
 class ProposerDecision(Page):
+	def is_displayed(self):
+		return self.player.subsession.round_number <= Constants.decision_rounds
+
 	template_name = 'UGGARP/Proposer.html'
 	form_model = models.Player
 	form_fields = ['proposers_choice']
@@ -44,6 +47,9 @@ class ProposerDecision(Page):
 		}
 
 class ResponderDecision(Page):
+	def is_displayed(self):
+		return self.player.subsession.round_number <= Constants.decision_rounds
+
 	template_name = 'UGGARP/Responder.html'
 	form_model = models.Player
 	form_fields = ['responders_choice_a','responders_choice_b','responders_choice_c', 'responders_choice_d', 'responders_choice_e','responders_choice_f','responders_choice_g','responders_choice_h','responders_choice_i','responders_choice_j','responders_choice_k','responders_choice_l','responders_choice_m']
@@ -76,6 +82,15 @@ class ResponderDecision(Page):
 		'proposer_earning_m': Constants.proposer_earnings['m'][self.subsession.round_number-1],
 		'responder_earning_m': Constants.responder_earnings['m'][self.subsession.round_number-1]
 		}
+
+class Beliefs(Page):
+	def is_displayed(self):
+		return self.player.subsession.round_number > Constants.decision_rounds
+	
+	template_name = 'UGGARP/Beliefs.html'
+
+	form_model = models.Player
+	form_fields = ['belief_1','belief_2','belief_3','belief_4']
 
 class ResultsWaitPage(WaitPage):
 
