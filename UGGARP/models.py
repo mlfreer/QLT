@@ -33,7 +33,8 @@ class Constants(BaseConstants):
 	decision_rounds=1
 	#number of belief rounds
 	belief_rounds=1
-	belief_sequence = [4, 3, 7]
+	#correcting for the fact that numberation start form 0 !!
+	belief_sequence = [3, 2, 6]
 	belief_options={}
 	belief_options[0] = ['a','b','c','d']
 	belief_options[1] = ['a','c','e','g']
@@ -43,7 +44,7 @@ class Constants(BaseConstants):
 	#showup fee
 	showup=8
 	#benefit for belief -- to be updated...
-	belief_payment = 1
+	belief_payment = 10
 
 	#defining the proposer earnigns for every round:
 	proposer_earnings={}
@@ -94,8 +95,8 @@ class Group(BaseGroup):
 	proposer_earning = models.DecimalField(max_digits=5, decimal_places=1, default=0)
 	responder_earning = models.DecimalField(max_digits=5, decimal_places=1, default=0)
 
-	proposer_choice=models.CharField()
-	responder_choice=models.CharField()
+	proposer_choice=models.CharField(default='a')
+	responder_choice=models.CharField(default='Accept')
 
 	payment_round=models.IntegerField()
 
@@ -239,7 +240,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 	#decision related variables and functions
-	proposers_choice=models.CharField(choices=['a','b','c','d','e','f','g','h','i','j','k','l','m'])
+	proposers_choice=models.CharField(choices=['a','b','c','d','e','f','g','h','i','j','k','l','m'],default='a')
 	responders_choice_a = models.IntegerField(initial=0)
 	responders_choice_b = models.IntegerField(initial=0)
 	responders_choice_c = models.IntegerField(initial=0)
@@ -272,13 +273,17 @@ class Player(BasePlayer):
 		self.final_payment=p.payment+8+self.belief_payment
 
 	#belief related variables and functions
-	belief_payments_round = models.IntegerField(initial=1)
+	belief_payment_round = models.IntegerField(initial=1)
 	belief_payment_option = models.IntegerField(initial=1)
-	relized_variable = models.IntegerField(initial=0)
+	realized_variable = models.IntegerField(initial=0)
+	prediction = models.CurrencyField(min=0,max=100)
+	#to be removed == tracker of the random variable
+	K=models.DecimalField(max_digits=5, decimal_places=1, default=0)
 
 	#compensation for the belief elicitation treatment
 	belief_payment = models.DecimalField(max_digits=5, decimal_places=1, default=0)
 
+	#beliefs measure the probability of rejectance
 	belief_1 = models.CurrencyField(min=0, max=100)
 	belief_2 = models.CurrencyField(min=0, max=100)
 	belief_3 = models.CurrencyField(min=0, max=100)
@@ -289,11 +294,11 @@ class Player(BasePlayer):
 	#usage of dictionaries as input fields was alerted by oTree... 
 	def get_belief_compensation(self):
 		#set the belief payment round
-		self.belief_payments_round = random.randint(1,Constants.belief_rounds)
+		self.belief_payment_round = random.randint(1,Constants.belief_rounds)
 		#set belief payment option
 		self.belief_payment_option = random.randint(1,4)
 		#define the subsession in the payment round
-		meinthepast = self.in_round(Constants.decision_rounds+self.belief_payments_round)
+		meinthepast = self.in_round(Constants.decision_rounds+self.belief_payment_round)
 		#getting number of players
 		num_of_players=len(self.subsession.get_players())
 		#getting random draw of the population
@@ -313,7 +318,7 @@ class Player(BasePlayer):
 			if self.belief_payment_option== 4:
 				self.realized_variable = random_player.responders_choice_d
 				prediction = meinthepast.belief_4
-		if self.belief_payments_round==2:
+		if self.belief_payment_round==2:
 			if self.belief_payment_option== 1:
 				self.realized_variable = random_player.responders_choice_a
 				prediction = meinthepast.belief_1
@@ -326,7 +331,7 @@ class Player(BasePlayer):
 			if self.belief_payment_option== 4:
 				self.realized_variable = random_player.responders_choice_g
 				prediction = meinthepast.belief_4
-		if self.belief_payments_round==3:
+		if self.belief_payment_round==3:
 			if self.belief_payment_option== 1:
 				self.realized_variable = random_player.responders_choice_c
 				prediction = meinthepast.belief_1
@@ -339,17 +344,19 @@ class Player(BasePlayer):
 			if self.belief_payment_option== 4:
 				self.realized_variable = random_player.responders_choice_j
 				prediction = meinthepast.belief_4
+		self.prediction=prediction
 		#getting sqare error term
 		if self.realized_variable==1:
-			sqe = (1-prediction/100)^2
+			sqe = (prediction/100)**2
 		else:
-			sqe = (prediction/100)^2
+			sqe = (1-prediction/100)**2
 		#drawing K
-		K = random.randint(1,100)
+		K = random.uniform(0,1)
 		if sqe<=K:
 			self.belief_payment=Constants.belief_payment
 		else:
 			self.belief_payment=0
+		self.K=K
 
 
 

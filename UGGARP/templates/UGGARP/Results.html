@@ -28,7 +28,9 @@
 
 </table> 
 </font>
+{{player.K}}
 
+<h5> Decision Stage Results</h5>
 <table class="table"=>
 	<tr align="center">
 		<td> Menu # </td>
@@ -48,5 +50,26 @@
 	<tr>
 	{% endfor %}
 </table>
+
+<h5>Beliefs Stage Results </h5>
+<table class="table">
+	<tr align="center">
+		<td> Menu # </td>
+		<td> Proposal Rule </td>
+		<td> Responders Choice </td>
+		<td> Prediction (of Rejecting) </td>
+		<td> Earnings </td>
+	</tr >
+		<tr align="center", class="highlighted_row" >
+		<td> {{player.belief_payment_round}} </td>
+		<td> {{player.belief_payment_option}} </td>
+		<td> {% if player.realized_variable == 1 %} Accept {% else %} Reject {% endif %} </td>
+		<td> {{player.prediction}} </td>
+		<td> {{player.belief_payment}} </td>
+	</tr>
+</table>
+
+
+
 
 {% endblock %}

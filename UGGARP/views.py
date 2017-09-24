@@ -86,11 +86,26 @@ class ResponderDecision(Page):
 class Beliefs(Page):
 	def is_displayed(self):
 		return self.player.subsession.round_number > Constants.decision_rounds
-	
+
 	template_name = 'UGGARP/Beliefs.html'
 
 	form_model = models.Player
 	form_fields = ['belief_1','belief_2','belief_3','belief_4']
+	def vars_for_template(self):
+		return {
+				'proposer_earning_1': Constants.proposer_earnings[Constants.belief_options[self.subsession.round_number-1-Constants.decision_rounds][0]][Constants.belief_sequence[self.subsession.round_number-1-Constants.decision_rounds]],
+				'proposer_earning_2': Constants.proposer_earnings[Constants.belief_options[self.subsession.round_number-1-Constants.decision_rounds][1]][Constants.belief_sequence[self.subsession.round_number-1-Constants.decision_rounds]],
+				'proposer_earning_3': Constants.proposer_earnings[Constants.belief_options[self.subsession.round_number-1-Constants.decision_rounds][2]][Constants.belief_sequence[self.subsession.round_number-1-Constants.decision_rounds]],
+				'proposer_earning_4': Constants.proposer_earnings[Constants.belief_options[self.subsession.round_number-1-Constants.decision_rounds][3]][Constants.belief_sequence[self.subsession.round_number-1-Constants.decision_rounds]],
+				'responder_earning_1': Constants.responder_earnings[Constants.belief_options[self.subsession.round_number-1-Constants.decision_rounds][0]][Constants.belief_sequence[self.subsession.round_number-1-Constants.decision_rounds]],
+				'responder_earning_2': Constants.responder_earnings[Constants.belief_options[self.subsession.round_number-1-Constants.decision_rounds][1]][Constants.belief_sequence[self.subsession.round_number-1-Constants.decision_rounds]],
+				'responder_earning_3': Constants.responder_earnings[Constants.belief_options[self.subsession.round_number-1-Constants.decision_rounds][2]][Constants.belief_sequence[self.subsession.round_number-1-Constants.decision_rounds]],
+				'responder_earning_4': Constants.responder_earnings[Constants.belief_options[self.subsession.round_number-1-Constants.decision_rounds][3]][Constants.belief_sequence[self.subsession.round_number-1-Constants.decision_rounds]],
+				'option_1': Constants.belief_options[self.subsession.round_number-1-Constants.decision_rounds][0],
+				'option_2': Constants.belief_options[self.subsession.round_number-1-Constants.decision_rounds][1],
+				'option_3': Constants.belief_options[self.subsession.round_number-1-Constants.decision_rounds][2],
+				'option_4': Constants.belief_options[self.subsession.round_number-1-Constants.decision_rounds][3],
+		}
 
 class ResultsWaitPage(WaitPage):
 
@@ -109,7 +124,7 @@ class Results(Page):
 	def vars_for_template(self):
 		return{
 		'payment_round': self.group.payment_round,
-		'player_in_all_rounds': self.player.in_all_rounds(),
+		'player_in_all_rounds': self.player.in_rounds(1,Constants.decision_rounds),
 		}
 
 
@@ -117,6 +132,7 @@ page_sequence = [
 	Welcome,
 	ProposerDecision,
 	ResponderDecision,
+	Beliefs,
 	ResultsWaitPage,
 	Results
 ]

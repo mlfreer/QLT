@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+DECISION SHEET FOR THE BELIEFS:
+{% endblock %}
+
+
+
+{% block content %}
+<h4>
+For this decision, the Responder may Accept or Reject the Proposal Rule
+</h4>
+
+
+<font size="4">
+<table class="table", border="1", align="center">
+	<tr align="center">
+		<td> Assuming the role of the <b> Proposer, </b> <br> choose a <b> Proposal Rule </b> by <br>choosing one letter in this column </td>
+		<td> <b>Proposal Rules</b> to choose from: </td>
+		<td> What do you think is the percent <br> chance  that a Proposal Rule would <br> be  <i> Rejected </i> by the <b>Responder</b>? </td>
+	</tr>
+	<tr align="center">
+		<td> <b> {{option_1}}. </b> </td>
+		<td> <b>Proposer</b> gets ${{proposer_earning_1}} and <b>Responder</b> gets ${{responder_earning_1}}. </td>
+		<td>	{%formfield player.belief_1 with label=""%}	</td>
+	</tr>
+	<tr align="center">
+		<td> <b> {{option_2}}. </b> </td>
+		<td> <b>Proposer</b> gets ${{proposer_earning_2}} and <b>Responder</b> gets ${{responder_earning_2}}. </td>
+		<td>	{%formfield player.belief_2 with label=""%}	</td>
+	</tr>
+	<tr align="center">
+		<td> <b> {{option_3}}. </b> </td>
+		<td> <b>Proposer</b> gets ${{proposer_earning_3}} and <b>Responder</b> gets ${{responder_earning_3}}. </td>
+		<td>	{%formfield player.belief_3 with label=""%}	</td>
+	</tr>
+	<tr align="center">
+		<td> <b> {{option_4}}. </b> </td>
+		<td> <b>Proposer</b> gets ${{proposer_earning_4}} and <b>Responder</b> gets ${{responder_earning_4}}. </td>
+		<td>	{%formfield player.belief_4 with label=""%}	</td>
+	</tr>
+</table>
+</font>
+  <div align="right"> {% next_button %} </div>
+
+{% endblock %}
