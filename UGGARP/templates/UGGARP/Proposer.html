@@ -1,0 +1,101 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+DECISION SHEET FOR THE PROPOSER ROLE:
+{% endblock %}
+
+
+
+{% block content %}
+<h4>
+Suppose you are the Proposer. Choose <u>one and only one alternative</u> from the following table. 
+</h4>
+
+<font size="4">
+<table class="table", border="1">
+	<tr>
+		<td> A. <b>Proposer</b> chooses <b>Proposal Rule</b> <br> by choosing one line in this column </td>
+		<td> B. <b> Proposal Rules</b> to choose from: </td>
+	</tr>
+	<tr>
+		<td> <center>a &nbsp; <input type="radio" id="id_pc_a" name="proposers_choice" value="a" required> &nbsp; </center> </td>
+		<td> 
+		Proposer gets &emsp;  ${{ proposer_earning_a}} &emsp; and &emsp; Responder gets  &emsp; ${{responder_earning_a}}</td>
+ 	</tr>
+	<tr>
+		<td> <center>b &nbsp; <input type="radio" id="id_pc_b" name="proposers_choice" value="b" required> &nbsp; </center></td>
+		<td> 
+		Proposer gets &emsp; ${{ proposer_earning_b}} &emsp; and &emsp; Responder gets &emsp; ${{responder_earning_b}}</td>
+	</tr>
+	<tr>
+		<td> <center>c &nbsp; <input type="radio" id="id_pc_c" name="proposers_choice" value="c" required> &nbsp; </center></td>
+		<td> 
+		Proposer gets  &emsp; ${{ proposer_earning_c}}  &emsp; and &emsp; Responder gets &emsp; ${{responder_earning_c}}
+ 		</td>
+	</tr>
+	<tr>
+		<td> <center>d &nbsp; <input type="radio" id="id_pc_d" name="proposers_choice" value="d" required> &nbsp;</center> </td>
+		<td> 
+		Proposer gets &emsp; ${{ proposer_earning_d}} &emsp; and &emsp; Responder gets &emsp; ${{responder_earning_d}}
+ 		</td>
+	</tr>
+	<tr>
+		<td> <center> e &nbsp; <input type="radio" id="id_pc_e" name="proposers_choice" value="e" required> &nbsp; </center> </td>
+		<td> 
+		Proposer gets  &emsp; ${{ proposer_earning_e}} &emsp; and &emsp; Responder gets &emsp; ${{responder_earning_e}}
+ 		</td>
+	</tr>
+	<tr>
+		<td><center> f &nbsp; <input type="radio" id="id_pc_f" name="proposers_choice" value="f" required> &nbsp;</center> </td>
+		<td> 
+		Proposer gets &emsp; ${{ proposer_earning_f}} &emsp; and &emsp; Responder gets  &emsp; ${{responder_earning_f}}
+ 		</td>
+	</tr>
+	<tr>
+		<td><center> g &nbsp; <input type="radio" id="id_pc_g" name="proposers_choice" value="g" required> &nbsp;</center> </td>
+		<td> 
+		Proposer gets &emsp; ${{ proposer_earning_g}} &emsp; and &emsp; Responder gets  &emsp; ${{responder_earning_g}}
+ 		</td>
+	</tr>
+	<tr>
+		<td><center> h &nbsp; <input type="radio" id="id_pc_h" name="proposers_choice" value="h" required> &nbsp;</center> </td>
+		<td> 
+		Proposer gets  &emsp; ${{ proposer_earning_h}}  &emsp; and &emsp; Responder gets  &emsp;  ${{responder_earning_h}}
+ 		</td>
+	</tr>
+	<tr>
+		<td> <center>i &nbsp; <input type="radio" id="id_pc_u" name="proposers_choice" value="i" required> &nbsp;</center> </td>
+		<td> 
+		Proposer gets  &emsp; ${{ proposer_earning_i}}  &emsp; and &emsp; Responder gets  &emsp; ${{responder_earning_i}}
+ 		</td>
+	</tr>
+	<tr>
+		<td> <center>j &nbsp; <input type="radio" id="id_pc_j" name="proposers_choice" value="j" required> &nbsp; </center></td>
+		<td> 
+		Proposer gets  &emsp; ${{ proposer_earning_j}}  &emsp; and  &emsp; Responder gets  &emsp; ${{responder_earning_j}}
+ 		</td>
+	</tr>
+	<tr>
+		<td> <center>k &nbsp; <input type="radio" id="id_pc_k" name="proposers_choice" value="k" required> &nbsp; </center></td>
+		<td> 
+		Proposer gets &emsp; ${{ proposer_earning_k}} &emsp; and &emsp; Responder gets &emsp; ${{responder_earning_k}} 
+ 		</td>
+	</tr>
+	<tr>
+		<td> <center>l &nbsp; <input type="radio" id="id_pc_l" name="proposers_choice" value="l" required> &nbsp; </center></td>
+		<td> 
+		Proposer gets  &emsp; ${{ proposer_earning_l}}  &emsp; and &emsp; Responder gets  &emsp; ${{responder_earning_l}}
+ 		</td>
+	</tr>
+	<tr>
+		<td><center> m &nbsp; <input type="radio" id="id_pc_m" name="proposers_choice" value="m" required> &nbsp; </center></td>
+		<td> 
+		Proposer gets &emsp; ${{ proposer_earning_m}} &emsp; and &emsp; Responder gets &emsp;  ${{responder_earning_m}}
+ 		</td>
+	</tr> </center>
+</table>
+</font>
+  <div align="right"> {% next_button %} </div>
+
+{% endblock %}

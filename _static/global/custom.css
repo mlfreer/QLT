@@ -63,4 +63,8 @@ table.quizfonts > tbody > tr > td:first-child /*Первая колока таб
 {
     font-size : 120%;
     font-weight: bold;
+    border: 5px solid black;
+    text-align: justify;
+
 }
+

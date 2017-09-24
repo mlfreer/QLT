@@ -1,0 +1,143 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+DECISION SHEET FOR THE RESPONDER ROLE:
+{% endblock %}
+
+
+
+{% block content %}
+<h4>
+Suppose you are the Responder. Choose <u>either Accept or Reject in column B</u>. Please complete the table for each possible alternative.
+</h4>
+
+<font size="4">
+<table class="table", border="1", align="center">
+	<tr>
+		<td></td>
+		<td> <center> A. <br> If you are the Responder and the <br> Proposer chooses Proposal Rule... </center> </td>
+		<td> <center> B. <br> 
+...then I choose to <br> (choose one for Proposal Rule):  </center></td>
+	</tr>
+	<tr>
+		<td> <center>a </center> </td>
+		<td> 
+		Proposer gets &emsp;  ${{ proposer_earning_a}} &emsp; and &emsp; Responder gets  &emsp; ${{responder_earning_a}}
+		</td>
+		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+ 	</tr>
+	<tr>
+		<td> <center>b</center></td>
+		<td> 
+		Proposer gets &emsp; ${{ proposer_earning_b}} &emsp; and &emsp; Responder gets &emsp; ${{responder_earning_b}}</td>
+		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td> <center>c</center></td>
+		<td> 
+		Proposer gets  &emsp; ${{ proposer_earning_c}}  &emsp; and &emsp; Responder gets &emsp; ${{responder_earning_c}}
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td> <center>d</center> </td>
+		<td> 
+		Proposer gets &emsp; ${{ proposer_earning_d}} &emsp; and &emsp; Responder gets &emsp; ${{responder_earning_d}}
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td> <center> e </center> </td>
+		<td> 
+		Proposer gets  &emsp; ${{ proposer_earning_e}} &emsp; and &emsp; Responder gets &emsp; ${{responder_earning_e}}
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td><center> f</center> </td>
+		<td> 
+		Proposer gets &emsp; ${{ proposer_earning_f}} &emsp; and &emsp; Responder gets  &emsp; ${{responder_earning_f}}
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td><center> g</center> </td>
+		<td> 
+		Proposer gets &emsp; ${{ proposer_earning_g}} &emsp; and &emsp; Responder gets  &emsp; ${{responder_earning_g}}
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td><center> h </center> </td>
+		<td> 
+		Proposer gets  &emsp; ${{ proposer_earning_h}}  &emsp; and &emsp; Responder gets  &emsp;  ${{responder_earning_h}}
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td> <center>i</center> </td>
+		<td> 
+		Proposer gets  &emsp; ${{ proposer_earning_i}}  &emsp; and &emsp; Responder gets  &emsp; ${{responder_earning_i}}
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td> <center>j</center></td>
+		<td> 
+		Proposer gets  &emsp; ${{ proposer_earning_j}}  &emsp; and  &emsp; Responder gets  &emsp; ${{responder_earning_j}}
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td> <center>k </center></td>
+		<td> 
+		Proposer gets &emsp; ${{ proposer_earning_k}} &emsp; and &emsp; Responder gets &emsp; ${{responder_earning_k}} 
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td> <center>l </center></td>
+		<td> 
+		Proposer gets  &emsp; ${{ proposer_earning_l}}  &emsp; and &emsp; Responder gets  &emsp; ${{responder_earning_l}}
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td><center> m </center></td>
+		<td> 
+		Proposer gets &emsp; ${{ proposer_earning_m}} &emsp; and &emsp; Responder gets &emsp;  ${{responder_earning_m}}
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr> </center>
+</table>
+</font>
+  <div align="right"> {% next_button %} </div>
+
+{% endblock %}
