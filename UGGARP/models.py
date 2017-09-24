@@ -34,6 +34,10 @@ class Constants(BaseConstants):
 	#number of belief rounds
 	belief_rounds=1
 	belief_sequence = [4, 3, 7]
+	belief_options={}
+	belief_options[0] = ['a','b','c','d']
+	belief_options[1] = ['a','c','e','g']
+	belief_options[2] = ['c','e','g','j']
 
 
 	#showup fee
@@ -258,12 +262,94 @@ class Player(BasePlayer):
 		return self.get_others_in_group()[0]
 
 	def get_final_payment(self):
-		for p in self.in_all_rounds():
-			if p.subsession.round_number==p.group.payment_round:
-				self.final_payment=p.payment+8
+		#getting belief payment
+		self.get_belief_compensation()
+
+		#retriving decision payemnt
+		p = self.in_round(self.group.payment_round)
+
+		#adding up
+		self.final_payment=p.payment+8+self.belief_payment
 
 	#belief related variables and functions
-	belief_payments_round = models.IntegerField(initial=0)
+	belief_payments_round = models.IntegerField(initial=1)
+	belief_payment_option = models.IntegerField(initial=1)
+	relized_variable = models.IntegerField(initial=0)
+
+	#compensation for the belief elicitation treatment
+	belief_payment = models.DecimalField(max_digits=5, decimal_places=1, default=0)
+
+	belief_1 = models.CurrencyField(min=0, max=100)
+	belief_2 = models.CurrencyField(min=0, max=100)
+	belief_3 = models.CurrencyField(min=0, max=100)
+	belief_4 = models.CurrencyField(min=0, max=100)
+
+	#function to compute belief compensation
+	#ALERT: it is sensitive to choices of the menus
+	#usage of dictionaries as input fields was alerted by oTree... 
+	def get_belief_compensation(self):
+		#set the belief payment round
+		self.belief_payments_round = random.randint(1,Constants.belief_rounds)
+		#set belief payment option
+		self.belief_payment_option = random.randint(1,4)
+		#define the subsession in the payment round
+		meinthepast = self.in_round(Constants.decision_rounds+self.belief_payments_round)
+		#getting number of players
+		num_of_players=len(self.subsession.get_players())
+		#getting random draw of the population
+		random_player = meinthepast.get_others_in_subsession()[random.randint(0,num_of_players-2)]
+
+		#defining the realization of the event
+		if self.belief_payment_round == 1:
+			if self.belief_payment_option== 1:
+				self.realized_variable = random_player.responders_choice_a
+				prediction = meinthepast.belief_1
+			if self.belief_payment_option== 2:
+				self.realized_variable = random_player.responders_choice_b
+				prediction = meinthepast.belief_2
+			if self.belief_payment_option== 3:
+				self.realized_variable = random_player.responders_choice_c
+				prediction = meinthepast.belief_3
+			if self.belief_payment_option== 4:
+				self.realized_variable = random_player.responders_choice_d
+				prediction = meinthepast.belief_4
+		if self.belief_payments_round==2:
+			if self.belief_payment_option== 1:
+				self.realized_variable = random_player.responders_choice_a
+				prediction = meinthepast.belief_1
+			if self.belief_payment_option== 2:
+				self.realized_variable = random_player.responders_choice_c
+				prediction = meinthepast.belief_2
+			if self.belief_payment_option== 3:
+				self.realized_variable = random_player.responders_choice_e
+				prediction = meinthepast.belief_3
+			if self.belief_payment_option== 4:
+				self.realized_variable = random_player.responders_choice_g
+				prediction = meinthepast.belief_4
+		if self.belief_payments_round==3:
+			if self.belief_payment_option== 1:
+				self.realized_variable = random_player.responders_choice_c
+				prediction = meinthepast.belief_1
+			if self.belief_payment_option== 2:
+				self.realized_variable = random_player.responders_choice_e
+				prediction = meinthepast.belief_2
+			if self.belief_payment_option== 3:
+				self.realized_variable = random_player.responders_choice_g
+				prediction = meinthepast.belief_3
+			if self.belief_payment_option== 4:
+				self.realized_variable = random_player.responders_choice_j
+				prediction = meinthepast.belief_4
+		#getting sqare error term
+		if self.realized_variable==1:
+			sqe = (1-prediction/100)^2
+		else:
+			sqe = (prediction/100)^2
+		#drawing K
+		K = random.randint(1,100)
+		if sqe<=K:
+			self.belief_payment=Constants.belief_payment
+		else:
+			self.belief_payment=0
 
 
 
