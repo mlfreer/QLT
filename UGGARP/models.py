@@ -72,17 +72,19 @@ class Subsession(BaseSubsession):
 	def before_session_starts(self):
 		self.group_randomly()
 		for g in self.get_groups():
-			g.paying_round=random.randint(1,Constants.num_rounds)
+			g.payment_round=random.randint(1,Constants.num_rounds)
 
 		
 
 class Group(BaseGroup):
 	result=models.IntegerField(initial=0)
+	proposer_earning = models.IntegerField(initial=0)
+	responder_earning = models.IntegerField(initial=0)
 
 	proposer_choice=models.CharField()
 	responder_choice=models.CharField()
 
-	pyment_round=models.IntegerField()
+	payment_round=models.IntegerField()
 
 
 	def get_player_payment(self):
@@ -114,110 +116,112 @@ class Group(BaseGroup):
 			responder.payment = responder.responders_choice_a*responder_option
 			#define responder choice
 			if responder.responders_choice_a == 0:
-				responder_choice='Reject'
+				self.responder_choice='Reject'
 			else:
-				responder_choice='Accept'
-		elif manu_chosen=='b':
-			roposer.payment = responder.responders_choice_b*proposer_option
+				self.responder_choice='Accept'
+		elif menu_chosen=='b':
+			proposer.payment = responder.responders_choice_b*proposer_option
 			responder.payment = responder.responders_choice_b*responder_option
 
 			if responder.responders_choice_b == 0:
-				responder_choice='Reject'
+				self.responder_choice='Reject'
 			else:
-				responder_choice='Accept'
+				self.responder_choice='Accept'
 
-		elif manu_chosen=='c':
-			roposer.payment = responder.responders_choice_c*proposer_option
+		elif menu_chosen=='c':
+			proposer.payment = responder.responders_choice_c*proposer_option
 			responder.payment = responder.responders_choice_c*responder_option
 
 			if responder.responders_choice_c == 0:
-				responder_choice='Reject'
+				self.responder_choice='Reject'
 			else:
-				responder_choice='Accept'
-		elif manu_chosen=='d':
-			roposer.payment = responder.responders_choice_d*proposer_option
+				self.responder_choice='Accept'
+		elif menu_chosen=='d':
+			proposer.payment = responder.responders_choice_d*proposer_option
 			responder.payment = responder.responders_choice_d*responder_option
 			
 			if responder.responders_choice_d == 0:
-				responder_choice='Reject'
+				self.responder_choice='Reject'
 			else:
-				responder_choice='Accept'
-		elif manu_chosen=='e':
-			roposer.payment = responder.responders_choice_e*proposer_option
+				self.responder_choice='Accept'
+		elif menu_chosen=='e':
+			proposer.payment = responder.responders_choice_e*proposer_option
 			responder.payment = responder.responders_choice_e*responder_option
 			
 			if responder.responders_choice_e == 0:
-				responder_choice='Reject'
+				self.responder_choice='Reject'
 			else:
-				responder_choice='Accept'
-		elif manu_chosen=='f':
-			roposer.payment = responder.responders_choice_f*proposer_option
+				self.responder_choice='Accept'
+		elif menu_chosen=='f':
+			proposer.payment = responder.responders_choice_f*proposer_option
 			responder.payment = responder.responders_choice_f*responder_option
 			
 			if responder.responders_choice_f == 0:
-				responder_choice='Reject'
+				self.responder_choice='Reject'
 			else:
-				responder_choice='Accept'
-		elif manu_chosen=='g':
-			roposer.payment = responder.responders_choice_g*proposer_option
+				self.responder_choice='Accept'
+		elif menu_chosen=='g':
+			proposer.payment = responder.responders_choice_g*proposer_option
 			responder.payment = responder.responders_choice_g*responder_option
 			
 			if responder.responders_choice_g == 0:
-				responder_choice='Reject'
+				self.responder_choice='Reject'
 			else:
-				responder_choice='Accept'
+				self.responder_choice='Accept'
 
-		elif manu_chosen=='h':
-			roposer.payment = responder.responders_choice_h*proposer_option
+		elif menu_chosen=='h':
+			proposer.payment = responder.responders_choice_h*proposer_option
 			responder.payment = responder.responders_choice_h*responder_option
 			
 			if responder.responders_choice_h == 0:
-				responder_choice='Reject'
+				self.responder_choice='Reject'
 			else:
-				responder_choice='Accept'
+				self.responder_choice='Accept'
 
-		elif manu_chosen=='i':
-			roposer.payment = responder.responders_choice_i*proposer_option
+		elif menu_chosen=='i':
+			proposer.payment = responder.responders_choice_i*proposer_option
 			responder.payment = responder.responders_choice_i*responder_option
 			
 			if responder.responders_choice_i == 0:
-				responder_choice='Reject'
+				self.responder_choice='Reject'
 			else:
-				responder_choice='Accept'
+				self.responder_choice='Accept'
 
-		elif manu_chosen=='j':
-			roposer.payment = responder.responders_choice_j*proposer_option
+		elif menu_chosen=='j':
+			proposer.payment = responder.responders_choice_j*proposer_option
 			responder.payment = responder.responders_choice_j*responder_option
 			
 			if responder.responders_choice_j == 0:
-				responder_choice='Reject'
+				self.responder_choice='Reject'
 			else:
-				responder_choice='Accept'
+				self.responder_choice='Accept'
 
-		elif manu_chosen=='k':
-			roposer.payment = responder.responders_choice_k*proposer_option
+		elif menu_chosen=='k':
+			proposer.payment = responder.responders_choice_k*proposer_option
 			responder.payment = responder.responders_choice_k*responder_option
 			if responder.responders_choice_k == 0:
-				responder_choice='Reject'
+				self.responder_choice='Reject'
 			else:
-				responder_choice='Accept'
+				self.responder_choice='Accept'
 
-		elif manu_chosen=='l':
-			roposer.payment = responder.responders_choice_l*proposer_option
+		elif menu_chosen=='l':
+			proposer.payment = responder.responders_choice_l*proposer_option
 			responder.payment = responder.responders_choice_l*responder_option
 			
 			if responder.responders_choice_l == 0:
-				responder_choice='Reject'
+				self.responder_choice='Reject'
 			else:
-				responder_choice='Accept'
-		elif manu_chosen=='m':
-			roposer.payment = responder.responders_choice_m*proposer_option
+				self.responder_choice='Accept'
+		elif menu_chosen=='m':
+			proposer.payment = responder.responders_choice_m*proposer_option
 			responder.payment = responder.responders_choice_m*responder_option
 			
 			if responder.responders_choice_m == 0:
-				responder_choice='Reject'
+				self.responder_choice='Reject'
 			else:
-				responder_choice='Accept'
+				self.responder_choice='Accept'
+		self.responder_earning = responder.payment
+		self.proposer_earning = proposer.payment
 
 
 class Player(BasePlayer):
@@ -244,7 +248,7 @@ class Player(BasePlayer):
 		return self.get_others_in_group()[0]
 
 	def get_final_payment(self):
-		for p in player.in_all_rounds():
+		for p in self.in_all_rounds():
 			if p.subsession.round_number==p.group.payment_round:
 				self.final_payment=p.payment+8
 

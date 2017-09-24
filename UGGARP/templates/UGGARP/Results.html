@@ -6,26 +6,44 @@
 {% endblock %}
 
 {% block content %}
-<h4> The Randomly Menu is <i> {{paying_round}}</i> (highlighted) </h4>
-
-<h4> Participant code: <i><font color="blue"> {{player.participant.code}}  </font></i> </h4>
-<table class="table">
+<font size="4">
+<table class="table"> 
 	<tr>
-    <td> </td>
-		<td> Your Earnings </td>
+		<td> Participant code: </td> 
+		<td><i><font color="green"> {{player.participant.code}}  </font></i> </td>
+	</tr>
+	<tr>  
+		<td> Your final payment (including show-up fee) </td>
+		<td><i><font color="green"> {{player.final_payment}}  </font></i> </td>
+	</tr>
+	<tr>
+		<td> Your Role </td>
+		<td> <i><font color="green"> {{player.role}}  </font></i> </td>
+	</tr>
+	<tr>
+		<td> Menu Chosen </td>
+		<td><i><font color="green"> {{player.group.payment_round}}  </font></i> </td>
+
+	</tr>
+
+</table> 
+</font>
+
+<table class="table"=>
+	<tr align="center">
+		<td> Menu # </td>
 		<td> Proposers Choice </td>
 		<td> Responders Choice </td>
 		<td> Proposer Earnings </td>
 		<td> Reasponder Earnings </td>
 	</tr>
 	{% for p in player_in_all_rounds %}
-	<tr {% if p.subsession.round_number == paying_round %} class="highlighted_row" {% endif %}>
-		
-		<td>  {{p.subsession.round_number}} </td>
-		<td> {{p.payment}} </td>
-		<td>  </td>
-		<td>  </td>
-		<td>  </td>
+	<tr {% if p.subsession.round_number == payment_round %} class="highlighted_row" {% endif %},  align="center">
+		<td> {{p.subsession.round_number}}
+		<td>  {{p.group.proposer_choice}}</td>
+		<td>  {{p.group.responder_choice}} </td>
+		<td>  {{p.group.proposer_earning}} </td>
+		<td> {{p.group.responder_earning}} </td>
 
 	<tr>
 	{% endfor %}

@@ -89,9 +89,11 @@ class ResultsWaitPage(WaitPage):
 
 
 class Results(Page):
+	def is_displayed(self):
+		return self.player.subsession.round_number == Constants.num_rounds
 	def vars_for_template(self):
 		return{
-		#'paying_round': self.session.vars['paying_round'],
+		'payment_round': self.group.payment_round,
 		'player_in_all_rounds': self.player.in_all_rounds(),
 		}
 
