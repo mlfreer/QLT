@@ -85,7 +85,11 @@ class ResultsWaitPage(WaitPage):
 
 
 class Results(Page):
-	pass
+	def vars_for_template(self):
+		return{
+		#'paying_round': self.session.vars['paying_round'],
+		'player_in_all_rounds': self.player.in_all_rounds(),
+		}
 
 
 page_sequence = [

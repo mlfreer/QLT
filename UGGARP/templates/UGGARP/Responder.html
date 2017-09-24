@@ -12,6 +12,8 @@ DECISION SHEET FOR THE RESPONDER ROLE:
 Suppose you are the Responder. Choose <u>either Accept or Reject in column B</u>. Please complete the table for each possible alternative.
 </h4>
 
+ {{ form.errors }}
+
 <font size="4">
 <table class="table", border="1", align="center">
 	<tr>
@@ -26,7 +28,7 @@ Suppose you are the Responder. Choose <u>either Accept or Reject in column B</u>
 		Proposer gets &emsp;  ${{ proposer_earning_a}} &emsp; and &emsp; Responder gets  &emsp; ${{responder_earning_a}}
 		</td>
 		<td>
-			<center>Accept &emsp; &emsp; Reject
+			<center>Accept <input type="radio" id="id_rca_1" name="responders_choice_a" value="1" required> &emsp; &emsp; <input type="radio" id="id_rca_0" name="responders_choice_a" value="0" required> Reject
 		</td>
  	</tr>
 	<tr>
@@ -34,7 +36,7 @@ Suppose you are the Responder. Choose <u>either Accept or Reject in column B</u>
 		<td> 
 		Proposer gets &emsp; ${{ proposer_earning_b}} &emsp; and &emsp; Responder gets &emsp; ${{responder_earning_b}}</td>
 		<td>
-			<center>Accept &emsp; &emsp; Reject
+			<center>Accept <input type="radio" id="id_rcb_1" name="responders_choice_b" value="1" required> &emsp; &emsp; <input type="radio" id="id_rcb_0" name="responders_choice_b" value="0" required> Reject
 		</td>
 	</tr>
 	<tr>
@@ -43,7 +45,7 @@ Suppose you are the Responder. Choose <u>either Accept or Reject in column B</u>
 		Proposer gets  &emsp; ${{ proposer_earning_c}}  &emsp; and &emsp; Responder gets &emsp; ${{responder_earning_c}}
  		</td>
  		<td>
-			<center>Accept &emsp; &emsp; Reject
+			<center>Accept <input type="radio" id="id_rcc_1" name="responders_choice_c" value="1" required> &emsp; &emsp; <input type="radio" id="id_rcc_0" name="responders_choice_c" value="0" required> Reject
 		</td>
 	</tr>
 	<tr>
@@ -52,7 +54,7 @@ Suppose you are the Responder. Choose <u>either Accept or Reject in column B</u>
 		Proposer gets &emsp; ${{ proposer_earning_d}} &emsp; and &emsp; Responder gets &emsp; ${{responder_earning_d}}
  		</td>
  		<td>
-			<center>Accept &emsp; &emsp; Reject
+			<center>Accept <input type="radio" id="id_rcd_1" name="responders_choice_d" value="1" required> &emsp; &emsp; <input type="radio" id="id_rcd_0" name="responders_choice_d" value="0" required> Reject
 		</td>
 	</tr>
 	<tr>
@@ -61,7 +63,7 @@ Suppose you are the Responder. Choose <u>either Accept or Reject in column B</u>
 		Proposer gets  &emsp; ${{ proposer_earning_e}} &emsp; and &emsp; Responder gets &emsp; ${{responder_earning_e}}
  		</td>
  		<td>
-			<center>Accept &emsp; &emsp; Reject
+			<center>Accept <input type="radio" id="id_rce_1" name="responders_choice_e" value="1" required> &emsp; &emsp; <input type="radio" id="id_rce_0" name="responders_choice_e" value="0" required> Reject
 		</td>
 	</tr>
 	<tr>
@@ -70,7 +72,7 @@ Suppose you are the Responder. Choose <u>either Accept or Reject in column B</u>
 		Proposer gets &emsp; ${{ proposer_earning_f}} &emsp; and &emsp; Responder gets  &emsp; ${{responder_earning_f}}
  		</td>
  		<td>
-			<center>Accept &emsp; &emsp; Reject
+			<center>Accept <input type="radio" id="id_rcf_1" name="responders_choice_f" value="1" required> &emsp; &emsp; <input type="radio" id="id_rcf_0" name="responders_choice_f" value="0" required> Reject
 		</td>
 	</tr>
 	<tr>
@@ -79,7 +81,7 @@ Suppose you are the Responder. Choose <u>either Accept or Reject in column B</u>
 		Proposer gets &emsp; ${{ proposer_earning_g}} &emsp; and &emsp; Responder gets  &emsp; ${{responder_earning_g}}
  		</td>
  		<td>
-			<center>Accept &emsp; &emsp; Reject
+			<center>Accept <input type="radio" id="id_rcg_1" name="responders_choice_g" value="1" required> &emsp; &emsp; <input type="radio" id="id_rcg_0" name="responders_choice_g" value="0" required> Reject
 		</td>
 	</tr>
 	<tr>
@@ -88,7 +90,7 @@ Suppose you are the Responder. Choose <u>either Accept or Reject in column B</u>
 		Proposer gets  &emsp; ${{ proposer_earning_h}}  &emsp; and &emsp; Responder gets  &emsp;  ${{responder_earning_h}}
  		</td>
  		<td>
-			<center>Accept &emsp; &emsp; Reject
+			<center>Accept <input type="radio" id="id_rch_1" name="responders_choice_h" value="1" required> &emsp; &emsp; <input type="radio" id="id_rch_0" name="responders_choice_h" value="0" required> Reject
 		</td>
 	</tr>
 	<tr>
@@ -97,7 +99,7 @@ Suppose you are the Responder. Choose <u>either Accept or Reject in column B</u>
 		Proposer gets  &emsp; ${{ proposer_earning_i}}  &emsp; and &emsp; Responder gets  &emsp; ${{responder_earning_i}}
  		</td>
  		<td>
-			<center>Accept &emsp; &emsp; Reject
+			<center>Accept <input type="radio" id="id_rci_1" name="responders_choice_i" value="1" required> &emsp; &emsp; <input type="radio" id="id_rci_0" name="responders_choice_i" value="0" required> Reject
 		</td>
 	</tr>
 	<tr>
@@ -106,7 +108,7 @@ Suppose you are the Responder. Choose <u>either Accept or Reject in column B</u>
 		Proposer gets  &emsp; ${{ proposer_earning_j}}  &emsp; and  &emsp; Responder gets  &emsp; ${{responder_earning_j}}
  		</td>
  		<td>
-			<center>Accept &emsp; &emsp; Reject
+			<center>Accept <input type="radio" id="id_rcj_1" name="responders_choice_j" value="1" required> &emsp; &emsp; <input type="radio" id="id_rcj_0" name="responders_choice_j" value="0" required> Reject
 		</td>
 	</tr>
 	<tr>
@@ -115,7 +117,7 @@ Suppose you are the Responder. Choose <u>either Accept or Reject in column B</u>
 		Proposer gets &emsp; ${{ proposer_earning_k}} &emsp; and &emsp; Responder gets &emsp; ${{responder_earning_k}} 
  		</td>
  		<td>
-			<center>Accept &emsp; &emsp; Reject
+			<center>Accept <input type="radio" id="id_rck_1" name="responders_choice_k" value="1" required> &emsp; &emsp; <input type="radio" id="id_rck_0" name="responders_choice_k" value="0" required> Reject
 		</td>
 	</tr>
 	<tr>
@@ -124,7 +126,7 @@ Suppose you are the Responder. Choose <u>either Accept or Reject in column B</u>
 		Proposer gets  &emsp; ${{ proposer_earning_l}}  &emsp; and &emsp; Responder gets  &emsp; ${{responder_earning_l}}
  		</td>
  		<td>
-			<center>Accept &emsp; &emsp; Reject
+			<center>Accept <input type="radio" id="id_rcl_1" name="responders_choice_l" value="1" required> &emsp; &emsp; <input type="radio" id="id_rcl_0" name="responders_choice_l" value="0" required> Reject
 		</td>
 	</tr>
 	<tr>
@@ -133,7 +135,7 @@ Suppose you are the Responder. Choose <u>either Accept or Reject in column B</u>
 		Proposer gets &emsp; ${{ proposer_earning_m}} &emsp; and &emsp; Responder gets &emsp;  ${{responder_earning_m}}
  		</td>
  		<td>
-			<center>Accept &emsp; &emsp; Reject
+			<center>Accept <input type="radio" id="id_rcm_1" name="responders_choice_m" value="1" required> &emsp; &emsp; <input type="radio" id="id_rcm_0" name="responders_choice_m" value="0" required> Reject
 		</td>
 	</tr> </center>
 </table>

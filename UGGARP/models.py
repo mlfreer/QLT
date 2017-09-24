@@ -63,15 +63,15 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-	paying_round = models.IntegerField()
+	paying_round = models.IntegerField(initial=1)
 
 	def before_session_starts(self):
 		self.group_randomly()
+
 		
 
 class Group(BaseGroup):
 	result=models.IntegerField(initial=0) 
-
 	def get_player_payment(self):
 		#define who is proposer
 		r = random.uniform(0,1)
@@ -84,8 +84,9 @@ class Group(BaseGroup):
 		#which menu we are considering and which option has been chosen
 		
 		menu_number = self.subsession.round_number-1
-		proposer_option = Constants.proposer_earnings[proposers_choice][menu_number]
-		responder_option = Constants.responder_earnings[proposers_choice][menu_number]
+		menu_chosen = proposer.proposers_choice
+		proposer_option = Constants.proposer_earnings[proposer.proposers_choice][menu_number]
+		responder_option = Constants.responder_earnings[proposer.proposers_choice][menu_number]
 		#switching among menues
 		if menu_chosen=='a':
 			proposer.payment = responder.responders_choice_a*proposer_option
