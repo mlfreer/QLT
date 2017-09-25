@@ -5,16 +5,16 @@ from .models import Constants
 
 
 class Welcome(Page):
-	template_name = 'UGGARP/Welcome.html'
+	template_name = 'UGGARP_questionnaire/Welcome.html'
 
 
 class Questions(Page):
-	template_name = 'UGGARP/Questions.html'
+	template_name = 'UGGARP_questionnaire/Questions.html'
 	form_model = models.Player
-	form_fields = ['Gender','Major','Age','YearInCollege','PreviousParticipation','EconomicsCourses','IsAltruistic','BeliefConsistency']
+	form_fields = ['Gender','Major','Age','YearInCollege','PreviousParticipation','EconomicsCourses','IsAltruistic','BeliefConsistency','OtherEconomicsCourse']
 
 class Final(Page):
-	template_name = 'UGGARP/Final.html'
+	template_name = 'UGGARP_questionnaire/Final.html'
 
 
 page_sequence = [

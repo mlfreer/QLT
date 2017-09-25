@@ -1,0 +1,59 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Please Answer the Following Questions
+{% endblock %}
+
+{% block content %}
+<font size="4">
+Age:
+&emsp; {% formfield player.Age with label="" %} 
+
+Gender: 
+<br> &emsp; <input type="radio" id="id_pp_M" name="Gender" value="0" required> Male &emsp;
+<input type="radio" id="id_pp_F" name="Gender" value="1" required> Female  
+<br><br>
+
+Class:
+<br> &emsp; <input type="radio" id="id_pp_YIC" name="YearInCollege" value="1" required> Freshman &emsp;
+<input type="radio" id="id_pp_YIC" name="YearInCollege" value="2" required> Sophomore &emsp;
+<input type="radio" id="id_pp_YIC" name="YearInCollege" value="3" required> Junior &emsp;
+<input type="radio" id="id_pp_YIC" name="YearInCollege" value="4" required> Senior
+<br><br>
+
+Which Economics Courses have you taken? <br>
+&emsp; <input type="checkbox" name="EconomicsCourses" value="None"> None
+&emsp; <input type="checkbox" name="EconomicsCourses" value="Intro Micro"> Intro Micro
+&emsp; <input type="checkbox" name="EconomicsCourses" value="Intro Macro" > Intro Macro 
+&emsp; <input type="checkbox" name="EconomicsCourses" value="Micro Theory"> Micro Theory <br>
+&emsp; <input type="checkbox" name="EconomicsCourses" value="Macro Theory"> Macro Theory
+&emsp; <input type="checkbox" name="EconomicsCourses" value="Economic Statistics"> Economic Statistics
+&emsp; <input type="checkbox" name="EconomicsCourses" value="Intro Econometrics"> Intro Econometrics <br>
+&emsp; <input type="checkbox" name="EconomicsCourses" value="Other"> other (specify) <br>
+ {% formfield player.OtherEconomicsCourse with label="" blank=True %} 
+		
+Major:   {% formfield player.Major with label="" %} 
+
+Before today, have you ever participated in an economic experiment? <br> 
+&emsp; <input type="radio" id="id_pp_1" name="PreviousParticipation" value="1" required> Yes &emsp;
+<input type="radio" id="id_pp_0" name="PreviousParticipation" value="0" required> No 
+<br><br>
+
+While you were making your choices did you only pay attention to your own payoff, or did you also take into account the payoff of the other person? <br>
+&emsp; <input type="radio" id="id_a_0" name="IsAltruistic" value="0" required> Own payoff only
+&emsp; <input type="radio" id="id_a_1" name="IsAltruistic" value="1" required> Own payoff and other person's payoff
+<br><br>
+
+Consider assuming the role of the <b>Proposer</b> when the <b>Responder</b> may choose to <i>Accept</i> or <i>Reject</i> your Proposal Rule. If you switched from your chosen proposal to one which gives <u> less</u> money to the <b>Responder</b>, which of the following do you think would happen? <br>
+&emsp; <input type="radio" id="id_a_0" name="BeliefConsistency" value="1" required> The percent chance that the <b>Responder</b> will <i>Reject</i> your proposal goes up. <br>
+&emsp; <input type="radio" id="id_a_0" name="BeliefConsistency" value="2" required>  The percent chance that the <b>Responder</b> will <i>Reject</i> your proposal stays the same.<br>
+&emsp; <input type="radio" id="id_a_0" name="BeliefConsistency" value="3" required>  The percent chance that the <b>Responder</b> will <i>Reject</i> your proposal goes down. <br>
+
+<br><br>
+</font>
+
+<div align="right"> {% next_button %} </div>
+
+{% endblock %}
+

@@ -25,11 +25,12 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-	Gender = models.CharField(choices=[('M','Male'), ('F','Female')],widget=widgets.RadioSelect())
+	Gender = models.IntegerField()
 	Major = models.CharField()
 	Age = models.IntegerField(min=18, max=99)
-	YearInCollege = models.CharField(choices=[('F','Freshman'), ('So','Sophomore'), ('J','Junior'),('Se','Senior'), ('GS','Graduate Student')], widget=widgets.RadioSelect())
-	PreviousParticipation = models.CharField(choices=[('Y','Yes'), ('F','No')],widget=widgets.RadioSelect())
+	YearInCollege = models.IntegerField()
+	PreviousParticipation = models.IntegerField()
 	EconomicsCourses = models.CharField()
+	OtherEconomicsCourse = models.CharField(default=' ')
 	IsAltruistic = models.IntegerField(initial=0)
 	BeliefConsistency = models.IntegerField(initial=0)
