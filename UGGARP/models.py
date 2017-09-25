@@ -28,11 +28,11 @@ class Constants(BaseConstants):
 	name_in_url = 'uggarp'
 	players_per_group = 2
 	#num of rounds in total
-	num_rounds = 2
+	num_rounds = 12
 	#number of decision rounds
-	decision_rounds=1
+	decision_rounds=9
 	#number of belief rounds
-	belief_rounds=1
+	belief_rounds=3
 	#correcting for the fact that numberation start form 0 !!
 	belief_sequence = [3, 2, 6]
 	belief_options={}
