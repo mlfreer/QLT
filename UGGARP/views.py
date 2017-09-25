@@ -83,6 +83,11 @@ class ResponderDecision(Page):
 		'responder_earning_m': Constants.responder_earnings['m'][self.subsession.round_number-1]
 		}
 
+class BeforeBeliefs(Page):
+	template_name='UGGARP/BeforeBeliefs.html'
+	def is_displayed(self):
+		return self.player.subsession.round_number == Constants.decision_rounds
+
 class Beliefs(Page):
 	def is_displayed(self):
 		return self.player.subsession.round_number > Constants.decision_rounds
@@ -134,5 +139,6 @@ page_sequence = [
 	ResponderDecision,
 	Beliefs,
 	ResultsWaitPage,
+	BeforeBeliefs,
 	Results
 ]

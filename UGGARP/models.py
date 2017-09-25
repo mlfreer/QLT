@@ -278,7 +278,7 @@ class Player(BasePlayer):
 	realized_variable = models.IntegerField(initial=0)
 	prediction = models.CurrencyField(min=0,max=100)
 	#to be removed == tracker of the random variable
-	K=models.DecimalField(max_digits=5, decimal_places=1, default=0)
+	K=models.DecimalField(max_digits=5, decimal_places=3, default=0)
 
 	#compensation for the belief elicitation treatment
 	belief_payment = models.DecimalField(max_digits=5, decimal_places=1, default=0)
