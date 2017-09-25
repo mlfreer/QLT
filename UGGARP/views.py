@@ -117,7 +117,8 @@ class ResultsWaitPage(WaitPage):
 	form_model = models.Player
 	def after_all_players_arrive(self):
 		for g in self.subsession.get_groups():
-			g.get_player_payment()
+			if g.subsession.round_number<=Constants.decision_rounds:
+				g.get_player_payment()
 		if self.subsession.round_number==Constants.num_rounds:
 			for p in self.subsession.get_players():
 				p.get_final_payment()
