@@ -276,18 +276,19 @@ class Player(BasePlayer):
 	belief_payment_round = models.IntegerField(initial=1)
 	belief_payment_option = models.IntegerField(initial=1)
 	realized_variable = models.IntegerField(initial=0)
-	prediction = models.CurrencyField(min=0,max=100)
+	prediction = models.DecimalField(max_digits=5, decimal_places=2, default=0)
 	#to be removed == tracker of the random variable
 	K=models.DecimalField(max_digits=5, decimal_places=3, default=0)
+	sqe=models.DecimalField(max_digits=5, decimal_places=3, default=0)
 
 	#compensation for the belief elicitation treatment
 	belief_payment = models.DecimalField(max_digits=5, decimal_places=1, default=0)
 
 	#beliefs measure the probability of rejectance
-	belief_1 = models.CurrencyField(min=0, max=100)
-	belief_2 = models.CurrencyField(min=0, max=100)
-	belief_3 = models.CurrencyField(min=0, max=100)
-	belief_4 = models.CurrencyField(min=0, max=100)
+	belief_1 = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+	belief_2 = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+	belief_3 = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+	belief_4 = models.DecimalField(max_digits=5, decimal_places=2, default=0)
 
 	#function to compute belief compensation
 	#ALERT: it is sensitive to choices of the menus
@@ -357,11 +358,6 @@ class Player(BasePlayer):
 		else:
 			self.belief_payment=0
 		self.K=K
-
-
-
-	
-
-
+		self.sqe=sqe
 
 

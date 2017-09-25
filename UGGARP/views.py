@@ -131,6 +131,7 @@ class Results(Page):
 		return{
 		'payment_round': self.group.payment_round,
 		'player_in_all_rounds': self.player.in_rounds(1,Constants.decision_rounds),
+		'role': self.player.in_round(self.group.payment_round).role,
 		}
 
 

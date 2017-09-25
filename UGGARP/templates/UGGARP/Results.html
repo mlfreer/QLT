@@ -18,7 +18,7 @@
 	</tr>
 	<tr>
 		<td> Your Role </td>
-		<td> <i><font color="green"> {{player.role}}  </font></i> </td>
+		<td> <i><font color="green"> {{role}}  </font></i> </td>
 	</tr>
 	<tr>
 		<td> Menu Chosen </td>
@@ -28,7 +28,6 @@
 
 </table> 
 </font>
-{{player.K}}
 
 <h5> Decision Stage Results</h5>
 <table class="table"=>
@@ -58,6 +57,8 @@
 		<td> Proposal Rule </td>
 		<td> Responders Choice </td>
 		<td> Prediction (of Rejecting) </td>
+		<td> Your <i>Error</i></td>
+		<td> <i>Random Variable </i></td>
 		<td> Earnings </td>
 	</tr >
 		<tr align="center", class="highlighted_row" >
@@ -65,6 +66,8 @@
 		<td> {{player.belief_payment_option}} </td>
 		<td> {% if player.realized_variable == 1 %} Accept {% else %} Reject {% endif %} </td>
 		<td> {{player.prediction}} </td>
+		<td> {{player.sqe}} </td>
+		<td> {{player.K}}</td>
 		<td> {{player.belief_payment}} </td>
 	</tr>
 </table>
