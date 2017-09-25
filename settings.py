@@ -187,6 +187,12 @@ SESSION_CONFIGS = [
          'num_demo_participants': 1,
          'app_sequence': ['UGGARP_questionnaire'],
      },
+     {
+         'name': 'UGGARP_complete',
+         'display_name': 'Ultimatum Game with Point Beliefs and Questionnare',
+         'num_demo_participants': 2,
+         'app_sequence': ['UGGARP','UGGARP_questionnaire'],
+     },
 ]
 
 # don't put anything after this line.
