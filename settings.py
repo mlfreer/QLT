@@ -81,6 +81,14 @@ DEMO_PAGE_INTRO_TEXT = """
 oTree games
 """
 
+
+ROOMS = [
+    {
+        'name': 'AMlab',
+        'display_name': 'ERL Lab at Texas',
+        'participant_label_file': 'ERL.txt',
+    },
+]
 # from here on are qualifications requirements for workers
 # see description for requirements on Amazon Mechanical Turk website:
 # http://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_QualificationRequirementDataStructureArticle.html
