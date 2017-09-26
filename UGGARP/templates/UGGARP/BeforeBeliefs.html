@@ -2,18 +2,26 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Please Wait...
+ADDITIONAL INSTRUCTIONS
 {% endblock %}
 
 {% block content%}
 <font size="4">
+	<h4>Procedure</h4><br>
 In the next section you will be shown the parts of the tables of potential Proposal Rules.
-You will be asked what do you think is the percent chance that each of the displayed Proposal Rule would be <i>Rejected</i> by the <b>Responder</b>. Please provide the number between 0 and 100, which would specify the percent chance.
+You will be asked what do you think is the percent chance that each of the displayed Proposal Rule would be <i>Rejected</i> by the <b>Responder</b>. Please provide the number between 0 and 100-- the percentage chance with which you think the <b>Responder</b> would <i>Reject</i> the Proposal Rule. <br>
+
+In total you will make 12 predictions for different proposal rules. 
+One of them will be chosen determine your payment.
+Your payment in this round will depend on your decisions and a chance. 
+
 <br>
 <br>
 
+<h4>Payment</h4><br>
+
 You will be able to earn <b>up to $10</b> in addition to your earnings in the decision stage.
-You will receive the additional payment if you would be able to outperform the random machine in predicting the behavior of others.
+You will receive the additional payment if you would be able to outperform the random machine in predicting the behavior other participants in the room.
 The earnings will be according to the following procedure, after you submit all <i> predictions </i>:
 <br>
 <br>
@@ -27,7 +35,24 @@ The earnings will be according to the following procedure, after you submit all 
 
 	<li> The uniform <i>random number</i> is drawn form the interval from <i>0</i> to <i>1</i></li>
 
-	<li> You receive additional $10 if your <i> error</i> is below <i>random number</i> and do not receive any additional payment otherwise.
+	<li> You $10 (in addition to money you already earned) if your <i> error</i> is below <i>random number</i> and do not receive any additional payment otherwise.
 </ol> 
+<br><br>
+
+<h4>Examples</h4><br>
+
+<u>Example One:</u>
+Assume Your prediction was $70\%$ that a <b>Responder</b> will <i>Reject</i> the offer.
+The randomly retrieved decision was <i>Reject</i>.
+Hence, your error is <i>(1-70/100)<sup>2</sup>=.3<sup>2</sup>=.09</i>.
+Then, if random number (uniformly distributed from $0$ to $1$) is above $.09$ you will get $10, otherwise (random number is below than <i>.09</i>) you will not get additional payment.
+<br><br>
+
+<u>Example Two:</u>
+Assume Your prediction was $40\%$ that a <b>Responder</b> will <i>Reject</i> the offer.
+The randomly retrieved decision was <i>Accept</i>.
+Hence, your error is <i>(40/100)<sup>2</sup>=.4<sup>2</sup>=.16</i>.
+Then, if random number (uniformly distributed from $0$ to $1$) is above $.16$ you will get $10, otherwise (random number is below than <i>.16</i>) you will not get additional payment.
+
 </font>
 {%endblock%}
