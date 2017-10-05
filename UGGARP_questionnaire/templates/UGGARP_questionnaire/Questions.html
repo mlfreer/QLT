@@ -5,7 +5,12 @@
     Please Answer the Following Questions
 {% endblock %}
 
+
+
 {% block content %}
+{{player.participant.payoff}}
+{{player.participant.code}}
+
 <font size="4">
 Age:
 &emsp; {% formfield player.Age with label="" %} 

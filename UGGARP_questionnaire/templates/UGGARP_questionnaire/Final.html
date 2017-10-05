@@ -7,9 +7,30 @@ Experiment is Finished!
 
 {% block content %}
 
+<font size="4">
+	<b>Please fill out your receipt using the following information. <br>Your <font color="green">total payment is a sum of experimental earnings and the show-up fee</font>.</b>
+	<br><br>
+<table class="table"> 
+	<tr>
+		<td> Participant code: </td> 
+		<td><i><font color="green"> {{player.participant.code}}  </font></i> </td>
+	</tr>
+	<tr>  
+		<td> Your experimental earnings are: </td>
+		<td><i><font color="green"> {{player.participant.payoff}}  </font></i> </td>
+	</tr>
+	<tr>
+		<td> Your show-up fee is:  </td>
+		<td><i><font color="green"> $8.00  </font></i> </td>
+
+	</tr>
+</table>
+<center>
 <h3>
 	 Please remain sitted, you will be called for payments. <br>
 	<br> Thanks a lot!
-</h3>
+</h3></center>
+
+
 
 {% endblock %}

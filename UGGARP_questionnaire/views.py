@@ -12,6 +12,7 @@ class Questions(Page):
 	template_name = 'UGGARP_questionnaire/Questions.html'
 	form_model = models.Player
 	form_fields = ['Gender','Major','Age','YearInCollege','PreviousParticipation','EconomicsCourses','IsAltruistic','BeliefConsistency','OtherEconomicsCourse']
+	
 
 class Final(Page):
 	template_name = 'UGGARP_questionnaire/Final.html'

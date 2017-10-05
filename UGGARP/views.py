@@ -143,6 +143,5 @@ page_sequence = [
 	ResponderDecision,
 	Beliefs,
 	ResultsWaitPage,
-	BeforeBeliefs,
-	Results
-]
+	BeforeBeliefs
+	]
