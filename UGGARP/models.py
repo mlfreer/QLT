@@ -236,6 +236,7 @@ class Group(BaseGroup):
 				self.responder_choice='Accept'
 		self.responder_earning = responder.payment
 		self.proposer_earning = proposer.payment
+		#adding payoff variable
 
 
 class Player(BasePlayer):
@@ -271,6 +272,7 @@ class Player(BasePlayer):
 
 		#adding up
 		self.final_payment=p.payment+8+self.belief_payment
+		self.payoff=c(p.payment+self.belief_payment)
 
 	#belief related variables and functions
 	belief_payment_round = models.IntegerField(initial=1)
@@ -285,10 +287,10 @@ class Player(BasePlayer):
 	belief_payment = models.DecimalField(max_digits=5, decimal_places=1, default=0)
 
 	#beliefs measure the probability of rejectance
-	belief_1 = models.DecimalField(max_digits=5, decimal_places=2, default=0)
-	belief_2 = models.DecimalField(max_digits=5, decimal_places=2, default=0)
-	belief_3 = models.DecimalField(max_digits=5, decimal_places=2, default=0)
-	belief_4 = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+	belief_1 = models.DecimalField(max_digits=5, decimal_places=2)
+	belief_2 = models.DecimalField(max_digits=5, decimal_places=2)
+	belief_3 = models.DecimalField(max_digits=5, decimal_places=2)
+	belief_4 = models.DecimalField(max_digits=5, decimal_places=2)
 
 	#function to compute belief compensation
 	#ALERT: it is sensitive to choices of the menus

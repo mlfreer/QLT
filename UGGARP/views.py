@@ -113,11 +113,13 @@ class Beliefs(Page):
 		}
 
 class ResultsWaitPage(WaitPage):
-
+	def is_displayed(self):
+		return (self.player.subsession.round_number == Constants.decision_rounds) or (self.player.subsession.round_number == Constants.num_rounds)
 	form_model = models.Player
 	def after_all_players_arrive(self):
-		for g in self.subsession.get_groups():
-			if g.subsession.round_number<=Constants.decision_rounds:
+		for s in self.subsession.in_rounds(1,Constants.decision_rounds):
+			for g in s.get_groups():
+				#if g.subsession.round_number==Constants.decision_rounds:
 				g.get_player_payment()
 		if self.subsession.round_number==Constants.num_rounds:
 			for p in self.subsession.get_players():

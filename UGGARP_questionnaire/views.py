@@ -18,7 +18,6 @@ class Final(Page):
 
 
 page_sequence = [
-	Welcome,
 	Questions,
 	Final
 ]
