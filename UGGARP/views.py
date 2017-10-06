@@ -113,6 +113,8 @@ class Beliefs(Page):
 		}
 
 class ResultsWaitPage(WaitPage):
+	wait_for_all_groups = True
+
 	def is_displayed(self):
 		return (self.player.subsession.round_number == Constants.decision_rounds) or (self.player.subsession.round_number == Constants.num_rounds)
 	form_model = models.Player

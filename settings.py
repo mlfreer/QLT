@@ -88,6 +88,11 @@ ROOMS = [
         'display_name': 'ERL Lab at Texas',
         'participant_label_file': 'ERL.txt',
     },
+    {
+        'name': 'test',
+        'display_name': 'Testing Room',
+
+    },
 ]
 # from here on are qualifications requirements for workers
 # see description for requirements on Amazon Mechanical Turk website:

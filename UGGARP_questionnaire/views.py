@@ -16,6 +16,10 @@ class Questions(Page):
 
 class Final(Page):
 	template_name = 'UGGARP_questionnaire/Final.html'
+	def vars_for_template(self):
+		return{
+		'show_up_fee': self.session.config['participation_fee'],
+		}
 
 
 page_sequence = [
