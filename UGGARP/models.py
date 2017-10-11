@@ -87,7 +87,9 @@ class Subsession(BaseSubsession):
 		for g in self.get_groups():
 			g.set_round_sequence()
 			aplayer = g.get_players()[0]
-			g.payment_round=aplayer.participant.vars['round_sequence'][random.randint(1,Constants.decision_rounds)]
+			#print(aplayer.participant.vars['round_sequence'][8])
+			aplayer = g.get_players()[0]
+			g.payment_round=aplayer.participant.vars['round_sequence'][random.randint(1,Constants.decision_rounds)-1]
 
 
 		
@@ -105,7 +107,8 @@ class Group(BaseGroup):
 	def set_round_sequence(self):
 		round_sequence=random.sample(range(1,Constants.decision_rounds+1), 9)
 		for p in self.get_players():
-			p.participant.vars['round_sequence']=round_sequence
+			for p2 in p.in_all_rounds():
+				p2.participant.vars['round_sequence']=round_sequence
 
 
 	def get_player_payment(self):
@@ -262,6 +265,9 @@ class Player(BasePlayer):
 	responders_choice_k = models.IntegerField(initial=0)
 	responders_choice_l = models.IntegerField(initial=0)
 	responders_choice_m = models.IntegerField(initial=0)
+
+	#menu number used
+	menu_in_round = models.IntegerField()
 
 	role = models.CharField(choices=['Proposer','Responder'])
 	payment = models.DecimalField(max_digits=5, decimal_places=1, default=0)
