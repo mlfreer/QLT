@@ -81,13 +81,14 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-	#paying_round = models.IntegerField(initial=1)
 
 	def before_session_starts(self):
 		self.group_randomly()
 		for g in self.get_groups():
-			g.payment_round=random.randint(1,Constants.decision_rounds)
-		
+			g.set_round_sequence()
+			aplayer = g.get_players()[0]
+			g.payment_round=aplayer.participant.vars['round_sequence'][random.randint(1,Constants.decision_rounds)]
+
 
 		
 
@@ -99,6 +100,12 @@ class Group(BaseGroup):
 	responder_choice=models.CharField(default='Accept')
 
 	payment_round=models.IntegerField()
+
+	
+	def set_round_sequence(self):
+		round_sequence=random.sample(range(1,Constants.decision_rounds+1), 9)
+		for p in self.get_players():
+			p.participant.vars['round_sequence']=round_sequence
 
 
 	def get_player_payment(self):
