@@ -83,7 +83,7 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
 
 	def before_session_starts(self):
-		self.group_randomly()
+		#self.group_randomly()
 		for g in self.get_groups():
 			g.set_round_sequence()
 			aplayer = g.get_players()[0]
