@@ -300,10 +300,10 @@ class Player(BasePlayer):
 	belief_payment = models.DecimalField(max_digits=5, decimal_places=1, default=0)
 
 	#beliefs measure the probability of rejectance
-	belief_1 = models.DecimalField(max_digits=5, decimal_places=2)
-	belief_2 = models.DecimalField(max_digits=5, decimal_places=2)
-	belief_3 = models.DecimalField(max_digits=5, decimal_places=2)
-	belief_4 = models.DecimalField(max_digits=5, decimal_places=2)
+	belief_1 = models.DecimalField(max_digits=5, decimal_places=2,min=0,max=100)
+	belief_2 = models.DecimalField(max_digits=5, decimal_places=2,min=0,max=100)
+	belief_3 = models.DecimalField(max_digits=5, decimal_places=2,min=0,max=100)
+	belief_4 = models.DecimalField(max_digits=5, decimal_places=2,min=0,max=100)
 
 	#function to compute belief compensation
 	#ALERT: it is sensitive to choices of the menus
