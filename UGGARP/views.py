@@ -56,7 +56,7 @@ class ProposerDecision(Page):
 		'responder_earning_c': Constants.responder_earnings['c'][self.player.participant.vars['round_sequence'][self.subsession.round_number-1]-1],
 		'proposer_earning_d': Constants.proposer_earnings['d'][self.player.participant.vars['round_sequence'][self.subsession.round_number-1]-1],
 		'responder_earning_d': Constants.responder_earnings['d'][self.player.participant.vars['round_sequence'][self.subsession.round_number-1]-1],
-		'proposer_earning_e': Constants.proposer_earnings['e'][self.player.participant.vars['round_sequence'][self.subsession.round_number-1]-1-1],
+		'proposer_earning_e': Constants.proposer_earnings['e'][self.player.participant.vars['round_sequence'][self.subsession.round_number-1]-1],
 		'responder_earning_e': Constants.responder_earnings['e'][self.player.participant.vars['round_sequence'][self.subsession.round_number-1]-1],
 		'proposer_earning_f': Constants.proposer_earnings['f'][self.player.participant.vars['round_sequence'][self.subsession.round_number-1]-1],
 		'responder_earning_f': Constants.responder_earnings['f'][self.player.participant.vars['round_sequence'][self.subsession.round_number-1]-1],
