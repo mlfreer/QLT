@@ -1,14 +1,411 @@
 {% extends "global/Base.html" %}
 {% load staticfiles otree_tags %}
 
-{% block title %}
-    Welcome to the experiment!
-{% endblock %}
 
 {% block content%}
+<h3 align="center">
+INSTRUCTIONS
+</h3>
+<font size="4">
+
 <h4>
-Please listen carefully to the instructions
+Welcome
 </h4>
 
+This is an experiment about decision making. 
+You will be paid for your participation. 
+The amount of money you earn depends on your decisions and the decisions of others. 
+If you make good decisions, you could earn a considerable amount of money. 
+The experiment should take about an hour. 
+At the end of the experiment you will be paid privately and in cash for your decisions. 
+A research foundation has provided the funds for this experiment.
+<br>
+<br>
 
+<h4>Thanks For Showing Up</h4>
+
+Just for being willing to participate, you will automatically earn $8. 
+Whatever you earn in the rest of the session will be in <u>addition to this $8</u>.
+<br>
+<br>
+
+<h4>Your Identity</h4>
+You will never be asked to reveal your identity to anyone during the course of the experiment. 
+Your name will never be recorded. 
+Neither the experimenters nor anyone else in the room will be able to link you to any of your decisions. 
+In order to keep your decisions private, please do not reveal your choices to any other participant
+<br>
+<br>
+<h3 align="center"> 
+	THIS EXPERIMENT
+</h3>
+
+You and the other person will be paired <u>randomly</u> and <u>anonymously</u>. 
+No one will know the identity of the other person in your pair. 
+In this experiment you are asked to make a series of choices about how to allocate a sum of money between yourself and one other person in the room.
+<br><br>
+The task of each pair is to divide from $0 to up to $70 between the two of you. How much money you end up with at the end of the experiment depends on the decisions both people in the pair make.
+<br><br>
+In each pair, one person will be the Proposer and the other will be the Responder. Your role will be determined <u>at the end of the session</u> , hence you must understand both roles to make good choices. In each of the series of choices the Proposer chooses a Proposal Rule. A Proposal Rule determines how much money will go to the Proposer and how much will go to the Responder. Given the Proposal Rule the Proposer chooses, the Responder responds by choosing whether to Accept or Reject the proposal. If the Responder responds with Accept,
+then the Proposer and the Responder receive the sums of money determined by the chosen Proposal Rule. If the Responder responds with Reject, then the Proposer and the Responder both receive nothing.
+<br><br>
+<div class="box">
+  <b>IMPORTANT</b>: The Proposer chooses the Proposal Rule <u>without knowing</u> whether the Responder will respond by Accepting or Rejecting the Proposal Rule.
+</div>
+<br>
+The Proposal Rules must be chosen from a table like this:
+<br><br>
+<table class="table", border="1">
+	<tr>
+		<td> A. <b>Proposer</b> chooses <b>Proposal Rule</b> <br> by choosing one line in this column </td>
+		<td> B. <b> Proposal Rules</b> to choose from: </td>
+	</tr>
+	<tr>
+		<td> <center>a  </center> </td>
+		<td> 
+		Proposer gets &emsp;  $59 &emsp; and &emsp; Responder gets  &emsp; $1 </td>
+ 	</tr>
+	<tr>
+		<td> <center>b  </center></td>
+		<td> 
+		Proposer gets &emsp; $55 &emsp; and &emsp; Responder gets &emsp; $5 </td>
+	</tr>
+	<tr>
+		<td> <center>c  </center></td>
+		<td> 
+		Proposer gets  &emsp; $50  &emsp; and &emsp; Responder gets &emsp; $10
+ 		</td>
+	</tr>
+	<tr>
+		<td> <center>d </center> </td>
+		<td> 
+		Proposer gets &emsp; $45 &emsp; and &emsp; Responder gets &emsp; $15
+ 		</td>
+	</tr>
+	<tr>
+		<td> <center> e  </center> </td>
+		<td> 
+		Proposer gets  &emsp; $40 &emsp; and &emsp; Responder gets &emsp; $20
+ 		</td>
+	</tr>
+	<tr>
+		<td><center> f </center> </td>
+		<td> 
+		Proposer gets &emsp; $35 &emsp; and &emsp; Responder gets  &emsp; $25
+ 		</td>
+	</tr>
+	<tr>
+		<td><center> g </center> </td>
+		<td> 
+		Proposer gets &emsp; $30 &emsp; and &emsp; Responder gets  &emsp; $30
+ 		</td>
+	</tr>
+	<tr>
+		<td><center> h </center> </td>
+		<td> 
+		Proposer gets  &emsp; $25  &emsp; and &emsp; Responder gets  &emsp;  $35
+ 		</td>
+	</tr>
+	<tr>
+		<td> <center>i </center> </td>
+		<td> 
+		Proposer gets  &emsp; $20  &emsp; and &emsp; Responder gets  &emsp; $40
+ 		</td>
+	</tr>
+	<tr>
+		<td> <center>j  </center></td>
+		<td> 
+		Proposer gets  &emsp; $15  &emsp; and  &emsp; Responder gets  &emsp; $45
+ 		</td>
+	</tr>
+	<tr>
+		<td> <center>k </center></td>
+		<td> 
+		Proposer gets &emsp; $10 &emsp; and &emsp; Responder gets &emsp; $50 
+ 		</td>
+	</tr>
+	<tr>
+		<td> <center>l  </center></td>
+		<td> 
+		Proposer gets  &emsp; $5  &emsp; and &emsp; Responder gets  &emsp; $55
+ 		</td>
+	</tr>
+	<tr>
+		<td><center> m  </center></td>
+		<td> 
+		Proposer gets &emsp; $1 &emsp; and &emsp; Responder gets &emsp;  $59
+ 		</td>
+	</tr> </center>
+</table>
+<br>
+So, out of the thirteen Proposal Rules in the table, the Proposer must choose only one of them.
+<br><br>
+Given that the Proposer has selected a Proposal Rule, then the Responder responds by Accepting or Rejecting the proposal.
+<br><br>
+However, the Responder must respond <u>before</u> finding out the Proposal Rule chosen by the Proposer. So, for all possible Proposal Rules, the Responder must decide whether to Accept or Reject.
+The Responder will make the thirteen choices from a table like this:
+<br><br>
+
+<table class="table", border="1", align="center">
+	<tr>
+		<td></td>
+		<td> <center> A. <br> If you are the Responder and the <br> Proposer chooses Proposal Rule... </center> </td>
+		<td> <center> B. <br> 
+...then I choose to <br> (choose one for Proposal Rule):  </center></td>
+	</tr>
+	<tr>
+		<td> <center>a </center> </td>
+		<td> 
+		Proposer gets &emsp;  $59 &emsp; and &emsp; Responder gets  &emsp; $1
+		</td>
+		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+ 	</tr>
+	<tr>
+		<td> <center>b</center></td>
+		<td> 
+		Proposer gets &emsp; $55 &emsp; and &emsp; Responder gets &emsp; $5 </td>
+		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td> <center>c</center></td>
+		<td> 
+		Proposer gets  &emsp; $50  &emsp; and &emsp; Responder gets &emsp; $10
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td> <center>d</center> </td>
+		<td> 
+		Proposer gets &emsp; $45 &emsp; and &emsp; Responder gets &emsp; $15
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td> <center> e </center> </td>
+		<td> 
+		Proposer gets  &emsp; $40 &emsp; and &emsp; Responder gets &emsp; $20
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td><center> f</center> </td>
+		<td> 
+		Proposer gets &emsp; $35 &emsp; and &emsp; Responder gets  &emsp; $25
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td><center> g</center> </td>
+		<td> 
+		Proposer gets &emsp; $30 &emsp; and &emsp; Responder gets  &emsp; $30
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td><center> h </center> </td>
+		<td> 
+		Proposer gets  &emsp; $25  &emsp; and &emsp; Responder gets  &emsp;  $35
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td> <center>i</center> </td>
+		<td> 
+		Proposer gets  &emsp; $20  &emsp; and &emsp; Responder gets  &emsp; $40
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td> <center>j</center></td>
+		<td> 
+		Proposer gets  &emsp; $15  &emsp; and  &emsp; Responder gets  &emsp; $45
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td> <center>k </center></td>
+		<td> 
+		Proposer gets &emsp; $10 &emsp; and &emsp; Responder gets &emsp; $50 
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td> <center>l </center></td>
+		<td> 
+		Proposer gets  &emsp; $5 &emsp; and &emsp; Responder gets  &emsp; $55
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr>
+	<tr>
+		<td><center> m </center></td>
+		<td> 
+		Proposer gets &emsp; $1 &emsp; and &emsp; Responder gets &emsp;  $59
+ 		</td>
+ 		<td>
+			<center>Accept &emsp; &emsp; Reject
+		</td>
+	</tr> </center>
+</table>
+<br>
+<br>
+<h3 align="center"> 
+	EXAMPLES
+</h3>
+<br>
+We now consider some examples.
+<br><br>
+<u><strong>Example One</strong></u>: Suppose the Proposer circles Proposal Rule k: “Proposer gets $10 and Responder gets $50.” Suppose also that the Responder circles Accept on line k. Then, since the Responder chose to Accept, the Proposer receives $10 and the Responder receives $50.
+<br><br>
+<u><strong>Example Two</strong></u>: Suppose the Proposer circles Proposal Rule d: “Proposer gets $45 and Responder gets $15.” Suppose also that the Responder circles Accept on line d. Then, since the Responder chose to Accept, the Proposer receives $45 and the Responder receives $15.
+<br><br>
+<u><strong>Example Three</strong></u>: Suppose the Proposer circles Proposal Rule g: “Proposer gets $30 and Responder gets $30.” Suppose also that the Responder circles Reject on line g. Then, since the Responder chose to Reject, the Proposer receives $0 and the Responder receive $0.
+<br><br>
+<h3 align="center"> 
+EXERCISES
+</h3>
+<br>
+While calculating payoffs seems easy, it is important that everyone understand how to calculate payo↵s of both the Proposer and the Responder. So, below we ask you to calculate the payoffs of both players for some specific examples. After you have finished, we will go over the correct answers together.
+<br><br>
+<u><b>Case One</u></b>: Suppose the Proposer chooses:
+<br>
+<table class="table", border="1", align="center">
+	<tr>
+		<td> f </td>
+		<td> Proposer get $35 and Responder gets $25 </td>
+	</tr>
+</table>
+and for Proposal rule f the Responder chooses:
+<table class="table", border="1", align="center">
+	<tr>
+		<td> f </td>
+		<td> Proposer get $35 and Responder gets $25 </td>
+		<td> Accept &emsp; &emsp;  </td>
+	</tr>
+</table>
+Payoff for the Proposer is $<input type="text">	</input>. Payoff for the Responder is $<input type="text">	</input>.
+<br><br>
+<u><b>Case Two</u></b>: Suppose the Proposer chooses:
+<br>
+<table class="table", border="1", align="center">
+	<tr>
+		<td> f </td>
+		<td> Proposer get $10 and Responder gets $28 </td>
+	</tr>
+</table>
+and for Proposal rule f the Responder chooses:
+<table class="table", border="1", align="center">
+	<tr>
+		<td> f </td>
+		<td> Proposer get $10 and Responder gets $28 </td>
+		<td> Accept &emsp; &emsp;  </td>
+	</tr>
+</table>
+Payoff for the Proposer is $<input type="text">	</input>. Payoff for the Responder is $<input type="text">	</input>.
+<br><br>
+<u><b>Case Two</u></b>: Suppose the Proposer chooses:
+<br>
+<table class="table", border="1", align="center">
+	<tr>
+		<td> f </td>
+		<td> Proposer get $44 and Responder gets $2 </td>
+	</tr>
+</table>
+and for Proposal rule f the Responder chooses:
+<table class="table", border="1", align="center">
+	<tr>
+		<td> f </td>
+		<td> Proposer get $44 and Responder gets $2 </td>
+		<td align="right">&emsp; &emsp; Reject  </td>
+	</tr>
+</table>
+Payoff for the Proposer is $<input type="text">	</input>. Payoff for the Responder is $<input type="text">	</input>.
+<br><br>
+
+
+
+<h3 align="center"> 
+YOUR ROLE
+</h3>
+<br>
+You will be <u>randomly</u> assigned <u>either</u> to the role of the Proposer or to the role of the Responder. After you are assigned a role, you will be randomly matched with another person in the room, and your decision <u>for only the role assigned to you</u> will be carried out. One of your decisions will be chosen randomly and carried out.
+<br><br>
+<h3>
+IMPORTANT
+</h3>
+<br>
+You must make all your decisions before you know to which role you will be assigned.
+Since you won’t know to which role you will be assigned until the very end, <u>you must make decisions for both roles</u>. 
+After all decisions are made, there is a 50% chance you will be assigned the Proposer role and a 50% chance you will be assigned the Responder role.
+<h3 align="center"> 
+	HOW THE PAIRINGS ARE MADE
+</h3>
+<br>
+After reading the instructions you will see the decision forms on the screen. Complete all forms, imagining as being chosen for each role.
+<br><br>
+After you have finished making your computer will shuffe shuffe participants, and separate them into two piles of equal size; Pile 1 and Pile 2.
+<br><br>
+If, by chance, you are in Pile 1, you will be a Proposer – we will use <u>only</u> your decisions in the Proposer role, and ignore your decisions in the Responder role.
+<br><br>
+If, by chance, you are in Pile 2, you will be a Responder – we will use <u>only</u> your decisions in the Responder role, and ignore your decisions in the Proposer role.
+<br><br>
+After shuffing the participants in each pile again, each participant in Pile 1, the Proposers, will be matched with a participant in Pile 2, the Responders. This is the way each of you will be randomly paired with another person in the room.
+<br><br>
+<h3 align="center"> 
+RECEIVING YOUR PAYMENT
+</h3>
+<br>
+After all pairings are made, the computer will randomly select one of the 9 possible decisions for each pairing. The computer will use the alternatives chosen by the Proposer and the Responder to determine the payo↵s for that pair. Your payoff from the pairing will be placed in your earnings envelope with your Participant Code written on the outside of the envelope. You will present your Participant Code, and we will hand you your earnings envelope.
+<br><br>
+To further guard your anonymity, an assistant who was not involved in preparing the payoffs, and thus has no idea what is in each envelope, will hand you your earnings envelope.
+<br><br>
+Finally, to verify that the procedures we describe are followed, a monitor, who was chosen at the beginning of the experiment, will be present during the preparation of payments.
+<br><br>
+Preparing your payments will take about 15 minutes.
+<br><br>
+
+<h3 align="center"> 
+SUMMARY
+</h3>
+<br>
+Step 1: You will eventually assume the role of either Proposer or Responder. However, before you are randomly assigned a role, you must make choices for <u>both</u> the Proposer role and the Responder role.
+<br><br>
+Step 2: <u>After</u> your choices are made, we will <u>randomly</u> assign you the role of either Proposer or Responder.
+<br><br>
+Step 3: You will be randomly paired with another person in the room, who has been as- signed the other role. Your choice <u>only for the role assigned to you</u> will be carried out with the other person in your pairing.
+<br><br>
+Step 4: For each pair, one of the 9 decisions will be chosen at random and both of your decisions will be carried out.
+<br><br>
+Step 5: Everyone will receive cash payments in private envelopes at the end of the experi- ment.
+<br><br>
+
+
+<h3 align="center">
+	You can begin making your decisions <br> Good luck!
+</h3>
+
+</font>
 {%endblock%}

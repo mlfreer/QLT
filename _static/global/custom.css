@@ -68,3 +68,7 @@ table.quizfonts > tbody > tr > td:first-child /*Первая колока таб
 
 }
 
+.boxed {
+  border: 5px solid black ;
+}
+

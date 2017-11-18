@@ -44,36 +44,35 @@ The earnings will be according to the following procedure, after you submit all 
 
 <h4>Examples</h4><br>
 
-Assume you think that 70% of <b>Responders</b> rejected the proposal rule under consideration.
+Assume you think that 50% of <b>Responders</b> rejected the proposal rule under consideration.
 We will consider three cases.
 
 <br><br>
 
-Assume you predict that there is a 70% chance a <b> Responder</b> will <i>Reject</i> the offer. <br>
+Assume you predict that there is a 50% chance a <b> Responder</b> will <i>Reject</i> the offer. <br>
 If the randomly retrieved decision was <i>Reject</i>, 
-your error is (1-70/100)<sup>2</sup>=.3<sup>2</sup>=.09.
-Since the probability a random number is drawn between 0.09 and 1 is 91%, you will get $10 with 91% probability and $0 with 9% probability.
+your error is (1-50/100)<sup>2</sup>=.3<sup>2</sup>=.25.
+Since the probability a random number is drawn between 0.25 and 1 is 75%, you will get $10 with 75% probability and $0 with 25% probability.
 If the randomly retrieved decision was <i>Accept</i>,
-your error is (70/100)<sup>2</sup>=.7<sup>2</sup>=.49.
-Since the probability a random number is drawn between 0.49 and 1 is 51%, you will get $10 with 51% probability and $0 with 49% probability.
-Assuming that with probability .7 the randomly retrieved decision is <b>Reject</b> and with probability .3 is <b>Accept</b>.
-Hence, your probability of winning the additional prize is .7 &#xD7;  .91 + .3 &#xD7;  .51 = .79.
-That is <b>you will earn extra $10 with probability 79%</b>.
+your error is (50/100)<sup>2</sup>=.5<sup>2</sup>=.25.
+Since the probability a random number is drawn between 0.25 and 1 is 75%, you will get $10 with 75% probability and $0 with 25% probability.
+Assuming that with probability .5 the randomly retrieved decision is <b>Reject</b> and with probability .5 is <b>Accept</b>.
+Hence, your probability of winning the additional prize is .5 &#xD7;  .75 + .5 &#xD7;  .75 = .75.
+That is <b>you will earn extra $10 with probability 75%</b>.
 
 <br><br>
 
-Assume instead that you report that with 50% probability a <b>Responder</b> will <i>Reject</i> the offer. 
+Assume instead that you report that with 0% probability a <b>Responder</b> will <i>Reject</i> the offer. 
 <br>
 If the randomly retrieved decision was <i>Reject</i>.
-Hence, your error is (1-50/100)<sup>2</sup>=.5<sup>2</sup>=.25.
-Since the probability a random number is drawn between 0.25 and 1 is 75%, you will get $10 with 75% probability and $0 with 25% probability.
+Hence, your error is (1-0/100)<sup>2</sup>=1<sup>2</sup>=1.
+Since the probability a random number is drawn between 1 and 1 is 0%, you will get $10 with 0% probability and $0 with 100% probability.
 If the randomly retrieved decision was <i>Accept</i>.
-Hence, your error is (50/100)<sup>2</sup>=.7<sup>2</sup>=.25.
-Since the probability a random number is drawn between 0.25 and 1 is 75%, you will get $10 with 75% probability and $0 with 25% probability.
-That is you are winning the prize with probability 75% in this case.
-Assuming that with probability .7 the randomly retrieved decision is <b>Reject</b> and with probability .3 is  <b>Accept</b>.
-Hence, your probability of winning the additional prize is .7 &#xD7;  .75 + .3 &#xD7;  .75 = .75.
-That is  <b>you will earn extra $10 with probability 75%</b>.
+Hence, your error is (0/100)<sup>2</sup>=.0<sup>2</sup>=.0.
+Since the probability a random number is drawn between 0 and 1 is 100%, you will get $10 with 100% probability and $0 with 0% probability.
+Assuming that with probability .5 the randomly retrieved decision is <b>Reject</b> and with probability .5 is  <b>Accept</b>.
+Hence, your probability of winning the additional prize is .0 &#xD7;  .5 + 1 &#xD7;  .5 = .5.
+That is  <b>you will earn extra $10 with probability 50%</b>.
 Which is lower than probability of winning if you would report your real expectation (75%).
 
 
@@ -87,11 +86,10 @@ Since the probability a random number is drawn between 0.0 and 1 is 100%, you wi
 If the randomly retrieved decision was <i>Accept</i>.
 Hence, your error is (100/100)<sup>2</sup>=1<sup>2</sup>=1.
 In this case you will <i>never</i> get paid is the retrieved decision if <i>Accept</i>.
-That is you are winning the prize with probability 0\% in this case.
-Assuming that with probability .7 the randomly retrieved decision is <b>Reject</b> and with probability .3 is <b>Accept</b>.
-Hence, your probability of winning the additional prize is .7 &#xD7;  1 + .3 &#xD7;  0 = .7.
-That is <b>you will earn extra $10 with probability 70%</b>.
-Which is lower than probability of winning if you would report your real expectation (79%).
+Assuming that with probability .5 the randomly retrieved decision is <b>Reject</b> and with probability .5 is <b>Accept</b>.
+Hence, your probability of winning the additional prize is .5 &#xD7;  1 + .5 &#xD7;  0 = .5.
+That is <b>you will earn extra $10 with probability 50%</b>.
+Which is lower than probability of winning if you would report your real expectation (75%).
 
 <br><br>
 
@@ -103,7 +101,7 @@ Since any deviation from honest report will only decrease your probability of wi
 
 <br><br>
 <h3 align="center">
-	You can continue now <br><br> Good luck!
+	You can continue now <br> Good luck!
 </h3>
 
 {%endblock%}
