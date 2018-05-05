@@ -177,5 +177,19 @@ SESSION_CONFIGS = [
      },
 ]
 
+# ROOM Settings for lab experiments
+
+ROOM_DEFAULTS = {}
+
+ROOMS = [
+    {
+        'name': 'ICES_lab',
+        'display_name': 'ICES Experimental Economics Lab',
+        'use_secure_urls': True,
+        'participant_label_file': 'participants.txt'
+    },
+]
+
+
 # don't put anything after this line.
 otree.settings.augment_settings(globals())
